@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReelDAO", "ReelDAO\ReelDAO.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReelDVO", "ReelDVO\ReelDVO.csproj", "{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBSchema", "DBSchema\DBSchema.sqlproj", "{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		API_Production|Any CPU = API_Production|Any CPU
@@ -46,6 +48,15 @@ Global
 		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.API_Production|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.API_Production|Any CPU.Build.0 = Debug|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.API_Production|Any CPU.Deploy.0 = Debug|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
