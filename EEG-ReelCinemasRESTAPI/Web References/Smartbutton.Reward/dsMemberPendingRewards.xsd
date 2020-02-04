@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="https://app.smartbutton.com/Services/dsMemberPendingRewards.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="https://app.smartbutton.com/Services/dsMemberPendingRewards.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="https://app.smartbutton.com/Services/dsMemberPendingRewards.xsd" id="dsMemberPendingRewards" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="dsMemberPendingRewards">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblMemberPendingRewards">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LoyaltyProgramId" type="xs:int" />
+              <xs:element name="MemberRewardId" type="xs:int" />
+              <xs:element name="RewardTypeName" type="xs:string" />
+              <xs:element msdata:DateTimeMode="Utc" name="UTCIssueTimestamp" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="ExpireTimestamp" type="xs:string" />
+              <xs:element name="EligibleAtPointOfSale" type="xs:int" />
+              <xs:element name="PointOfSaleDiscountType" type="xs:int" />
+              <xs:element name="PointOfSaleTenderType" type="xs:int" />
+              <xs:element name="RewardTypeExternalRef" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

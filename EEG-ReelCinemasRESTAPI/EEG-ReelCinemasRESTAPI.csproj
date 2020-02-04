@@ -1,0 +1,1346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2290B752-E84E-4CD2-8FAF-246C9B259EE5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EEG_ReelCinemasRESTAPI</RootNamespace>
+    <AssemblyName>EEG-ReelCinemasRESTAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Passbook.Generator, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotnet-passbook.2.0.1\lib\netstandard2.0\Passbook.Generator.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=4.0.3.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.4.5.2\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="AuthenticationHelper.cs" />
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="Common\AuthenticateRequestAttribute.cs" />
+    <Compile Include="Common\Smartbutton\MemberActivityBl.cs" />
+    <Compile Include="Common\Smartbutton\MemberBl.cs" />
+    <Compile Include="Common\Smartbutton\MemberContactBl.cs" />
+    <Compile Include="Common\Smartbutton\MemberSecurityBl.cs" />
+    <Compile Include="Common\Smartbutton\OfferBl.cs" />
+    <Compile Include="Common\Smartbutton\PortalBl.cs" />
+    <Compile Include="Common\Smartbutton\RewardBl.cs" />
+    <Compile Include="Common\Smartbutton\TransactionBl.cs" />
+    <Compile Include="Common\SMS.cs" />
+    <Compile Include="Common\WebRequest.cs" />
+    <Compile Include="Connected Services\UByEmaar\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReelCinemasController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddConcessions.cs" />
+    <Compile Include="Models\AddTicket.cs" />
+    <Compile Include="Models\AddWallet.cs" />
+    <Compile Include="Models\BookingSummary.cs" />
+    <Compile Include="Models\CancelOrder.cs" />
+    <Compile Include="Models\CheckGiftCardBalanceReq.cs" />
+    <Compile Include="Models\Cinemas.cs" />
+    <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\CompleteOrderByCard.cs" />
+    <Compile Include="Models\CompleteOrderByGiftCard.cs" />
+    <Compile Include="Models\CompleteOrderByUBELoyalty.cs" />
+    <Compile Include="Models\CompleteOrderLoyaltyCard.cs" />
+    <Compile Include="Models\ConfirmationEntity.cs" />
+    <Compile Include="Models\DeleteSavedCard.cs" />
+    <Compile Include="Models\EarnUByEmaarpoints.cs" />
+    <Compile Include="Models\EmaarEmpSendOtp.cs" />
+    <Compile Include="Models\EnrollUByEmaarMember.cs" />
+    <Compile Include="Models\EventPassGeneratorRequest.cs" />
+    <Compile Include="Models\ExtendBookingTime.cs" />
+    <Compile Include="Models\GetBookingInfo.cs" />
+    <Compile Include="Models\GetConcessionList.cs" />
+    <Compile Include="Models\GetConfigurations.cs" />
+    <Compile Include="Models\GetMoviesByExperience.cs" />
+    <Compile Include="Models\GetOffers.cs" />
+    <Compile Include="Models\GetSavedCard.cs" />
+    <Compile Include="Models\GetUserBookingDetails.cs" />
+    <Compile Include="Models\NoonPayment.cs" />
+    <Compile Include="Models\NoonPaymentCapture.cs" />
+    <Compile Include="Models\Response\DineInConfig.cs" />
+    <Compile Include="Models\Response\GetNoonPaymentOrderDetails.cs" />
+    <Compile Include="Models\Response\GetOffersResp.cs" />
+    <Compile Include="Models\GetOrder.cs" />
+    <Compile Include="Models\Response\InfluxResponse.cs" />
+    <Compile Include="Models\PaymentInfo.cs" />
+    <Compile Include="Models\RemoveConcessions.cs" />
+    <Compile Include="Models\Response\AddConcessionResp.cs" />
+    <Compile Include="Models\Response\AddTicketResp.cs" />
+    <Compile Include="Models\Response\CompleteOrderPaymentByGiftCardResp.cs" />
+    <Compile Include="Models\Response\CompleteOrderPaymentByUBECardResp.cs" />
+    <Compile Include="Models\Response\GetConcessionListResp.cs" />
+    <Compile Include="Models\Response\GetOrderResp.cs" />
+    <Compile Include="Models\Response\GetSeatPlanResp.cs" />
+    <Compile Include="Models\Response\GetTicketTypesResp.cs" />
+    <Compile Include="Models\Response\GiftCardBalance.cs" />
+    <Compile Include="Models\Response\NoonPaymentCaptureResp.cs" />
+    <Compile Include="Models\Response\NoonPaymentResp.cs" />
+    <Compile Include="Models\Response\SessionListResp.cs" />
+    <Compile Include="Models\Response\SetSeatResp.cs" />
+    <Compile Include="Models\Response\StandardTicketTypesConfig.cs" />
+    <Compile Include="Models\Response\ValidateOffErrorRes.cs" />
+    <Compile Include="Models\SaveNewCard.cs" />
+    <Compile Include="Models\SeatPlan.cs" />
+    <Compile Include="Models\GetTickets.cs" />
+    <Compile Include="Models\ServiceViewModels.cs" />
+    <Compile Include="Models\SetSeat.cs" />
+    <Compile Include="Models\UserManagement.cs" />
+    <Compile Include="Models\ValidateEmaarEmp.cs" />
+    <Compile Include="Models\ValidateOffers.cs" />
+    <Compile Include="Models\Response\ValidateOffersResponse.cs" />
+    <Compile Include="Models\ValidateUBEMember.cs" />
+    <Compile Include="Models\VISTAResponse.cs" />
+    <Compile Include="NotificationHelper.cs" />
+    <Compile Include="PaymentConfirmation.aspx.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentConfirmation.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentResponse.aspx.cs">
+      <DependentUpon>PaymentResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentResponse.aspx.designer.cs">
+      <DependentUpon>PaymentResponse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UbyEmaarBAL.cs" />
+    <Compile Include="Web References\Smartbutton.MemberActivity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.MemberContact\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.MemberSecurity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Member\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Offer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Portal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Reward\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Transaction\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.BlockPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.CancelBlockedPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.EarnPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.GetPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.GetTierResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.MemberDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.PointAdjustmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.QuickRegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.RedeemPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.SendOTPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.UpdateLoyaltyProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.ValidateOTPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="ConfigurationSettings\AppSettings-Production.config" />
+    <Content Include="ConfigurationSettings\AppSettings-Staging.config" />
+    <Content Include="ConfigurationSettings\AppSettings-Local.config" />
+    <None Include="Connected Services\UByEmaar\Service.disco" />
+    <None Include="Connected Services\UByEmaar\configuration91.svcinfo" />
+    <None Include="Connected Services\UByEmaar\configuration.svcinfo" />
+    <None Include="Connected Services\UByEmaar\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Emailer\BookingConfirmation.html" />
+    <Content Include="Emailer\dubaimall.html" />
+    <Content Include="Emailer\images\ads-01.gif" />
+    <Content Include="Emailer\images\ads-02.gif" />
+    <Content Include="Emailer\images\barcode.jpg" />
+    <Content Include="Emailer\images\booking-conf.jpg" />
+    <Content Include="Emailer\images\breaker-bottom.jpg" />
+    <Content Include="Emailer\images\breaker-middle.jpg" />
+    <Content Include="Emailer\images\breaker-top.jpg" />
+    <Content Include="Emailer\images\btn-print-ur-ticket.png" />
+    <Content Include="Emailer\images\btn-share.png" />
+    <Content Include="Emailer\images\corver-left-bottom.png" />
+    <Content Include="Emailer\images\corver-left-top.png" />
+    <Content Include="Emailer\images\corver-right-bottom.png" />
+    <Content Include="Emailer\images\corver-right-top.png" />
+    <Content Include="Emailer\images\emaar-logo.jpg" />
+    <Content Include="Emailer\images\fb.png" />
+    <Content Include="Emailer\images\feedback.png" />
+    <Content Include="Emailer\images\google-store.jpg" />
+    <Content Include="Emailer\images\guy-fieris-burger.jpg" />
+    <Content Include="Emailer\images\icon-android.png" />
+    <Content Include="Emailer\images\icon-calendar-black.jpg" />
+    <Content Include="Emailer\images\icon-calendar.jpg" />
+    <Content Include="Emailer\images\icon-cinema.png" />
+    <Content Include="Emailer\images\icon-clock.jpg" />
+    <Content Include="Emailer\images\icon-date-time.png" />
+    <Content Include="Emailer\images\icon-direction.jpg" />
+    <Content Include="Emailer\images\icon-facebook.png" />
+    <Content Include="Emailer\images\icon-fb.png" />
+    <Content Include="Emailer\images\icon-feedback.png" />
+    <Content Include="Emailer\images\icon-food.jpg" />
+    <Content Include="Emailer\images\icon-food.png" />
+    <Content Include="Emailer\images\icon-insta.png" />
+    <Content Include="Emailer\images\icon-instagram.png" />
+    <Content Include="Emailer\images\icon-iphone.png" />
+    <Content Include="Emailer\images\icon-location.jpg" />
+    <Content Include="Emailer\images\icon-phone.png" />
+    <Content Include="Emailer\images\icon-saet.jpg" />
+    <Content Include="Emailer\images\icon-screen.png" />
+    <Content Include="Emailer\images\icon-screen1.jpg" />
+    <Content Include="Emailer\images\icon-screen].jpg" />
+    <Content Include="Emailer\images\icon-seat.png" />
+    <Content Include="Emailer\images\icon-ticket.jpg" />
+    <Content Include="Emailer\images\icon-ticket.png" />
+    <Content Include="Emailer\images\icon-tickets.png" />
+    <Content Include="Emailer\images\icon-twitter.png" />
+    <Content Include="Emailer\images\icon-wallet.jpg" />
+    <Content Include="Emailer\images\icon-wallet.png" />
+    <Content Include="Emailer\images\icon-youtube.png" />
+    <Content Include="Emailer\images\in.png" />
+    <Content Include="Emailer\images\logo.jpg" />
+    <Content Include="Emailer\images\logo.png" />
+    <Content Include="Emailer\images\map-alghurair.jpg" />
+    <Content Include="Emailer\images\map-dubaimall.jpg" />
+    <Content Include="Emailer\images\map-dubaimarinamall.jpg" />
+    <Content Include="Emailer\images\map-jabelali.jpg" />
+    <Content Include="Emailer\images\map-rovedowntown.jpg" />
+    <Content Include="Emailer\images\map-thepointe.jpg" />
+    <Content Include="Emailer\images\map-thespringssouk.jpg" />
+    <Content Include="Emailer\images\mobileapp.jpg" />
+    <Content Include="Emailer\images\operaimage1.gif" />
+    <Content Include="Emailer\images\operaimage2.gif" />
+    <Content Include="Emailer\images\pg13-rating.jpg" />
+    <Content Include="Emailer\images\qr-code.png" />
+    <Content Include="Emailer\images\QRcode.png" />
+    <Content Include="Emailer\images\queries.png" />
+    <Content Include="Emailer\images\RC-logo.png" />
+    <Content Include="Emailer\images\Reel-Cinemas1.jpg" />
+    <Content Include="Emailer\images\Reel-Cinemas2.jpg" />
+    <Content Include="Emailer\images\Reel-Dine-in1.jpg" />
+    <Content Include="Emailer\images\Reel-Dine-in2.jpg" />
+    <Content Include="Emailer\images\Reel-Platinum1.jpg" />
+    <Content Include="Emailer\images\Reel-Platinum2.jpg" />
+    <Content Include="Emailer\images\separator-grey-inverse.jpg" />
+    <Content Include="Emailer\images\separator-grey.jpg" />
+    <Content Include="Emailer\images\separator-white.jpg" />
+    <Content Include="Emailer\images\social-media.jpg" />
+    <Content Include="Emailer\images\spacer.gif" />
+    <Content Include="Emailer\images\top-header.jpg" />
+    <Content Include="Emailer\images\tw.png" />
+    <Content Include="Emailer\images\verify.png" />
+    <Content Include="Emailer\images\yt.png" />
+    <Content Include="Emailer\RC-Al-Ghurair-Centre.html" />
+    <Content Include="Emailer\RC-Dubai-Mall.html" />
+    <Content Include="Emailer\RC-Dubai-Marina-Mall.html" />
+    <Content Include="Emailer\RC-Jebel-Ali-Recreation-Club.html" />
+    <Content Include="Emailer\RC-Rove-Downtown.html" />
+    <Content Include="Emailer\RC-The-Pointe.html" />
+    <Content Include="Emailer\RC-The-Springs-Souk.html" />
+    <Content Include="Emailer\ResetPassword.html" />
+    <Content Include="Emailer\WelcomeEmailer.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Passbook\PassbookGenerator.dll" />
+    <Content Include="Passbook\Passbook.Generator.pdb" />
+    <Content Include="PaymentConfirmation.aspx" />
+    <Content Include="PaymentResponse.aspx" />
+    <Content Include="pkpass\BG%402X.png" />
+    <Content Include="pkpass\BG.png" />
+    <Content Include="pkpass\icon%402x.png" />
+    <Content Include="pkpass\icon%403x.png" />
+    <Content Include="pkpass\icon.png" />
+    <Content Include="pkpass\logo%402x.png" />
+    <Content Include="pkpass\logo.png" />
+    <Content Include="pkpass\poster.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Passbook\AppleIncRootCertificate.cer" />
+    <Content Include="Passbook\AppleWWDRCA.cer" />
+    <Content Include="Passbook\PassTypeCert.p12" />
+    <Content Include="Emailer\images\.DS_Store" />
+    <Content Include="Json\ConfirmationBanners.Json" />
+    <Content Include="Json\DineInCombo.Json" />
+    <Content Include="Json\DineinModifier.Json" />
+    <Content Include="Json\ErrorInfo.json" />
+    <Content Include="Json\ErrorType.json" />
+    <Content Include="Json\PaymentConfig.json" />
+    <Content Include="Json\StandardTicketTypes.Json" />
+    <Content Include="Json\TimerConfig.json" />
+    <Content Include="Json\UbyEmaar.json" />
+    <Content Include="Json\Cinemas.Json" />
+    <None Include="Connected Services\UByEmaar\Service.wsdl" />
+    <None Include="Connected Services\UByEmaar\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UByEmaar\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UByEmaar\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Json\ConfirmationBanners - oldtemplate.Json" />
+    <Content Include="Json\DineInCombo_renamed.Json" />
+    <Content Include="Json\StandardTicketTypes1.Json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Repository\RC_MobileAPP_Configuration.json" />
+    <Content Include="Repository\MoviesSession_MobileApp.json" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web References\Smartbutton.MemberContact\FetchAddressCountryListReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchAddressRegionListReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberAccountPhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberContactInfoReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberEmailAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberMobilePhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberPhoneNumbersReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberPostalAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberContact\MemberContact.disco" />
+    <Content Include="Web References\Smartbutton.MemberSecurity\ChangePasswordReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\ChangePINReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EmailVerificationIssueCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EmailVerificationSubmitCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EnrollmentVerificationIssueCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EnrollmentVerificationSubmitCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\FetchMemberLastPasswordChangeDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberSecurity\MemberSecurity.disco" />
+    <Content Include="Web References\Smartbutton.Member\AddMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\AddMemberChildInfoReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\AddMemberToClubReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\AssignMemberToHeadOfHouseholdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\ClearDependentFromHeadOfHouseholdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\DeleteMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\DeleteMemberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\EnrollMemberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\EnrollMemberWithGeneratedIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchHeadOfHouseholdDependentsExtendedReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchHeadOfHouseholdDependentsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberAccountIDsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberChildInfoReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberCoreReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberEnrollmentDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberHeadOfHouseholdStatusExtendedReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberHeadOfHouseholdStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberLanguagePreferenceReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberPropertyCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberStateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchTypesMemberGenderReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchTypesMemberNamePrefixReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberContact\MemberContact.wsdl" />
+    <Content Include="Web References\Smartbutton.MemberContact\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberAccountPhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberEmailAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberMobilePhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberPhoneNumbersReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberPostalAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberSecurity\MemberSecurity.wsdl" />
+    <Content Include="Web References\Smartbutton.MemberSecurity\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\SetPasswordReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\SetPINReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\TextVerificationIssueCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\TextVerificationSubmitCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\ValidatePasswordReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\ValidatePINReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Member\Member.disco" />
+    <Content Include="Web References\Smartbutton.Offer\CancelMemberRewardReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\CancelMemberRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchChoiceRewardWithLanguagesReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberChoiceRewardListReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberRewardReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberRewardViewURLReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchRewardTypeIssueLimitReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchRewardTypeIssueStatisticsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\IssueChoiceRewardReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\IssueMultipleChoiceRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\IssueVariableRewardReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsEligibleForPOSReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsWithMemberRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsWithRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleChoiceRewardsExtReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleChoiceRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleVariableRewardsExtendedReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleVariableRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMember360Return.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberExpirationsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberExpirationsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberHistoryForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberHistoryReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberInteractionsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberIssuedRewardsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberIssuedRewardsForDateRangeWithRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberIssuedRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberNextPointsToExpireReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberPointBalancesReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberPointBalancesSourceDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberPointsToAutoExpireReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberTransactionsForDateRangeExtReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberTransactionsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberTransactionsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberActivity\MemberActivity.wsdl" />
+    <Content Include="Web References\Smartbutton.MemberActivity\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Smartbutton.Member\Member.wsdl" />
+    <Content Include="Web References\Smartbutton.Member\MemberExistsInClubReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\MemberExistsInMemberDescriptorReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\RemoveMemberFromClubReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberActiveStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberBirthdateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberEmployeeStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberGenderReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberNameReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberPointsLockedStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberPrefCommLanguageReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberPropertyCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberTwitterUsernameReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SetMemberClubsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SetMemberDescriptorReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SetMemberDescriptorsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\UpdateExistingMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\UpdateMemberDescriptorExpireDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\ValidateMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Offer\Offer.wsdl" />
+    <Content Include="Web References\Smartbutton.Offer\PointsToNextRecurringRewardReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\RedeemMemberRewardReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\RedeemMemberRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseCouponRedemptionAndCancelCouponReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseCouponRedemptionsAndCancelCouponsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionAndSetToPendingReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionsAndSetToPendingReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\SaveMemberRewardCustomFieldReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\SaveMemberRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\SaveRewardTypeIssueLimitReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ValidateMemberRewardBarcodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ValidateMemberRewardIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ValidateVariableRewardAmountReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Portal\Portal.disco" />
+    <None Include="Web References\Smartbutton.Offer\Offer.disco" />
+    <Content Include="Web References\Smartbutton.Reward\dsMemberPendingRewards.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsMemberPendingRewards.xsd" />
+    <Content Include="Web References\Smartbutton.Reward\dsMemberRewards.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsMemberRewards.xsd" />
+    <Content Include="Web References\Smartbutton.Reward\dsMemberRewardsExt.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\dsRewardReverseRedemptionResults.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsRewardReverseRedemptionResults.xsd" />
+    <Content Include="Web References\Smartbutton.Reward\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respCancelIssuedReward.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respIssueChoiceReward.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respIssueVariableReward.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewards.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewardsExt.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewardsSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewardsSetExt.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberPendingRewards.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberPendingRewardsSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respPickupPendingReward.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRedeemIssuedReward.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRedeemPendingReward.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRetIssuedRewardDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRetIssuedRewardStatus.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRetIssuedRewardStatusExt.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemption.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemptionsToPending.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemptionsToPendingSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemptionToPending.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respValidateRewardExternalReference.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respValidateVariableRewardAmount.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\Reward.disco" />
+    <Content Include="Web References\Smartbutton.Transaction\CancelTransactionReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchProductCustomFieldReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchProductReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionBasketReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionBonusPointDetailsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssuePointAdjustmentReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssuePointTransferReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionMultipleProductBasketCustomFieldsBookingDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionMultipleProductBasketReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionMultipleProductBasketWithCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionNoBasketReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionNoBasketWithCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionSingleProductBasketReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Transaction\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\Smartbutton.Transaction\SaveProductReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\SaveProductTransactionFlagsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\ScoreTransactionMultipleProductBasketReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Transaction\Transaction.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Web References\Smartbutton.Portal\Portal.wsdl" />
+    <Content Include="Web References\Smartbutton.Portal\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Portal\respCrossLogin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Portal\respExternalLogin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsMemberRewardsExt.xsd" />
+    <None Include="Web References\Smartbutton.Reward\Reward.wsdl" />
+    <None Include="Web References\Smartbutton.Transaction\Transaction.wsdl" />
+    <Content Include="Web References\Smartbutton.Transaction\TransactionExternalReferenceExistsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\UpdateTransactionCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\ValidateProductReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.API_Production.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ICS\" />
+    <Folder Include="PassBookFiles\" />
+    <Folder Include="QRCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReelDAO\ReelDAO.csproj">
+      <Project>{ff4eeb6c-efa0-4a75-bb4c-3db630e76187}</Project>
+      <Name>ReelDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReelDVO\ReelDVO.csproj">
+      <Project>{51ee1ea8-7d32-49ad-b30b-f94e1828dfaa}</Project>
+      <Name>ReelDVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/Services/Portal.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Portal\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/Services/Portal.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Portal_Portal</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/Services/Reward.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Reward\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/Services/Reward.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Reward_Reward</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/Member.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Member\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/Member.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Member_Member</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/MemberActivity.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.MemberActivity\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/MemberActivity.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_MemberActivity_MemberActivity</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/MemberContact.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.MemberContact\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/MemberContact.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_MemberContact_MemberContact</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/MemberSecurity.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.MemberSecurity\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/MemberSecurity.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_MemberSecurity_MemberSecurity</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/Offer.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Offer\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/Offer.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Offer_Offer</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/Transaction.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Transaction\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/Transaction.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Transaction_Transaction</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\UByEmaar\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'API_Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53244</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/EEG-ReelCinemasRESTAPI</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

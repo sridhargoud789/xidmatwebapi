@@ -1,0 +1,123 @@
+[
+  {
+    "CinemaId": "0001",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": false,
+      "BannerTitle": "Free rides at VR Park  with <br> every Reel Cinema ticket!",
+      "BannerInnerContent": "“Guest can select 2 rides on any 2 from Dubai Drone, Dune Bash, Burj Drop, Drifters or selection of Video games upon loading a credit of AED 20”",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--vr.jpg",
+      "BannerPointsHeading": "Present this voucher at VR Theme Park, level 2, The Dubai Mall, counters for redemption.",
+      "BannerPoints": "Valid for any Reel Cinemas, The Dubai Mall session and experience|Guests can select to ride on any 2 of: Dubai Drone, Burj Drop, Dune Bash & Drifters or a selection of video games upon loading a credit of AED 20|Redemption valid within 7 days of movie session|AED 5 card fee to get 2 free rides at VR Park|Limited time only",
+      "RedirectUrlWithHeading": "For full Terms & Conditions please visit <a href='https://www.vrparkdubai.com/'>vrparkdubai.com</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-vr-park.png"
+    },
+    "Banner2": {
+      "ShowBanner": false,
+      "BannerTitle": "20% off your restaurant bill at Celebrity Chef Guy Fieri’s restaurant!",
+      "BannerInnerContent": "Serving Guy’s signature dishes & traditional American comfort food, from 11am until late at Reel Cinemas, The Dubai Mall, Level 3 | Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--gf-dxb.jpg",
+      "BannerPointsHeading": "Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerPoints": "Applicable on same day as movie or visit to attraction|Valid all days of the week, including public holidays|Valid on display of original voucher|Not valid in conjunction with any other offer",
+      "RedirectUrlWithHeading": "<a href='https://stagingnew.reelcinemas.ae'>See full Terms & Conditions</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-gf-dxb.png"
+    }
+  },
+  {
+    "CinemaId": "0002",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": false,
+      "BannerTitle": "Free rides at VR Park  with <br> every Reel Cinema ticket!",
+      "BannerInnerContent": "“Guest can select 2 rides on any 2 from Dubai Drone, Dune Bash, Burj Drop, Drifters or selection of Video games upon loading a credit of AED 20”",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--vr.jpg",
+      "BannerPointsHeading": "Present this voucher at VR Theme Park, level 2, The Dubai Mall, counters for redemption.",
+      "BannerPoints": "Valid for any Reel Cinemas, The Dubai Mall session and experience|Guests can select to ride on any 2 of: Dubai Drone, Burj Drop, Dune Bash & Drifters or a selection of video games upon loading a credit of AED 20|Redemption valid within 7 days of movie session|AED 5 card fee to get 2 free rides at VR Park|Limited time only",
+      "RedirectUrlWithHeading": "For full Terms & Conditions please visit <a href='https://www.vrparkdubai.com/'>vrparkdubai.com</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-vr-park.png"
+    },
+    "Banner2": {
+      "ShowBanner": false,
+      "BannerTitle": "20% off your restaurant bill at Celebrity Chef Guy Fieri’s restaurant!",
+      "BannerInnerContent": "Serving Guy’s signature dishes & traditional American comfort food, from 11am until late at Reel Cinemas, The Dubai Mall, Level 3 | Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--gf-dxb.jpg",
+      "BannerPointsHeading": "Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerPoints": "Applicable on same day as movie or visit to attraction|Valid all days of the week, including public holidays|Valid on display of original voucher|Not valid in conjunction with any other offer",
+      "RedirectUrlWithHeading": "<a href='https://stagingnew.reelcinemas.ae'>See full Terms & Conditions</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-gf-dxb.png"
+    }
+  },
+  {
+    "CinemaId": "0003",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "Free rides at VR Park  with <br> every Reel Cinema ticket!",
+      "BannerInnerContent": "“Guest can select 2 rides on any 2 from Dubai Drone, Dune Bash, Burj Drop, Drifters or selection of Video games upon loading a credit of AED 20”",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--vr.jpg",
+      "BannerPointsHeading": "Present this voucher at VR Theme Park, level 2, The Dubai Mall, counters for redemption.",
+      "BannerPoints": "Valid for any Reel Cinemas, The Dubai Mall session and experience|Guests can select to ride on any 2 of: Dubai Drone, Burj Drop, Dune Bash & Drifters or a selection of video games upon loading a credit of AED 20|Redemption valid within 7 days of movie session|AED 5 card fee to get 2 free rides at VR Park|Limited time only",
+      "RedirectUrlWithHeading": "For full Terms & Conditions please visit <a href='https://www.vrparkdubai.com/'>vrparkdubai.com</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-vr-park.png"
+    },
+    "Banner2": {
+      "ShowBanner": false,
+      "BannerTitle": "20% off your restaurant bill at Celebrity Chef Guy Fieri’s restaurant!",
+      "BannerInnerContent": "Serving Guy’s signature dishes & traditional American comfort food, from 11am until late at Reel Cinemas, The Dubai Mall, Level 3 | Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--gf-dxb.jpg",
+      "BannerPointsHeading": "Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerPoints": "Applicable on same day as movie or visit to attraction|Valid all days of the week, including public holidays|Valid on display of original voucher|Not valid in conjunction with any other offer",
+      "RedirectUrlWithHeading": "<a href='https://stagingnew.reelcinemas.ae'>See full Terms & Conditions</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-gf-dxb.png"
+    }
+  },
+  {
+    "CinemaId": "0006",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": false,
+      "BannerTitle": "Free rides at VR Park  with <br> every Reel Cinema ticket!",
+      "BannerInnerContent": "“Guest can select 2 rides on any 2 from Dubai Drone, Dune Bash, Burj Drop, Drifters or selection of Video games upon loading a credit of AED 20”",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--vr.jpg",
+      "BannerPointsHeading": "Present this voucher at VR Theme Park, level 2, The Dubai Mall, counters for redemption.",
+      "BannerPoints": "Valid for any Reel Cinemas, The Dubai Mall session and experience|Guests can select to ride on any 2 of: Dubai Drone, Burj Drop, Dune Bash & Drifters or a selection of video games upon loading a credit of AED 20|Redemption valid within 7 days of movie session|AED 5 card fee to get 2 free rides at VR Park|Limited time only",
+      "RedirectUrlWithHeading": "For full Terms & Conditions please visit <a href='https://www.vrparkdubai.com/'>vrparkdubai.com</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-vr-park.png"
+    },
+    "Banner2": {
+      "ShowBanner": false,
+      "BannerTitle": "20% off your restaurant bill at Celebrity Chef Guy Fieri’s restaurant!",
+      "BannerInnerContent": "Serving Guy’s signature dishes & traditional American comfort food, from 11am until late at Reel Cinemas, The Dubai Mall, Level 3 | Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--gf-dxb.jpg",
+      "BannerPointsHeading": "Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerPoints": "Applicable on same day as movie or visit to attraction|Valid all days of the week, including public holidays|Valid on display of original voucher|Not valid in conjunction with any other offer",
+      "RedirectUrlWithHeading": "<a href='https://stagingnew.reelcinemas.ae'>See full Terms & Conditions</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-gf-dxb.png"
+    }
+  },
+  {
+    "CinemaId": "0007",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": false,
+      "BannerTitle": "Free rides at VR Park  with <br> every Reel Cinema ticket!",
+      "BannerInnerContent": "“Guest can select 2 rides on any 2 from Dubai Drone, Dune Bash, Burj Drop, Drifters or selection of Video games upon loading a credit of AED 20”",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--vr.jpg",
+      "BannerPointsHeading": "Present this voucher at VR Theme Park, level 2, The Dubai Mall, counters for redemption.",
+      "BannerPoints": "Valid for any Reel Cinemas, The Dubai Mall session and experience|Guests can select to ride on any 2 of: Dubai Drone, Burj Drop, Dune Bash & Drifters or a selection of video games upon loading a credit of AED 20|Redemption valid within 7 days of movie session|AED 5 card fee to get 2 free rides at VR Park|Limited time only",
+      "RedirectUrlWithHeading": "For full Terms & Conditions please visit <a href='https://www.vrparkdubai.com/'>vrparkdubai.com</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-vr-park.png"
+    },
+    "Banner2": {
+      "ShowBanner": false,
+      "BannerTitle": "20% off your restaurant bill at Celebrity Chef Guy Fieri’s restaurant!",
+      "BannerInnerContent": "Serving Guy’s signature dishes & traditional American comfort food, from 11am until late at Reel Cinemas, The Dubai Mall, Level 3 | Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerImageUrl": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/offer-banner-bg--gf-dxb.jpg",
+      "BannerPointsHeading": "Please <a href='https://stagingnew.reelcinemas.ae/'>click here</a> for more details and menu.",
+      "BannerPoints": "Applicable on same day as movie or visit to attraction|Valid all days of the week, including public holidays|Valid on display of original voucher|Not valid in conjunction with any other offer",
+      "RedirectUrlWithHeading": "<a href='https://stagingnew.reelcinemas.ae'>See full Terms & Conditions</a>",
+      "BrandLogo": "https://stagingnew.reelcinemas.ae/tickets/assets/img/booking/logo-gf-dxb.png"
+    }
+  }
+
+]

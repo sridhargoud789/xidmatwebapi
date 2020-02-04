@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://app.smartbutton.com/Services/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://app.smartbutton.com/Services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://app.smartbutton.com/Services/">
+      <s:element name="CrossLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="preqCrossLogin" type="tns:reqCrossLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="reqCrossLogin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CrossLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CrossLoginResult" type="tns:respCrossLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="respCrossLogin">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CrossLoginLink" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CrossLoginExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="preqCrossLoginExt" type="tns:reqCrossLoginExt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="reqCrossLoginExt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MenuItemExternalReference" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CrossLoginExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CrossLoginExtResult" type="tns:respCrossLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExternalLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExternalLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalLoginResult" type="tns:respExternalLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="respExternalLogin">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExistingPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePasswordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetPasswordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="respExternalLogin" nillable="true" type="tns:respExternalLogin" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CrossLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:CrossLogin" />
+  </wsdl:message>
+  <wsdl:message name="CrossLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:CrossLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrossLoginExtSoapIn">
+    <wsdl:part name="parameters" element="tns:CrossLoginExt" />
+  </wsdl:message>
+  <wsdl:message name="CrossLoginExtSoapOut">
+    <wsdl:part name="parameters" element="tns:CrossLoginExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ExternalLogin" />
+  </wsdl:message>
+  <wsdl:message name="ExternalLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ExternalLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateLogin" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalLoginHttpGetIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExternalLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:respExternalLogin" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpGetIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpGetIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="ExistingPassword" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpGetIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ExternalLoginHttpPostIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExternalLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:respExternalLogin" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpPostIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpPostIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="ExistingPassword" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpPostIn">
+    <wsdl:part name="SecurityToken" type="s:string" />
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="PortalSoap">
+    <wsdl:operation name="CrossLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_CrossLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:CrossLoginSoapIn" />
+      <wsdl:output message="tns:CrossLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrossLoginExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_CrossLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:CrossLoginExtSoapIn" />
+      <wsdl:output message="tns:CrossLoginExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExternalLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ExternalLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ExternalLoginSoapIn" />
+      <wsdl:output message="tns:ExternalLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ValidateLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ValidateLoginSoapIn" />
+      <wsdl:output message="tns:ValidateLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ChangePassword.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_SetPassword.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SetPasswordSoapIn" />
+      <wsdl:output message="tns:SetPasswordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PortalHttpGet">
+    <wsdl:operation name="ExternalLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ExternalLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ExternalLoginHttpGetIn" />
+      <wsdl:output message="tns:ExternalLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ValidateLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ValidateLoginHttpGetIn" />
+      <wsdl:output message="tns:ValidateLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ChangePassword.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ChangePasswordHttpGetIn" />
+      <wsdl:output message="tns:ChangePasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_SetPassword.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SetPasswordHttpGetIn" />
+      <wsdl:output message="tns:SetPasswordHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PortalHttpPost">
+    <wsdl:operation name="ExternalLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ExternalLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ExternalLoginHttpPostIn" />
+      <wsdl:output message="tns:ExternalLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ValidateLogin.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ValidateLoginHttpPostIn" />
+      <wsdl:output message="tns:ValidateLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_ChangePassword.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ChangePasswordHttpPostIn" />
+      <wsdl:output message="tns:ChangePasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Click Here For &lt;a href='/Services/Docs/Portal/Portal_SetPassword.htm'&gt; Method Documentation&lt;/a&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SetPasswordHttpPostIn" />
+      <wsdl:output message="tns:SetPasswordHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PortalSoap" type="tns:PortalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrossLogin">
+      <soap:operation soapAction="https://app.smartbutton.com/Services/CrossLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrossLoginExt">
+      <soap:operation soapAction="https://app.smartbutton.com/Services/CrossLoginExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExternalLogin">
+      <soap:operation soapAction="https://app.smartbutton.com/Services/ExternalLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <soap:operation soapAction="https://app.smartbutton.com/Services/ValidateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="https://app.smartbutton.com/Services/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap:operation soapAction="https://app.smartbutton.com/Services/SetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PortalSoap12" type="tns:PortalSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrossLogin">
+      <soap12:operation soapAction="https://app.smartbutton.com/Services/CrossLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrossLoginExt">
+      <soap12:operation soapAction="https://app.smartbutton.com/Services/CrossLoginExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExternalLogin">
+      <soap12:operation soapAction="https://app.smartbutton.com/Services/ExternalLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <soap12:operation soapAction="https://app.smartbutton.com/Services/ValidateLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="https://app.smartbutton.com/Services/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap12:operation soapAction="https://app.smartbutton.com/Services/SetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PortalHttpGet" type="tns:PortalHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ExternalLogin">
+      <http:operation location="/ExternalLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <http:operation location="/ValidateLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <http:operation location="/ChangePassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <http:operation location="/SetPassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PortalHttpPost" type="tns:PortalHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ExternalLogin">
+      <http:operation location="/ExternalLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <http:operation location="/ValidateLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <http:operation location="/ChangePassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <http:operation location="/SetPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Portal">
+    <wsdl:port name="PortalSoap" binding="tns:PortalSoap">
+      <soap:address location="https://ca.smartbutton.com/Services/Portal.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PortalSoap12" binding="tns:PortalSoap12">
+      <soap12:address location="https://ca.smartbutton.com/Services/Portal.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PortalHttpGet" binding="tns:PortalHttpGet">
+      <http:address location="https://ca.smartbutton.com/Services/Portal.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PortalHttpPost" binding="tns:PortalHttpPost">
+      <http:address location="https://ca.smartbutton.com/Services/Portal.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

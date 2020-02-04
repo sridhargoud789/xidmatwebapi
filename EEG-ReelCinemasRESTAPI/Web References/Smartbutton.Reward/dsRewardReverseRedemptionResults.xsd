@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="https://app.smartbutton.com/Services/dsRewardReverseRedemptionResults.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="https://app.smartbutton.com/Services/dsRewardReverseRedemptionResults.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="https://app.smartbutton.com/Services/dsRewardReverseRedemptionResults.xsd" id="dsRewardReverseRedemptionResults" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="dsRewardReverseRedemptionResults">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblResults">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberIssuedRewardId" type="xs:int" />
+              <xs:element name="ReturnCode" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,2210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="LoyaltyPlatformWS" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="LoyaltyPlatformWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="LoyaltyPlatformWS">
+      <s:element name="IssuePointAdjustment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PointAdjustmentAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssuePointAdjustmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssuePointAdjustmentResult" type="tns:IssuePointAdjustmentReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssuePointAdjustmentReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssuePointAdjustmentWithNote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PointAdjustmentAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssuePointAdjustmentWithNoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssuePointAdjustmentWithNoteResult" type="tns:IssuePointAdjustmentReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionExternalReferenceExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionExternalReferenceExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReferenceExistsResult" type="tns:TransactionExternalReferenceExistsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransactionExternalReferenceExistsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionExternalReferenceExists" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchTransactionResult" type="tns:FetchTransactionReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchTransactionReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypePublicName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTimestampUTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityTimestampUTC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionRetailValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionWonValue" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssueAuditUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasProductBasket" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionIsCancelled" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelledTimestampUTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelledAuditUser" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchTransactionCustomFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchTransactionCustomFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchTransactionCustomFieldsResult" type="tns:FetchTransactionCustomFieldsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchTransactionCustomFieldsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFields" type="tns:ArrayOfTransactionCustomFieldItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionCustomFieldItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionCustomFieldItem" nillable="true" type="tns:TransactionCustomFieldItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionCustomFieldItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFieldPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFieldExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionCustomFieldDataType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFieldValue" type="tns:CustomFieldStorageValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomFieldStorageValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CheckboxValue" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IntegerValue" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MoneyValue" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TextValue" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListValue" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateValue" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DropDownValue" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressValue" nillable="true" type="tns:CustomFieldStorageValueAddressItem" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MultipleChoiceSelectedValue" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomFieldStorageValueAddressItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemInCareOf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressItemCountry" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CancelTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelTransactionResult" type="tns:CancelTransactionReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancelTransactionReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionNoBasket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionRetailValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForDuplicateTransaction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessPOSMessagePromotionOnSuccess" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssueTransactionNoBasketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssueTransactionNoBasketResult" type="tns:IssueTransactionNoBasketReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssueTransactionNoBasketReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointOfSaleMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionNoBasketWithCustomFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionRetailValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForDuplicateTransaction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessPOSMessagePromotionOnSuccess" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFields" type="tns:ArrayOfCustomFieldStorage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomFieldStorage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomFieldStorage" nillable="true" type="tns:CustomFieldStorage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomFieldStorage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldExternalReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldStorageValue" type="tns:CustomFieldStorageValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionNoBasketWithCustomFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssueTransactionNoBasketWithCustomFieldsResult" type="tns:IssueTransactionNoBasketWithCustomFieldsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssueTransactionNoBasketWithCustomFieldsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointOfSaleMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldsReturnCode" type="tns:ArrayOfCustomFieldStorageReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomFieldStorageReturn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomFieldStorageReturn" nillable="true" type="tns:CustomFieldStorageReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomFieldStorageReturn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionSingleProductBasket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductQty" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductTotalRetailValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductTotalPointValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductTotalProfitValue" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForDuplicateTransaction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMissingProductItems" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessPOSMessagePromotionOnSuccess" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssueTransactionSingleProductBasketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssueTransactionSingleProductBasketResult" type="tns:IssueTransactionSingleProductBasketReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssueTransactionSingleProductBasketReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointOfSaleMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionMultipleProductBasket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductBasket" type="tns:ArrayOfTransactionBasketItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForDuplicateTransaction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMissingProductItems" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessPOSMessagePromotionOnSuccess" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionBasketItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionBasketItem" nillable="true" type="tns:TransactionBasketItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionBasketItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasketItemQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasketItemTotalPrice" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasketItemTotalPoints" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasketItemTotalProfit" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionMultipleProductBasketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssueTransactionMultipleProductBasketResult" type="tns:IssueTransactionMultipleProductBasketReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssueTransactionMultipleProductBasketReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointOfSaleMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionMultipleProductBasketWithCustomFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductBasket" type="tns:ArrayOfTransactionBasketItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForDuplicateTransaction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMissingProductItems" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessPOSMessagePromotionOnSuccess" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFields" type="tns:ArrayOfCustomFieldStorage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssueTransactionMultipleProductBasketWithCustomFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssueTransactionMultipleProductBasketWithCustomFieldsResult" type="tns:IssueTransactionMultipleProductBasketWithCustomFieldsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssueTransactionMultipleProductBasketWithCustomFieldsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointOfSaleMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldsReturnCode" type="tns:ArrayOfCustomFieldStorageReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssueTransactionMultipleProductBasketCustomFieldsBookingDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductBasket" type="tns:ArrayOfTransactionBasketItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForDuplicateTransaction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMissingProductItems" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FetchUpdatedMemberPointTotals" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessPOSMessagePromotionOnSuccess" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookingDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFields" type="tns:ArrayOfCustomFieldStorage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssueTransactionMultipleProductBasketCustomFieldsBookingDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssueTransactionMultipleProductBasketCustomFieldsBookingDateResult" type="tns:IssueTransactionMultipleProductBasketCustomFieldsBookingDateReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssueTransactionMultipleProductBasketCustomFieldsBookingDateReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointOfSaleMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldsReturnCode" type="tns:ArrayOfCustomFieldStorageReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateTransactionCustomFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppTransactionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionCustomFields" type="tns:ArrayOfCustomFieldStorage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTransactionCustomFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateTransactionCustomFieldsResult" type="tns:UpdateTransactionCustomFieldsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateTransactionCustomFieldsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldsReturnCode" type="tns:ArrayOfCustomFieldStorageReturn" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ScoreTransactionMultipleProductBasket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalActivityTimestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookingDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppTransactionBasketProduct" type="tns:ArrayOfTransactionBasketItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScoreTransactionMultipleProductBasketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScoreTransactionMultipleProductBasketResult" type="tns:ScoreTransactionMultipleProductBasketReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ScoreTransactionMultipleProductBasketReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectedTransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectedTransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectedTransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsEarned" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsDeducted" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsUsed" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsExpired" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsAvailable" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberPointsLocked" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateProductResult" type="tns:ValidateProductReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidateProductReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchProductResult" type="tns:FetchProductReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchProductReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SetPointsToZero" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SetRetailValueToZero" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DropFromBasket" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SetPointsToZero" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SetRetailValueToZero" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DropFromBasket" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveProductResult" type="tns:SaveProductReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SaveProductReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveProductTransactionFlags">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SetPointsToZero" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SetRetailValueToZero" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DropFromBasket" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveProductTransactionFlagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveProductTransactionFlagsResult" type="tns:SaveProductTransactionFlagsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SaveProductTransactionFlagsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchTransactionBasket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchTransactionBasketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchTransactionBasketResult" type="tns:FetchTransactionBasketReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchTransactionBasketReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionBasketItems" type="tns:ArrayOfFetchTransactionBasketItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFetchTransactionBasketItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FetchTransactionBasketItem" nillable="true" type="tns:FetchTransactionBasketItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FetchTransactionBasketItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasePoints" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BonusPoints" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPoints" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProfitValue" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchProductCustomField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductCustomFieldExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchProductCustomFieldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchProductCustomFieldResult" type="tns:FetchProductCustomFieldReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchProductCustomFieldReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductItemCustomFieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductItemCustomFieldPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductItemCustomFieldExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductItemCustomFieldDataType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductItemCustomFieldValue" type="tns:CustomFieldStorageValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssuePointTransfer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromMemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromSBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToMemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ToSBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PointTransferAmount" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IssuePointTransferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IssuePointTransferResult" type="tns:IssuePointTransferReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IssuePointTransferReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FromAppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToAppTransactionId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchTransactionBonusPointDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchTransactionBonusPointDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchTransactionBonusPointDetailsResult" type="tns:FetchTransactionBonusPointDetailsReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchTransactionBonusPointDetailsReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppTransactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypePublicName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeExternalReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTimestampUTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityTimestampUTC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionRetailValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionProfitValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionBasePointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionPointValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionWonValue" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssueAuditUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionExternalReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasProductBasket" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionIsCancelled" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelledTimestampUTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelledAuditUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BonusPointDetails" type="tns:ArrayOfBonusPointDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBonusPointDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BonusPointDetail" nillable="true" type="tns:BonusPointDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BonusPointDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BonusType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BonusPromotionName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BonusPointAmount" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransBonusPromoExternalRef" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IssuePointAdjustmentReturn" nillable="true" type="tns:IssuePointAdjustmentReturn" />
+      <s:element name="TransactionExternalReferenceExistsReturn" nillable="true" type="tns:TransactionExternalReferenceExistsReturn" />
+      <s:element name="FetchTransactionReturn" nillable="true" type="tns:FetchTransactionReturn" />
+      <s:element name="FetchTransactionCustomFieldsReturn" nillable="true" type="tns:FetchTransactionCustomFieldsReturn" />
+      <s:element name="CancelTransactionReturn" nillable="true" type="tns:CancelTransactionReturn" />
+      <s:element name="IssueTransactionNoBasketReturn" nillable="true" type="tns:IssueTransactionNoBasketReturn" />
+      <s:element name="IssueTransactionSingleProductBasketReturn" nillable="true" type="tns:IssueTransactionSingleProductBasketReturn" />
+      <s:element name="ValidateProductReturn" nillable="true" type="tns:ValidateProductReturn" />
+      <s:element name="FetchProductReturn" nillable="true" type="tns:FetchProductReturn" />
+      <s:element name="SaveProductReturn" nillable="true" type="tns:SaveProductReturn" />
+      <s:element name="SaveProductTransactionFlagsReturn" nillable="true" type="tns:SaveProductTransactionFlagsReturn" />
+      <s:element name="FetchTransactionBasketReturn" nillable="true" type="tns:FetchTransactionBasketReturn" />
+      <s:element name="FetchProductCustomFieldReturn" nillable="true" type="tns:FetchProductCustomFieldReturn" />
+      <s:element name="IssuePointTransferReturn" nillable="true" type="tns:IssuePointTransferReturn" />
+      <s:element name="FetchTransactionBonusPointDetailsReturn" nillable="true" type="tns:FetchTransactionBonusPointDetailsReturn" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IssuePointAdjustmentSoapIn">
+    <wsdl:part name="parameters" element="tns:IssuePointAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentSoapOut">
+    <wsdl:part name="parameters" element="tns:IssuePointAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentWithNoteSoapIn">
+    <wsdl:part name="parameters" element="tns:IssuePointAdjustmentWithNote" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentWithNoteSoapOut">
+    <wsdl:part name="parameters" element="tns:IssuePointAdjustmentWithNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionExternalReferenceExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionExternalReferenceExists" />
+  </wsdl:message>
+  <wsdl:message name="TransactionExternalReferenceExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionExternalReferenceExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchTransaction" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionCustomFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchTransactionCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionCustomFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchTransactionCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelTransaction" />
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketSoapIn">
+    <wsdl:part name="parameters" element="tns:IssueTransactionNoBasket" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketSoapOut">
+    <wsdl:part name="parameters" element="tns:IssueTransactionNoBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketWithCustomFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:IssueTransactionNoBasketWithCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketWithCustomFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:IssueTransactionNoBasketWithCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionSingleProductBasketSoapIn">
+    <wsdl:part name="parameters" element="tns:IssueTransactionSingleProductBasket" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionSingleProductBasketSoapOut">
+    <wsdl:part name="parameters" element="tns:IssueTransactionSingleProductBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionMultipleProductBasketSoapIn">
+    <wsdl:part name="parameters" element="tns:IssueTransactionMultipleProductBasket" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionMultipleProductBasketSoapOut">
+    <wsdl:part name="parameters" element="tns:IssueTransactionMultipleProductBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionMultipleProductBasketWithCustomFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:IssueTransactionMultipleProductBasketWithCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionMultipleProductBasketWithCustomFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:IssueTransactionMultipleProductBasketWithCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionMultipleProductBasketCustomFieldsBookingDateSoapIn">
+    <wsdl:part name="parameters" element="tns:IssueTransactionMultipleProductBasketCustomFieldsBookingDate" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionMultipleProductBasketCustomFieldsBookingDateSoapOut">
+    <wsdl:part name="parameters" element="tns:IssueTransactionMultipleProductBasketCustomFieldsBookingDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTransactionCustomFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTransactionCustomFields" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTransactionCustomFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTransactionCustomFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ScoreTransactionMultipleProductBasketSoapIn">
+    <wsdl:part name="parameters" element="tns:ScoreTransactionMultipleProductBasket" />
+  </wsdl:message>
+  <wsdl:message name="ScoreTransactionMultipleProductBasketSoapOut">
+    <wsdl:part name="parameters" element="tns:ScoreTransactionMultipleProductBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateProductSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateProduct" />
+  </wsdl:message>
+  <wsdl:message name="ValidateProductSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchProduct" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveProduct" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductTransactionFlagsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveProductTransactionFlags" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductTransactionFlagsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveProductTransactionFlagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBasketSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchTransactionBasket" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBasketSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchTransactionBasketResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductCustomFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchProductCustomField" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductCustomFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchProductCustomFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointTransferSoapIn">
+    <wsdl:part name="parameters" element="tns:IssuePointTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointTransferSoapOut">
+    <wsdl:part name="parameters" element="tns:IssuePointTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBonusPointDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchTransactionBonusPointDetails" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBonusPointDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchTransactionBonusPointDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="PointAdjustmentAmount" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentHttpGetOut">
+    <wsdl:part name="Body" element="tns:IssuePointAdjustmentReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentWithNoteHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="PointAdjustmentAmount" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+    <wsdl:part name="Note" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentWithNoteHttpGetOut">
+    <wsdl:part name="Body" element="tns:IssuePointAdjustmentReturn" />
+  </wsdl:message>
+  <wsdl:message name="TransactionExternalReferenceExistsHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="TransactionTypeExternalReference" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TransactionExternalReferenceExistsHttpGetOut">
+    <wsdl:part name="Body" element="tns:TransactionExternalReferenceExistsReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionCustomFieldsHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionCustomFieldsHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionCustomFieldsReturn" />
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionHttpGetOut">
+    <wsdl:part name="Body" element="tns:CancelTransactionReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="TransactionTypeExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="TransactionRetailValue" type="s:string" />
+    <wsdl:part name="TransactionPointValue" type="s:string" />
+    <wsdl:part name="TransactionProfitValue" type="s:string" />
+    <wsdl:part name="CheckForDuplicateTransaction" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+    <wsdl:part name="ProcessPOSMessagePromotionOnSuccess" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketHttpGetOut">
+    <wsdl:part name="Body" element="tns:IssueTransactionNoBasketReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionSingleProductBasketHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="TransactionTypeExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="ProductQty" type="s:string" />
+    <wsdl:part name="ProductTotalRetailValue" type="s:string" />
+    <wsdl:part name="ProductTotalPointValue" type="s:string" />
+    <wsdl:part name="ProductTotalProfitValue" type="s:string" />
+    <wsdl:part name="CheckForDuplicateTransaction" type="s:string" />
+    <wsdl:part name="InsertMissingProductItems" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+    <wsdl:part name="ProcessPOSMessagePromotionOnSuccess" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionSingleProductBasketHttpGetOut">
+    <wsdl:part name="Body" element="tns:IssueTransactionSingleProductBasketReturn" />
+  </wsdl:message>
+  <wsdl:message name="ValidateProductHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:ValidateProductReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchProductReturn" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductName" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="SetPointsToZero" type="s:string" />
+    <wsdl:part name="SetRetailValueToZero" type="s:string" />
+    <wsdl:part name="DropFromBasket" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:SaveProductReturn" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductTransactionFlagsHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="SetPointsToZero" type="s:string" />
+    <wsdl:part name="SetRetailValueToZero" type="s:string" />
+    <wsdl:part name="DropFromBasket" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductTransactionFlagsHttpGetOut">
+    <wsdl:part name="Body" element="tns:SaveProductTransactionFlagsReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBasketHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBasketHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionBasketReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductCustomFieldHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="ProductCustomFieldExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductCustomFieldHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchProductCustomFieldReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointTransferHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="FromMemberAccountId" type="s:string" />
+    <wsdl:part name="FromSBInternalMemberId" type="s:string" />
+    <wsdl:part name="ToMemberAccountId" type="s:string" />
+    <wsdl:part name="ToSBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="PointTransferAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointTransferHttpGetOut">
+    <wsdl:part name="Body" element="tns:IssuePointTransferReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBonusPointDetailsHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBonusPointDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionBonusPointDetailsReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="PointAdjustmentAmount" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentHttpPostOut">
+    <wsdl:part name="Body" element="tns:IssuePointAdjustmentReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentWithNoteHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="PointAdjustmentAmount" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+    <wsdl:part name="Note" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointAdjustmentWithNoteHttpPostOut">
+    <wsdl:part name="Body" element="tns:IssuePointAdjustmentReturn" />
+  </wsdl:message>
+  <wsdl:message name="TransactionExternalReferenceExistsHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="TransactionTypeExternalReference" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TransactionExternalReferenceExistsHttpPostOut">
+    <wsdl:part name="Body" element="tns:TransactionExternalReferenceExistsReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionCustomFieldsHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionCustomFieldsHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionCustomFieldsReturn" />
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionHttpPostOut">
+    <wsdl:part name="Body" element="tns:CancelTransactionReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="TransactionTypeExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="TransactionRetailValue" type="s:string" />
+    <wsdl:part name="TransactionPointValue" type="s:string" />
+    <wsdl:part name="TransactionProfitValue" type="s:string" />
+    <wsdl:part name="CheckForDuplicateTransaction" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+    <wsdl:part name="ProcessPOSMessagePromotionOnSuccess" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionNoBasketHttpPostOut">
+    <wsdl:part name="Body" element="tns:IssueTransactionNoBasketReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionSingleProductBasketHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="TransactionTypeExternalReference" type="s:string" />
+    <wsdl:part name="LocalActivityTimestamp" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="ProductQty" type="s:string" />
+    <wsdl:part name="ProductTotalRetailValue" type="s:string" />
+    <wsdl:part name="ProductTotalPointValue" type="s:string" />
+    <wsdl:part name="ProductTotalProfitValue" type="s:string" />
+    <wsdl:part name="CheckForDuplicateTransaction" type="s:string" />
+    <wsdl:part name="InsertMissingProductItems" type="s:string" />
+    <wsdl:part name="FetchUpdatedMemberPointTotals" type="s:string" />
+    <wsdl:part name="ProcessPOSMessagePromotionOnSuccess" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssueTransactionSingleProductBasketHttpPostOut">
+    <wsdl:part name="Body" element="tns:IssueTransactionSingleProductBasketReturn" />
+  </wsdl:message>
+  <wsdl:message name="ValidateProductHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:ValidateProductReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchProductReturn" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductName" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="SetPointsToZero" type="s:string" />
+    <wsdl:part name="SetRetailValueToZero" type="s:string" />
+    <wsdl:part name="DropFromBasket" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:SaveProductReturn" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductTransactionFlagsHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="SetPointsToZero" type="s:string" />
+    <wsdl:part name="SetRetailValueToZero" type="s:string" />
+    <wsdl:part name="DropFromBasket" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveProductTransactionFlagsHttpPostOut">
+    <wsdl:part name="Body" element="tns:SaveProductTransactionFlagsReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBasketHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBasketHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionBasketReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductCustomFieldHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="ProductExternalReference" type="s:string" />
+    <wsdl:part name="ProductCustomFieldExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchProductCustomFieldHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchProductCustomFieldReturn" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointTransferHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="FromMemberAccountId" type="s:string" />
+    <wsdl:part name="FromSBInternalMemberId" type="s:string" />
+    <wsdl:part name="ToMemberAccountId" type="s:string" />
+    <wsdl:part name="ToSBInternalMemberId" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+    <wsdl:part name="TransactionExternalReference" type="s:string" />
+    <wsdl:part name="PointTransferAmount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IssuePointTransferHttpPostOut">
+    <wsdl:part name="Body" element="tns:IssuePointTransferReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBonusPointDetailsHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="AppTransactionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchTransactionBonusPointDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchTransactionBonusPointDetailsReturn" />
+  </wsdl:message>
+  <wsdl:portType name="TransactionSoap">
+    <wsdl:operation name="IssuePointAdjustment">
+      <wsdl:input message="tns:IssuePointAdjustmentSoapIn" />
+      <wsdl:output message="tns:IssuePointAdjustmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <wsdl:input message="tns:IssuePointAdjustmentWithNoteSoapIn" />
+      <wsdl:output message="tns:IssuePointAdjustmentWithNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <wsdl:input message="tns:TransactionExternalReferenceExistsSoapIn" />
+      <wsdl:output message="tns:TransactionExternalReferenceExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <wsdl:input message="tns:FetchTransactionSoapIn" />
+      <wsdl:output message="tns:FetchTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <wsdl:input message="tns:FetchTransactionCustomFieldsSoapIn" />
+      <wsdl:output message="tns:FetchTransactionCustomFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <wsdl:input message="tns:CancelTransactionSoapIn" />
+      <wsdl:output message="tns:CancelTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <wsdl:input message="tns:IssueTransactionNoBasketSoapIn" />
+      <wsdl:output message="tns:IssueTransactionNoBasketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasketWithCustomFields">
+      <wsdl:input message="tns:IssueTransactionNoBasketWithCustomFieldsSoapIn" />
+      <wsdl:output message="tns:IssueTransactionNoBasketWithCustomFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <wsdl:input message="tns:IssueTransactionSingleProductBasketSoapIn" />
+      <wsdl:output message="tns:IssueTransactionSingleProductBasketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasket">
+      <wsdl:input message="tns:IssueTransactionMultipleProductBasketSoapIn" />
+      <wsdl:output message="tns:IssueTransactionMultipleProductBasketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasketWithCustomFields">
+      <wsdl:input message="tns:IssueTransactionMultipleProductBasketWithCustomFieldsSoapIn" />
+      <wsdl:output message="tns:IssueTransactionMultipleProductBasketWithCustomFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasketCustomFieldsBookingDate">
+      <wsdl:input message="tns:IssueTransactionMultipleProductBasketCustomFieldsBookingDateSoapIn" />
+      <wsdl:output message="tns:IssueTransactionMultipleProductBasketCustomFieldsBookingDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransactionCustomFields">
+      <wsdl:input message="tns:UpdateTransactionCustomFieldsSoapIn" />
+      <wsdl:output message="tns:UpdateTransactionCustomFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScoreTransactionMultipleProductBasket">
+      <wsdl:input message="tns:ScoreTransactionMultipleProductBasketSoapIn" />
+      <wsdl:output message="tns:ScoreTransactionMultipleProductBasketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <wsdl:input message="tns:ValidateProductSoapIn" />
+      <wsdl:output message="tns:ValidateProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <wsdl:input message="tns:FetchProductSoapIn" />
+      <wsdl:output message="tns:FetchProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <wsdl:input message="tns:SaveProductSoapIn" />
+      <wsdl:output message="tns:SaveProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <wsdl:input message="tns:SaveProductTransactionFlagsSoapIn" />
+      <wsdl:output message="tns:SaveProductTransactionFlagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <wsdl:input message="tns:FetchTransactionBasketSoapIn" />
+      <wsdl:output message="tns:FetchTransactionBasketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <wsdl:input message="tns:FetchProductCustomFieldSoapIn" />
+      <wsdl:output message="tns:FetchProductCustomFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <wsdl:input message="tns:IssuePointTransferSoapIn" />
+      <wsdl:output message="tns:IssuePointTransferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <wsdl:input message="tns:FetchTransactionBonusPointDetailsSoapIn" />
+      <wsdl:output message="tns:FetchTransactionBonusPointDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TransactionHttpGet">
+    <wsdl:operation name="IssuePointAdjustment">
+      <wsdl:input message="tns:IssuePointAdjustmentHttpGetIn" />
+      <wsdl:output message="tns:IssuePointAdjustmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <wsdl:input message="tns:IssuePointAdjustmentWithNoteHttpGetIn" />
+      <wsdl:output message="tns:IssuePointAdjustmentWithNoteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <wsdl:input message="tns:TransactionExternalReferenceExistsHttpGetIn" />
+      <wsdl:output message="tns:TransactionExternalReferenceExistsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <wsdl:input message="tns:FetchTransactionHttpGetIn" />
+      <wsdl:output message="tns:FetchTransactionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <wsdl:input message="tns:FetchTransactionCustomFieldsHttpGetIn" />
+      <wsdl:output message="tns:FetchTransactionCustomFieldsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <wsdl:input message="tns:CancelTransactionHttpGetIn" />
+      <wsdl:output message="tns:CancelTransactionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <wsdl:input message="tns:IssueTransactionNoBasketHttpGetIn" />
+      <wsdl:output message="tns:IssueTransactionNoBasketHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <wsdl:input message="tns:IssueTransactionSingleProductBasketHttpGetIn" />
+      <wsdl:output message="tns:IssueTransactionSingleProductBasketHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <wsdl:input message="tns:ValidateProductHttpGetIn" />
+      <wsdl:output message="tns:ValidateProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <wsdl:input message="tns:FetchProductHttpGetIn" />
+      <wsdl:output message="tns:FetchProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <wsdl:input message="tns:SaveProductHttpGetIn" />
+      <wsdl:output message="tns:SaveProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <wsdl:input message="tns:SaveProductTransactionFlagsHttpGetIn" />
+      <wsdl:output message="tns:SaveProductTransactionFlagsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <wsdl:input message="tns:FetchTransactionBasketHttpGetIn" />
+      <wsdl:output message="tns:FetchTransactionBasketHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <wsdl:input message="tns:FetchProductCustomFieldHttpGetIn" />
+      <wsdl:output message="tns:FetchProductCustomFieldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <wsdl:input message="tns:IssuePointTransferHttpGetIn" />
+      <wsdl:output message="tns:IssuePointTransferHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <wsdl:input message="tns:FetchTransactionBonusPointDetailsHttpGetIn" />
+      <wsdl:output message="tns:FetchTransactionBonusPointDetailsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TransactionHttpPost">
+    <wsdl:operation name="IssuePointAdjustment">
+      <wsdl:input message="tns:IssuePointAdjustmentHttpPostIn" />
+      <wsdl:output message="tns:IssuePointAdjustmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <wsdl:input message="tns:IssuePointAdjustmentWithNoteHttpPostIn" />
+      <wsdl:output message="tns:IssuePointAdjustmentWithNoteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <wsdl:input message="tns:TransactionExternalReferenceExistsHttpPostIn" />
+      <wsdl:output message="tns:TransactionExternalReferenceExistsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <wsdl:input message="tns:FetchTransactionHttpPostIn" />
+      <wsdl:output message="tns:FetchTransactionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <wsdl:input message="tns:FetchTransactionCustomFieldsHttpPostIn" />
+      <wsdl:output message="tns:FetchTransactionCustomFieldsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <wsdl:input message="tns:CancelTransactionHttpPostIn" />
+      <wsdl:output message="tns:CancelTransactionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <wsdl:input message="tns:IssueTransactionNoBasketHttpPostIn" />
+      <wsdl:output message="tns:IssueTransactionNoBasketHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <wsdl:input message="tns:IssueTransactionSingleProductBasketHttpPostIn" />
+      <wsdl:output message="tns:IssueTransactionSingleProductBasketHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <wsdl:input message="tns:ValidateProductHttpPostIn" />
+      <wsdl:output message="tns:ValidateProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <wsdl:input message="tns:FetchProductHttpPostIn" />
+      <wsdl:output message="tns:FetchProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <wsdl:input message="tns:SaveProductHttpPostIn" />
+      <wsdl:output message="tns:SaveProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <wsdl:input message="tns:SaveProductTransactionFlagsHttpPostIn" />
+      <wsdl:output message="tns:SaveProductTransactionFlagsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <wsdl:input message="tns:FetchTransactionBasketHttpPostIn" />
+      <wsdl:output message="tns:FetchTransactionBasketHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <wsdl:input message="tns:FetchProductCustomFieldHttpPostIn" />
+      <wsdl:output message="tns:FetchProductCustomFieldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <wsdl:input message="tns:IssuePointTransferHttpPostIn" />
+      <wsdl:output message="tns:IssuePointTransferHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <wsdl:input message="tns:FetchTransactionBonusPointDetailsHttpPostIn" />
+      <wsdl:output message="tns:FetchTransactionBonusPointDetailsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransactionSoap" type="tns:TransactionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IssuePointAdjustment">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssuePointAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssuePointAdjustmentWithNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <soap:operation soapAction="LoyaltyPlatformWS/TransactionExternalReferenceExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchTransactionCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <soap:operation soapAction="LoyaltyPlatformWS/CancelTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssueTransactionNoBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasketWithCustomFields">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssueTransactionNoBasketWithCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssueTransactionSingleProductBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasket">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssueTransactionMultipleProductBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasketWithCustomFields">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssueTransactionMultipleProductBasketWithCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasketCustomFieldsBookingDate">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssueTransactionMultipleProductBasketCustomFieldsBookingDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransactionCustomFields">
+      <soap:operation soapAction="LoyaltyPlatformWS/UpdateTransactionCustomFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScoreTransactionMultipleProductBasket">
+      <soap:operation soapAction="LoyaltyPlatformWS/ScoreTransactionMultipleProductBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <soap:operation soapAction="LoyaltyPlatformWS/ValidateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <soap:operation soapAction="LoyaltyPlatformWS/SaveProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <soap:operation soapAction="LoyaltyPlatformWS/SaveProductTransactionFlags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchTransactionBasket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchProductCustomField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <soap:operation soapAction="LoyaltyPlatformWS/IssuePointTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchTransactionBonusPointDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TransactionSoap12" type="tns:TransactionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IssuePointAdjustment">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssuePointAdjustment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssuePointAdjustmentWithNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <soap12:operation soapAction="LoyaltyPlatformWS/TransactionExternalReferenceExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchTransactionCustomFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <soap12:operation soapAction="LoyaltyPlatformWS/CancelTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssueTransactionNoBasket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasketWithCustomFields">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssueTransactionNoBasketWithCustomFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssueTransactionSingleProductBasket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasket">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssueTransactionMultipleProductBasket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasketWithCustomFields">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssueTransactionMultipleProductBasketWithCustomFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionMultipleProductBasketCustomFieldsBookingDate">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssueTransactionMultipleProductBasketCustomFieldsBookingDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTransactionCustomFields">
+      <soap12:operation soapAction="LoyaltyPlatformWS/UpdateTransactionCustomFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScoreTransactionMultipleProductBasket">
+      <soap12:operation soapAction="LoyaltyPlatformWS/ScoreTransactionMultipleProductBasket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <soap12:operation soapAction="LoyaltyPlatformWS/ValidateProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <soap12:operation soapAction="LoyaltyPlatformWS/SaveProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <soap12:operation soapAction="LoyaltyPlatformWS/SaveProductTransactionFlags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchTransactionBasket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchProductCustomField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <soap12:operation soapAction="LoyaltyPlatformWS/IssuePointTransfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchTransactionBonusPointDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TransactionHttpGet" type="tns:TransactionHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="IssuePointAdjustment">
+      <http:operation location="/IssuePointAdjustment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <http:operation location="/IssuePointAdjustmentWithNote" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <http:operation location="/TransactionExternalReferenceExists" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <http:operation location="/FetchTransaction" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <http:operation location="/FetchTransactionCustomFields" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <http:operation location="/CancelTransaction" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <http:operation location="/IssueTransactionNoBasket" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <http:operation location="/IssueTransactionSingleProductBasket" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <http:operation location="/ValidateProduct" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <http:operation location="/FetchProduct" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <http:operation location="/SaveProduct" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <http:operation location="/SaveProductTransactionFlags" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <http:operation location="/FetchTransactionBasket" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <http:operation location="/FetchProductCustomField" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <http:operation location="/IssuePointTransfer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <http:operation location="/FetchTransactionBonusPointDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TransactionHttpPost" type="tns:TransactionHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="IssuePointAdjustment">
+      <http:operation location="/IssuePointAdjustment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointAdjustmentWithNote">
+      <http:operation location="/IssuePointAdjustmentWithNote" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionExternalReferenceExists">
+      <http:operation location="/TransactionExternalReferenceExists" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransaction">
+      <http:operation location="/FetchTransaction" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionCustomFields">
+      <http:operation location="/FetchTransactionCustomFields" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <http:operation location="/CancelTransaction" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionNoBasket">
+      <http:operation location="/IssueTransactionNoBasket" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssueTransactionSingleProductBasket">
+      <http:operation location="/IssueTransactionSingleProductBasket" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProduct">
+      <http:operation location="/ValidateProduct" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProduct">
+      <http:operation location="/FetchProduct" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <http:operation location="/SaveProduct" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProductTransactionFlags">
+      <http:operation location="/SaveProductTransactionFlags" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBasket">
+      <http:operation location="/FetchTransactionBasket" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchProductCustomField">
+      <http:operation location="/FetchProductCustomField" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IssuePointTransfer">
+      <http:operation location="/IssuePointTransfer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchTransactionBonusPointDetails">
+      <http:operation location="/FetchTransactionBonusPointDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Transaction">
+    <wsdl:port name="TransactionSoap" binding="tns:TransactionSoap">
+      <soap:address location="https://ca.smartbutton.com/WS/Transaction.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TransactionSoap12" binding="tns:TransactionSoap12">
+      <soap12:address location="https://ca.smartbutton.com/WS/Transaction.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TransactionHttpGet" binding="tns:TransactionHttpGet">
+      <http:address location="https://ca.smartbutton.com/WS/Transaction.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TransactionHttpPost" binding="tns:TransactionHttpPost">
+      <http:address location="https://ca.smartbutton.com/WS/Transaction.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

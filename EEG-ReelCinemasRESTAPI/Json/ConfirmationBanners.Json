@@ -1,0 +1,185 @@
+[
+  {
+    "CinemaId": "0001",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  },
+  {
+    "CinemaId": "0002",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  },
+  {
+    "CinemaId": "0003",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  },
+  {
+    "CinemaId": "0004",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  },
+  {
+    "CinemaId": "0005",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  },
+  {
+    "CinemaId": "0006",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  },
+  {
+    "CinemaId": "0007",
+    "AllowedExperiences": [ "standard", "platinum", "dolby", "mx4d", "premier", "screenx", "reeljunior", "dine-in" ],
+    "Banner1": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-01.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    },
+    "Banner2": {
+      "ShowBanner": true,
+      "BannerTitle": "",
+      "BannerInnerContent": "",
+      "BannerImageUrl": "https://www.reelcinemas.ae/en/Content/images/EmailerImages-Reset/ads-02.gif",
+      "BannerPointsHeading": "",
+      "MainBannerRedirectUrl": "https://www.reelcinemas.ae/en/offers/offer#Others--Celebrate_your_childs_birthday",
+      "BannerPoints": "",
+      "RedirectUrlWithHeading": "",
+      "BrandLogo": ""
+    }
+  }
+
+]

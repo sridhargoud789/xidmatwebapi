@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Reel Cinemas</title>
+</head>
+<body style="margin: 0;padding: 0;" bgcolor="#dedede">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="padding-left:9px;padding-right:9px" valign="top" align="center"><!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="560"><tr><td align="center" valign="top"><![endif]-->
+      <div style="max-width:560px">
+        <table border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse: separate;border-spacing: 0;padding-left: 0;padding-right: 0;width: 100%;max-width: 560px;background-color: #fff;" bgcolor="#FFFFFF">
+          <tr>
+            <td height="68" align="center" bgcolor="#ffffff"><img src="https://reel.influx.co.in/Content/images/EmailerImages/logo.png" border="0" style="vertical-align:bottom;max-width:197px;width:40%" /></td>
+          </tr>
+          <tr>
+            <td style="padding-left:9px;padding-right:9px" valign="top" align="center"><!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="452"><tr><td align="center" valign="top"><![endif]-->
+              <div style="max-width:452px">
+                <table border="0" align="center" cellpadding="0" cellspacing="0" style="max-width:452px;width:100%">
+                  <tr>
+                    <td height="34">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="font:24px Verdana, Arial, Helvetica, sans-serif; color:#201746; text-align:center">Welcome to Reel Cinemas</td>
+                  </tr>
+                  <tr>
+                    <td height="44">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#000;text-align:left">Dear $UserName$,</td>
+                  </tr>
+                  <tr>
+                    <td height="26">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#000;text-align:left;line-height:18px"> Further to your recent interaction with us at <a href="http://www.kncc.com" target="_blank" style="color:#0000ff">reelcinemas.ae</a>, we are pleased to welcome you as a member of our website. </td>
+                  </tr>
+                  <tr>
+                    <td height="26">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#000;text-align:left;line-height:18px"> You may sign in to your account with us on <a href="http://www.reelcinemas.ae" target="_blank" style="color:#0000ff">reelcinemas.ae</a> with the following credentials: </td>
+                  </tr>
+                  <tr>
+                    <td height="26">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#000;text-align:left;line-height:20px"><strong>User Name:</strong> <a href="mailto:$EmailId$" target="_blank" style="color:#000">$EmailId$</a><br />
+                      <strong>Password:</strong> $Password$<br/>
+                        </td>
+                  </tr>
+                  <!--<tr>
+                    <td height="26">&nbsp;</td>
+                  </tr>-->
+                  <!--<tr>
+                    <td style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#000;text-align:left;line-height:18px"> Please click the link to confirm verification of your Email ID</td>
+                  </tr>
+                    <tr>
+                    <td height="30">&nbsp;</td>
+                  </tr>
+                <tr>
+                    <td><a href="$VerificationUrl$" target="_blank"><img src="images/verify.png" alt="Verify Now" width="100" height="30" border='0'></a></td>
+                  </tr>-->
+                    <tr>
+                        <td height="26">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#000;text-align:left;line-height:18px"> Registration with <a href="https://www.reelcinemas.ae" target="_blank" style="color:#0000ff">reelcinemas.ae</a> ensures you get access to the members section with the convenience of retrieving past booking information. </td>
+                    </tr>
+
+                  <tr>
+                    <td height="30">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="font:16px Verdana, Arial, Helvetica, sans-serif; color:#E30613; text-align:center;line-height:18px">Thank you and have a nice day.</td>
+                  </tr>
+                  <tr>
+                    <td height="30" style="font:16px Verdana, Arial, Helvetica, sans-serif; color:#E30613; text-align:center">&nbsp;</td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#a9a9a9" style="padding-left:9px;padding-right:9px" valign="top" align="center"><!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="452"><tr><td align="center" valign="top"><![endif]-->
+              <div style="max-width:452px">
+                <table border="0" align="center" cellpadding="0" cellspacing="0" style="max-width:452px;width:100%">
+                  <tr valign="top">
+                    <td colspan="2" width="1" height="20" style="width: 1px; height:20px"><img alt="" height="1" src="https://reel.influx.co.in/Content/images/EmailerImages/spacer.gif" style="display:block; width: 1px; height:20px;" /></td>
+                  </tr>
+                  <tr>
+                    <td width="323" style="font:12px Verdana, Arial, Helvetica, sans-serif; color:#fff;text-align:left">&copy; Copyright 2019 Reel Cinemas.<br />
+                      All Rights Reserved</td>
+                    <td width="129"><!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="129"><tr><td align="right" valign="top"><![endif]-->
+                      <div style="max-width:129px">
+                        <table border="0" align="right" cellpadding="0" cellspacing="0" style="max-width:129px;width:100%">
+                          <tr>
+                            <td class="mobile-row" style="font-size: 0;" align="left" valign="top"><div style="display: inline-block; max-width: 43px; vertical-align: top; width: 33.3%;">
+                                <table class="vb-content" style="border-collapse: separate;width: 100%;" align="right" border="0" cellpadding="0" cellspacing="0" width="43">
+                                 <tbody>
+                                    <tr>
+                                      <td class="links-color" align="right" valign="top" width="100%"><a href="https://www.facebook.com/reelcinemasdubai/" target="_blank"><img src="https://reel.influx.co.in/Content/images/EmailerImages/icon-facebook.png" alt="facebook" hspace="0" vspace="0" border="0" style="border: 0px;display: block;vertical-align: top;height: auto;max-width: 28px;width:100%;" title="facebook" /></a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div style="display: inline-block; max-width: 43px; vertical-align: top; width: 33.3%;">
+                                <table class="vb-content" style="border-collapse: separate;width: 100%;" align="right" border="0" cellpadding="0" cellspacing="0" width="43">
+                                  <tbody>
+                                    <tr>
+                                      <td class="links-color" align="right" valign="top" width="100%"><a href="https://twitter.com/ReelCinemas" target="_blank"><img src="https://reel.influx.co.in/Content/images/EmailerImages/icon-twitter.png" alt="Twitter" hspace="0" vspace="0" border="0" style="border: 0px;display: block;vertical-align: top;height: auto;max-width: 28px;width:100%;" title="Twitter" /></a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div style="display: inline-block; max-width: 43px; vertical-align: top; width: 33.3%;">
+                                <table class="vb-content" style="border-collapse: separate;width: 100%;" align="right" border="0" cellpadding="0" cellspacing="0" width="43">
+                                  <tbody>
+                                    <tr>
+                                      <td class="links-color" align="right" valign="top" width="100%"><a href="http://instagram.com/ReelCinemas" target="_blank"><img src="https://reel.influx.co.in/Content/images/EmailerImages/icon-instagram.png" alt="Instagram" hspace="0" vspace="0" border="0" style="border: 0px;display: block;vertical-align: top;height: auto;max-width: 28px;width:100%;" title="Instagram" /></a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div></td>
+                          </tr>
+                        </table>
+                      </div>
+                      <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+                    </td>
+                  </tr>
+                  <tr valign="top">
+                    <td colspan="2" width="1" height="20" style="width: 1px; height:20px"><img alt="" height="1" src="https://reel.influx.co.in/Content/images/EmailerImages/spacer.gif" style="display:block; width: 1px; height:20px;" /></td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+    </td>
+  </tr>
+</table>
+</body>
+</html>

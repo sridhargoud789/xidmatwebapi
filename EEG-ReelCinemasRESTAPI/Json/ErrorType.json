@@ -1,0 +1,43 @@
+﻿[
+  {
+    "IsEnable": true,
+    "Type": "INFO",
+    "InsertType": "DB"
+  },
+  {
+    "IsEnable": true,
+    "Type": "ERROR",
+    "InsertType": "DB"
+  },
+  {
+    "IsEnable": true,
+    "Type": "VISTA-INFO",
+    "InsertType": "DB"
+  },
+  {
+    "IsEnable": true,
+    "Type": "WARNING",
+    "InsertType": "DB"
+  },
+  {
+    "IsEnable": true,
+    "Type": "EMAAR-INFO",
+    "InsertType": "DB"
+  },
+  {
+    "IsEnable": true,
+    "Type": "UBYEMAAR-INFO",
+    "InsertType": "DB"
+  },
+  {
+    "IsEnable": true,
+    "Type": "SEAT-INFO",
+    "InsertType": "DB"
+  },
+
+  {
+    "IsEnable": true,
+    "Type": "PAYMENT-INFO",
+    "InsertType": "FILE"
+  }
+]

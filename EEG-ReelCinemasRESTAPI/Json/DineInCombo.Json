@@ -1,0 +1,242 @@
+[
+  {
+    "CinemaId": "0001",
+    "Id": "3441",
+    "Description": "Dine-in Full Meal Combo",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0407",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 12500,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "3441",
+    "Description": "Dine-in Full Meal Combo free",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0416",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "3442",
+    "Description": "Dine-in Meal Combo",
+    "ModifierGroupDescription": "Movie + Starter + Main + Soft Drink",
+    "TicketType": "0143",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 10000,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "3442",
+    "Description": "Dine-in Meal Combo free",
+    "ModifierGroupDescription": "Movie + Starter + Main + Soft Drink",
+    "TicketType": "0358",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "3443",
+    "Description": "Dine-in Meal Choice Combo",
+    "ModifierGroupDescription": "Movie + Food  + Soft Drink",
+    "TicketType": "0408",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 6000,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "3443",
+    "Description": "Dine-in Meal Choice Free",
+    "ModifierGroupDescription": "Movie + Food  + Soft Drink",
+    "TicketType": "0418",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "3444",
+    "Description": "Dine-in Kids Combo",
+    "ModifierGroupDescription": "Movie + Kids Meal + Juice",
+    "TicketType": "0265",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 3500,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0001",
+    "Id": "0",
+    "Description": "Dine-in Ticket Only",
+    "ModifierGroupDescription": "",
+    "TicketType": "0142",
+    "TicketPriceInCents": 5500,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3441",
+    "Description": "Dine-in Full Meal Combo",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0366",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 12500,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3441",
+    "Description": "Dine-in Full Meal Combo free",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0376",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3442",
+    "Description": "Dine-in Meal Combo",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0099",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 10000,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3442",
+    "Description": "Dine-in Meal Combo free",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0333",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3443",
+    "Description": "Dine-in Meal Choice Combo",
+    "ModifierGroupDescription": "Movie + Food  + Soft Drink",
+    "TicketType": "0367",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 6000,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3443",
+    "Description": "Dine-in Meal Choice -ENBD Free",
+    "ModifierGroupDescription": "Movie + Food  + Soft Drink",
+    "TicketType": "0378",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "3444",
+    "Description": "Dine-in Kids Combo",
+    "ModifierGroupDescription": "Movie +  Kids Meal + Juice",
+    "TicketType": "0253",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 3500,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0003",
+    "Id": "0",
+    "Description": "Dine-in Ticket Only",
+    "ModifierGroupDescription": "",
+    "TicketType": "0098",
+    "TicketPriceInCents": 5000,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3441",
+    "Description": "Dine-in Full Meal Combo",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0365",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 12500,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3441",
+    "Description": "Dine-in Full Meal Combo free",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0375",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3442",
+    "Description": "Dine-in Meal Combo",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0100",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 10000,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3442",
+    "Description": "Dine-in Meal Combo free",
+    "ModifierGroupDescription": "Movie + Starter + Main + Dessert + Soft Drink",
+    "TicketType": "0331",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3443",
+    "Description": "Dine-in Meal Choice Combo",
+    "ModifierGroupDescription": "Movie + Food  + Soft Drink",
+    "TicketType": "0366",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 6000,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3443",
+    "Description": "Dine-in Meal Choice Combo Free",
+    "ModifierGroupDescription": "Movie + Food  + Soft Drink",
+    "TicketType": "0377",
+    "TicketPriceInCents": 0,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": true
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "3444",
+    "Description": "Dine-in Kids Combo",
+    "ModifierGroupDescription": "Movie +  Kids Meal + Juice",
+    "TicketType": "0254",
+    "TicketPriceInCents": 3500,
+    "FoodPriceInCents": 3500,
+    "IsFreeTicket": false
+  },
+  {
+    "CinemaId": "0004",
+    "Id": "0",
+    "Description": "Dine-in Ticket Only",
+    "ModifierGroupDescription": "",
+    "TicketType": "0099",
+    "TicketPriceInCents": 5000,
+    "FoodPriceInCents": 0,
+    "IsFreeTicket": false
+  }
+]

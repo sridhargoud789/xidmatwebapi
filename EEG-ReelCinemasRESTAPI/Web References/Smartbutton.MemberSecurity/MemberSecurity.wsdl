@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="LoyaltyPlatformWS" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="LoyaltyPlatformWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="LoyaltyPlatformWS">
+      <s:element name="ValidatePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidatePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidatePasswordResult" type="tns:ValidatePasswordReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidatePasswordReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberNewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetPasswordResult" type="tns:SetPasswordReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SetPasswordReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberCurrentPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberNewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="tns:ChangePasswordReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChangePasswordReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidatePIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberPIN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidatePINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidatePINResult" type="tns:ValidatePINReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidatePINReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetPIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberNewPIN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetPINResult" type="tns:SetPINReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SetPINReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChangePIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberCurrentPIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberNewPIN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePINResult" type="tns:ChangePINReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChangePINReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FetchMemberLastPasswordChangeDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchMemberLastPasswordChangeDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchMemberLastPasswordChangeDateResult" type="tns:FetchMemberLastPasswordChangeDateReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FetchMemberLastPasswordChangeDateReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastPasswordChangeTimestampUTC" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EnrollmentVerificationIssueCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnrollmentVerificationIssueCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollmentVerificationIssueCodeResult" type="tns:EnrollmentVerificationIssueCodeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EnrollmentVerificationIssueCodeReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberVerificationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactMethod" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmailVerificationIssueCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailVerificationIssueCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailVerificationIssueCodeResult" type="tns:EmailVerificationIssueCodeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EmailVerificationIssueCodeReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberVerificationId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TextVerificationIssueCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TextVerificationIssueCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TextVerificationIssueCodeResult" type="tns:TextVerificationIssueCodeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TextVerificationIssueCodeReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberVerificationId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EnrollmentVerificationSubmitCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VerificationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnrollmentVerificationSubmitCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollmentVerificationSubmitCodeResult" type="tns:EnrollmentVerificationSubmitCodeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EnrollmentVerificationSubmitCodeReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberVerificationId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmailVerificationSubmitCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VerificationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailVerificationSubmitCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailVerificationSubmitCodeResult" type="tns:EmailVerificationSubmitCodeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EmailVerificationSubmitCodeReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberVerificationId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TextVerificationSubmitCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSSecurityToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccountId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SBInternalMemberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VerificationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationExternalReference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TextVerificationSubmitCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TextVerificationSubmitCodeResult" type="tns:TextVerificationSubmitCodeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TextVerificationSubmitCodeReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberVerificationId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidatePasswordReturn" nillable="true" type="tns:ValidatePasswordReturn" />
+      <s:element name="SetPasswordReturn" nillable="true" type="tns:SetPasswordReturn" />
+      <s:element name="ChangePasswordReturn" nillable="true" type="tns:ChangePasswordReturn" />
+      <s:element name="ValidatePINReturn" nillable="true" type="tns:ValidatePINReturn" />
+      <s:element name="SetPINReturn" nillable="true" type="tns:SetPINReturn" />
+      <s:element name="ChangePINReturn" nillable="true" type="tns:ChangePINReturn" />
+      <s:element name="FetchMemberLastPasswordChangeDateReturn" nillable="true" type="tns:FetchMemberLastPasswordChangeDateReturn" />
+      <s:element name="EnrollmentVerificationIssueCodeReturn" nillable="true" type="tns:EnrollmentVerificationIssueCodeReturn" />
+      <s:element name="EmailVerificationIssueCodeReturn" nillable="true" type="tns:EmailVerificationIssueCodeReturn" />
+      <s:element name="TextVerificationIssueCodeReturn" nillable="true" type="tns:TextVerificationIssueCodeReturn" />
+      <s:element name="EnrollmentVerificationSubmitCodeReturn" nillable="true" type="tns:EnrollmentVerificationSubmitCodeReturn" />
+      <s:element name="EmailVerificationSubmitCodeReturn" nillable="true" type="tns:EmailVerificationSubmitCodeReturn" />
+      <s:element name="TextVerificationSubmitCodeReturn" nillable="true" type="tns:TextVerificationSubmitCodeReturn" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidatePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidatePassword" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePINSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidatePIN" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePINSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidatePINResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPINSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPIN" />
+  </wsdl:message>
+  <wsdl:message name="SetPINSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPINResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePINSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePIN" />
+  </wsdl:message>
+  <wsdl:message name="ChangePINSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePINResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchMemberLastPasswordChangeDateSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchMemberLastPasswordChangeDate" />
+  </wsdl:message>
+  <wsdl:message name="FetchMemberLastPasswordChangeDateSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchMemberLastPasswordChangeDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationIssueCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:EnrollmentVerificationIssueCode" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationIssueCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:EnrollmentVerificationIssueCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationIssueCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailVerificationIssueCode" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationIssueCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailVerificationIssueCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationIssueCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:TextVerificationIssueCode" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationIssueCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:TextVerificationIssueCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationSubmitCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:EnrollmentVerificationSubmitCode" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationSubmitCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:EnrollmentVerificationSubmitCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationSubmitCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailVerificationSubmitCode" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationSubmitCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailVerificationSubmitCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationSubmitCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:TextVerificationSubmitCode" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationSubmitCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:TextVerificationSubmitCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePasswordHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:ValidatePasswordReturn" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberNewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:SetPasswordReturn" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberCurrentPassword" type="s:string" />
+    <wsdl:part name="MemberNewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChangePasswordReturn" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePINHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberPIN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePINHttpGetOut">
+    <wsdl:part name="Body" element="tns:ValidatePINReturn" />
+  </wsdl:message>
+  <wsdl:message name="SetPINHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberNewPIN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPINHttpGetOut">
+    <wsdl:part name="Body" element="tns:SetPINReturn" />
+  </wsdl:message>
+  <wsdl:message name="ChangePINHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberCurrentPIN" type="s:string" />
+    <wsdl:part name="MemberNewPIN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePINHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChangePINReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchMemberLastPasswordChangeDateHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchMemberLastPasswordChangeDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:FetchMemberLastPasswordChangeDateReturn" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationIssueCodeHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationIssueCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:EnrollmentVerificationIssueCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationIssueCodeHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationIssueCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:EmailVerificationIssueCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationIssueCodeHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationIssueCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:TextVerificationIssueCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationSubmitCodeHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="VerificationCode" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationSubmitCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:EnrollmentVerificationSubmitCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationSubmitCodeHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="VerificationCode" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationSubmitCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:EmailVerificationSubmitCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationSubmitCodeHttpGetIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="VerificationCode" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationSubmitCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:TextVerificationSubmitCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePasswordHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:ValidatePasswordReturn" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberNewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:SetPasswordReturn" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberCurrentPassword" type="s:string" />
+    <wsdl:part name="MemberNewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChangePasswordReturn" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePINHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberPIN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePINHttpPostOut">
+    <wsdl:part name="Body" element="tns:ValidatePINReturn" />
+  </wsdl:message>
+  <wsdl:message name="SetPINHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberNewPIN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPINHttpPostOut">
+    <wsdl:part name="Body" element="tns:SetPINReturn" />
+  </wsdl:message>
+  <wsdl:message name="ChangePINHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="MemberCurrentPIN" type="s:string" />
+    <wsdl:part name="MemberNewPIN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePINHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChangePINReturn" />
+  </wsdl:message>
+  <wsdl:message name="FetchMemberLastPasswordChangeDateHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FetchMemberLastPasswordChangeDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:FetchMemberLastPasswordChangeDateReturn" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationIssueCodeHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationIssueCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:EnrollmentVerificationIssueCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationIssueCodeHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationIssueCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:EmailVerificationIssueCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationIssueCodeHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationIssueCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:TextVerificationIssueCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationSubmitCodeHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="VerificationCode" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnrollmentVerificationSubmitCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:EnrollmentVerificationSubmitCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationSubmitCodeHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="VerificationCode" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmailVerificationSubmitCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:EmailVerificationSubmitCodeReturn" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationSubmitCodeHttpPostIn">
+    <wsdl:part name="WSSecurityToken" type="s:string" />
+    <wsdl:part name="MemberAccountId" type="s:string" />
+    <wsdl:part name="SBInternalMemberId" type="s:string" />
+    <wsdl:part name="VerificationCode" type="s:string" />
+    <wsdl:part name="LocationExternalReference" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TextVerificationSubmitCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:TextVerificationSubmitCodeReturn" />
+  </wsdl:message>
+  <wsdl:portType name="MemberSecuritySoap">
+    <wsdl:operation name="ValidatePassword">
+      <wsdl:input message="tns:ValidatePasswordSoapIn" />
+      <wsdl:output message="tns:ValidatePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:input message="tns:SetPasswordSoapIn" />
+      <wsdl:output message="tns:SetPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <wsdl:input message="tns:ValidatePINSoapIn" />
+      <wsdl:output message="tns:ValidatePINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <wsdl:input message="tns:SetPINSoapIn" />
+      <wsdl:output message="tns:SetPINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <wsdl:input message="tns:ChangePINSoapIn" />
+      <wsdl:output message="tns:ChangePINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <wsdl:input message="tns:FetchMemberLastPasswordChangeDateSoapIn" />
+      <wsdl:output message="tns:FetchMemberLastPasswordChangeDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <wsdl:input message="tns:EnrollmentVerificationIssueCodeSoapIn" />
+      <wsdl:output message="tns:EnrollmentVerificationIssueCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <wsdl:input message="tns:EmailVerificationIssueCodeSoapIn" />
+      <wsdl:output message="tns:EmailVerificationIssueCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <wsdl:input message="tns:TextVerificationIssueCodeSoapIn" />
+      <wsdl:output message="tns:TextVerificationIssueCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <wsdl:input message="tns:EnrollmentVerificationSubmitCodeSoapIn" />
+      <wsdl:output message="tns:EnrollmentVerificationSubmitCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <wsdl:input message="tns:EmailVerificationSubmitCodeSoapIn" />
+      <wsdl:output message="tns:EmailVerificationSubmitCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <wsdl:input message="tns:TextVerificationSubmitCodeSoapIn" />
+      <wsdl:output message="tns:TextVerificationSubmitCodeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MemberSecurityHttpGet">
+    <wsdl:operation name="ValidatePassword">
+      <wsdl:input message="tns:ValidatePasswordHttpGetIn" />
+      <wsdl:output message="tns:ValidatePasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:input message="tns:SetPasswordHttpGetIn" />
+      <wsdl:output message="tns:SetPasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordHttpGetIn" />
+      <wsdl:output message="tns:ChangePasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <wsdl:input message="tns:ValidatePINHttpGetIn" />
+      <wsdl:output message="tns:ValidatePINHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <wsdl:input message="tns:SetPINHttpGetIn" />
+      <wsdl:output message="tns:SetPINHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <wsdl:input message="tns:ChangePINHttpGetIn" />
+      <wsdl:output message="tns:ChangePINHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <wsdl:input message="tns:FetchMemberLastPasswordChangeDateHttpGetIn" />
+      <wsdl:output message="tns:FetchMemberLastPasswordChangeDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <wsdl:input message="tns:EnrollmentVerificationIssueCodeHttpGetIn" />
+      <wsdl:output message="tns:EnrollmentVerificationIssueCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <wsdl:input message="tns:EmailVerificationIssueCodeHttpGetIn" />
+      <wsdl:output message="tns:EmailVerificationIssueCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <wsdl:input message="tns:TextVerificationIssueCodeHttpGetIn" />
+      <wsdl:output message="tns:TextVerificationIssueCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <wsdl:input message="tns:EnrollmentVerificationSubmitCodeHttpGetIn" />
+      <wsdl:output message="tns:EnrollmentVerificationSubmitCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <wsdl:input message="tns:EmailVerificationSubmitCodeHttpGetIn" />
+      <wsdl:output message="tns:EmailVerificationSubmitCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <wsdl:input message="tns:TextVerificationSubmitCodeHttpGetIn" />
+      <wsdl:output message="tns:TextVerificationSubmitCodeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MemberSecurityHttpPost">
+    <wsdl:operation name="ValidatePassword">
+      <wsdl:input message="tns:ValidatePasswordHttpPostIn" />
+      <wsdl:output message="tns:ValidatePasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:input message="tns:SetPasswordHttpPostIn" />
+      <wsdl:output message="tns:SetPasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordHttpPostIn" />
+      <wsdl:output message="tns:ChangePasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <wsdl:input message="tns:ValidatePINHttpPostIn" />
+      <wsdl:output message="tns:ValidatePINHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <wsdl:input message="tns:SetPINHttpPostIn" />
+      <wsdl:output message="tns:SetPINHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <wsdl:input message="tns:ChangePINHttpPostIn" />
+      <wsdl:output message="tns:ChangePINHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <wsdl:input message="tns:FetchMemberLastPasswordChangeDateHttpPostIn" />
+      <wsdl:output message="tns:FetchMemberLastPasswordChangeDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <wsdl:input message="tns:EnrollmentVerificationIssueCodeHttpPostIn" />
+      <wsdl:output message="tns:EnrollmentVerificationIssueCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <wsdl:input message="tns:EmailVerificationIssueCodeHttpPostIn" />
+      <wsdl:output message="tns:EmailVerificationIssueCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <wsdl:input message="tns:TextVerificationIssueCodeHttpPostIn" />
+      <wsdl:output message="tns:TextVerificationIssueCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <wsdl:input message="tns:EnrollmentVerificationSubmitCodeHttpPostIn" />
+      <wsdl:output message="tns:EnrollmentVerificationSubmitCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <wsdl:input message="tns:EmailVerificationSubmitCodeHttpPostIn" />
+      <wsdl:output message="tns:EmailVerificationSubmitCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <wsdl:input message="tns:TextVerificationSubmitCodeHttpPostIn" />
+      <wsdl:output message="tns:TextVerificationSubmitCodeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MemberSecuritySoap" type="tns:MemberSecuritySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidatePassword">
+      <soap:operation soapAction="LoyaltyPlatformWS/ValidatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap:operation soapAction="LoyaltyPlatformWS/SetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="LoyaltyPlatformWS/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <soap:operation soapAction="LoyaltyPlatformWS/ValidatePIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <soap:operation soapAction="LoyaltyPlatformWS/SetPIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <soap:operation soapAction="LoyaltyPlatformWS/ChangePIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <soap:operation soapAction="LoyaltyPlatformWS/FetchMemberLastPasswordChangeDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <soap:operation soapAction="LoyaltyPlatformWS/EnrollmentVerificationIssueCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <soap:operation soapAction="LoyaltyPlatformWS/EmailVerificationIssueCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <soap:operation soapAction="LoyaltyPlatformWS/TextVerificationIssueCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <soap:operation soapAction="LoyaltyPlatformWS/EnrollmentVerificationSubmitCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <soap:operation soapAction="LoyaltyPlatformWS/EmailVerificationSubmitCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <soap:operation soapAction="LoyaltyPlatformWS/TextVerificationSubmitCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MemberSecuritySoap12" type="tns:MemberSecuritySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidatePassword">
+      <soap12:operation soapAction="LoyaltyPlatformWS/ValidatePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap12:operation soapAction="LoyaltyPlatformWS/SetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="LoyaltyPlatformWS/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <soap12:operation soapAction="LoyaltyPlatformWS/ValidatePIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <soap12:operation soapAction="LoyaltyPlatformWS/SetPIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <soap12:operation soapAction="LoyaltyPlatformWS/ChangePIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <soap12:operation soapAction="LoyaltyPlatformWS/FetchMemberLastPasswordChangeDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <soap12:operation soapAction="LoyaltyPlatformWS/EnrollmentVerificationIssueCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <soap12:operation soapAction="LoyaltyPlatformWS/EmailVerificationIssueCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <soap12:operation soapAction="LoyaltyPlatformWS/TextVerificationIssueCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <soap12:operation soapAction="LoyaltyPlatformWS/EnrollmentVerificationSubmitCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <soap12:operation soapAction="LoyaltyPlatformWS/EmailVerificationSubmitCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <soap12:operation soapAction="LoyaltyPlatformWS/TextVerificationSubmitCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MemberSecurityHttpGet" type="tns:MemberSecurityHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ValidatePassword">
+      <http:operation location="/ValidatePassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <http:operation location="/SetPassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <http:operation location="/ChangePassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <http:operation location="/ValidatePIN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <http:operation location="/SetPIN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <http:operation location="/ChangePIN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <http:operation location="/FetchMemberLastPasswordChangeDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <http:operation location="/EnrollmentVerificationIssueCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <http:operation location="/EmailVerificationIssueCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <http:operation location="/TextVerificationIssueCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <http:operation location="/EnrollmentVerificationSubmitCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <http:operation location="/EmailVerificationSubmitCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <http:operation location="/TextVerificationSubmitCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MemberSecurityHttpPost" type="tns:MemberSecurityHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ValidatePassword">
+      <http:operation location="/ValidatePassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <http:operation location="/SetPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <http:operation location="/ChangePassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePIN">
+      <http:operation location="/ValidatePIN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPIN">
+      <http:operation location="/SetPIN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePIN">
+      <http:operation location="/ChangePIN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchMemberLastPasswordChangeDate">
+      <http:operation location="/FetchMemberLastPasswordChangeDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationIssueCode">
+      <http:operation location="/EnrollmentVerificationIssueCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationIssueCode">
+      <http:operation location="/EmailVerificationIssueCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationIssueCode">
+      <http:operation location="/TextVerificationIssueCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnrollmentVerificationSubmitCode">
+      <http:operation location="/EnrollmentVerificationSubmitCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailVerificationSubmitCode">
+      <http:operation location="/EmailVerificationSubmitCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TextVerificationSubmitCode">
+      <http:operation location="/TextVerificationSubmitCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MemberSecurity">
+    <wsdl:port name="MemberSecuritySoap" binding="tns:MemberSecuritySoap">
+      <soap:address location="https://ca.smartbutton.com/WS/MemberSecurity.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MemberSecuritySoap12" binding="tns:MemberSecuritySoap12">
+      <soap12:address location="https://ca.smartbutton.com/WS/MemberSecurity.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MemberSecurityHttpGet" binding="tns:MemberSecurityHttpGet">
+      <http:address location="https://ca.smartbutton.com/WS/MemberSecurity.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MemberSecurityHttpPost" binding="tns:MemberSecurityHttpPost">
+      <http:address location="https://ca.smartbutton.com/WS/MemberSecurity.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
