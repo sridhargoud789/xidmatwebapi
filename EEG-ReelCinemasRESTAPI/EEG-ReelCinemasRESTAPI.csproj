@@ -503,7 +503,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Passbook\PassbookGenerator.dll" />
-    <Content Include="Passbook\Passbook.Generator.pdb" />
     <Content Include="PaymentConfirmation.aspx" />
     <Content Include="PaymentResponse.aspx" />
     <Content Include="pkpass\BG%402X.png" />
