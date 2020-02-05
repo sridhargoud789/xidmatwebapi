@@ -29,8 +29,8 @@ namespace EEG_ReelCinemasRESTAPI.Controllers
         private string ReturnValue = string.Empty;
 
         [HttpPost]
-        [AuthenticateRequest]
-        [Route("api/ReelCinemas/UserRegistration")]
+       // [AuthenticateRequest]
+        [Route("api/Services/GetAllMasterServices")]
         public async Task<object> GetAllMasterServices()
         {
             try

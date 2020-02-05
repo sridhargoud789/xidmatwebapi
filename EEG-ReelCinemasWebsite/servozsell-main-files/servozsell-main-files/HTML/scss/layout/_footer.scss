@@ -1,0 +1,100 @@
+.sl-footerUpper{
+    background-color: $light-pink-color;
+    ul{margin: -10px 0 -4px;}
+    li{
+        @extend %flex;
+        justify-content: space-between;
+        &:nth-last-child(n+2){padding-bottom: 7px;}
+        &:first-child{padding-bottom: 4px;}
+        p{
+            font-size: 0.8125rem;
+            a{
+                @extend %flex;
+                color: $black-color;
+                img{margin-right: 10px;}
+            }
+        }
+        span{
+            font-size: 0.75rem;
+            color: $black-color2;
+        }
+
+    }
+    &__flags{
+        li{
+            p{
+                a{
+                    @extend %flex;
+                    img{margin-right: 10px;}
+                }
+            }
+        }
+    }
+    &__links{
+        li{
+            p{
+                flex: 100%;
+                a{
+                    @extend %flex;
+                    justify-content: space-between;
+                    i{
+                        font-size: 10px;
+                        color: $black-color2;
+                    }
+                }
+            }
+        }
+    }
+}
+.sl-footerCenter{
+    background-color: $black-color;
+    h6{
+        line-height: 20px;
+        color: $white-color;
+        a{
+            color: $white-color;
+            &:hover{color: $anchor-color;}
+        }
+    }
+    &__logoSection{
+        color: $border-color;
+        > a{display: block;}
+        p{margin: 13px 0 9px;}
+    }
+    &__contact{
+        li{
+            @extend %flex;
+            &:nth-last-child(n+2){padding-bottom: 23px;}
+            i{
+                color: $primary-color;
+                font-size: 13px;
+            }
+        }
+        &__description{
+            padding-left: 15px;
+            p{
+                font-size: 13px;
+                line-height: 15px;
+                color: $border-color;
+            }
+        }
+    }
+    &__newsletter{
+        form{
+            padding: 16px 0 25px;
+        }
+        .sl-app{padding-top: 16px;}
+    }
+}
+.sl-footerLower{
+    @extend %flex;
+    background-color: $black-color;
+    border-top: 1px solid rgba($white-color, 0.1);
+    padding: 15px 0;
+    min-height: 60px;
+    &__content{
+        @extend %flex;
+        justify-content: space-between;
+        color: $border-color;
+    }
+}

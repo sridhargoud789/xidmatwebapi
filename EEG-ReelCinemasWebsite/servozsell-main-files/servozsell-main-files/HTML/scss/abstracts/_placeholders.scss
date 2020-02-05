@@ -1,0 +1,102 @@
+%margin-bottom-0{margin-bottom: 0;}
+%multi-use-font{font: 400 0.875rem/1.714286 'Open Sans', sans-serif;}
+%block-dropdown{
+    top: 200% !important;
+    transform: none !important;
+    right: 0 !important;
+    left: unset !important;
+    margin: 0;
+    border: 0;
+    border-radius: 0 0 4px 4px;
+    &.dropdown-menu.show{
+        -webkit-animation: fadein 300ms both ease-out;
+        animation: fadein 300ms both ease-out;
+    }
+}
+%dropdown-show{
+    transform: translate3d(0, 0, 0) !important;
+    top: 100% !important;
+    opacity: 1;
+    visibility: visible;
+}
+%flex{
+    display: flex;
+    align-items: center;
+}
+%black-color2{color: $black-color2;}
+%white-color{color: $white-color;}
+%black-color{color:$black-color;}
+%red-orange-color{color:$red-orange-color;}
+%bg-light-pink-color{background-color: $light-pink-color;}
+%sl-featureRating__stars{
+    position: relative;
+    width: 77.5px;
+    height: 16px;
+    line-height: 16px;
+}
+%sl-featureRating{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    font-family: 'Font Awesome 5 Free';
+}
+%sl-featureRating__starsIcon{
+    color: $yellow-color;
+    content: '\f005 \f005 \f005 \f005 \f005';
+}
+%sl-featureRating__dollarsIcon{
+    color: #999;
+    content: '\f155 \f155 \f155 \f155 \f155';
+}
+%sl-package{
+    width: 100%;
+    border: 1px solid $border-color;
+}
+%check{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+}
+%sl-siderbarInnerDiv{
+    padding: 20px 30px 25px;
+    border-top: 1px solid #c1c1c1;
+    .mCustomScrollbar{
+        max-height: 320px;
+        padding-top: 6px;
+    }
+    max-height: 387px;
+}
+%sl-mainContentSide{
+    border-top: 1px solid $border-color;
+    padding: 20px 30px 27px;
+    label{
+        @extend %flex;
+    }
+}
+%sl-transition{
+    -webkit-transition:all .3s ease-in-out;
+    -moz-transition:all .3s ease-in-out;
+    -ms-transition:all .3s ease-in-out;
+    -o-transition:all .3s ease-in-out;
+    transition:all .3s ease-in-out;
+}
+%sl-below-line{
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 2px;
+        @extend %sl-transition;
+        border-radius: 3px 3px 0 0;
+        background-color: #ffca28;
+        opacity: 0;
+        visibility: hidden;
+    }
+}

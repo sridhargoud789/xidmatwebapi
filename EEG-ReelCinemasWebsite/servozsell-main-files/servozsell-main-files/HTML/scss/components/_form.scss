@@ -1,0 +1,240 @@
+.sl-form-group{
+    position: relative;
+    a{
+        color: $black-color2;
+        + .sl-right-icon{right: 43px;}
+        & .ti-target{color: $green-color}
+    }
+    i{font-size: 12px}
+}
+.sl-select select,
+.sl-form-control{
+    font-size: 0.875rem;
+    padding: 0 20px;
+    height: 44px;
+    border-color: $border-color;
+    border-radius: 6px; 
+    background-clip: unset;
+    caret-color: $black-color2;
+    @extend %black-color2;
+    &::placeholder{
+        @extend %black-color2;
+        font-size: 0.875rem;
+    }
+    &:focus{
+        border-color: $border-color;
+        @extend %black-color2;
+        box-shadow: unset;
+    }
+}
+textarea.sl-form-control{
+    resize: none;
+    height: 200px;
+    padding-top:18px;
+}
+.sl-select{
+    position:relative;
+    width: 100%;
+    &:before {
+        top: 0;
+        right: 20px;
+        z-index: 1;
+        color: $black-color2;
+        display: block;
+        content: "\e64b";
+        position: absolute;
+        text-align: center;
+        line-height: 44px;
+        font-size: 12px;
+        pointer-events: none;
+        font-family: themify;
+    }
+    & select{
+        appearance:none;
+        padding-right:40px;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        width: 100%;
+        &:focus{
+            outline: 0;
+        }
+    }
+}
+.sl-input-group{
+    @extend %flex;
+    min-height: inherit;
+}
+.sl-prepend{
+    border-radius: 6px 0 0 6px;
+    + .sl-append{
+        border-left: 0;
+        i{
+            font-size: 18px;
+            color: $black-color;
+        }
+    }
+}
+.sl-append{
+    border-radius: 0 6px 6px 0;
+    border-left: 1px solid rgba(#000, 0.2);
+    min-width: 44px;
+}
+.sl-checkbox{
+    position: relative;
+    & input[type=checkbox]{
+        display: none;
+        &:checked + label:after{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    & > label{
+        @extend %flex;
+        & > *:first-child{margin-left: 21px;}
+        &::before{
+            content: '';
+            @extend %check;
+            border-radius: 2px;
+            border: 1px solid #c1c1c1;
+            background: linear-gradient(to top, #e5e5e5 60%, #f4f4f4 86%);
+            -webkit-box-shadow: 0 0 1px 0 rgba(239,239,239,1);
+            box-shadow: 0 0 1px 0 rgba(239,239,239,1);
+            left: 0;
+        }
+        &::after{
+            content: '\f00c';
+            @extend %check;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: $black-color;
+            font-size: 9px;
+            left: 1.5px;
+            opacity: 0;
+            visibility: hidden;
+            @extend %flex;
+        }
+    }
+}
+.sl-radio{
+    @extend .sl-checkbox;
+    & input[type=radio]{
+        display: none;
+        &:checked + label:after{
+            opacity: 1;
+            visibility: visible;
+        }
+        & + label::before{border-radius: 50%;}
+    }
+}
+label{@extend %margin-bottom-0;}
+.sl-form{
+    fieldset{margin: -5px;}
+    .form-group{
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 0;
+    }
+    &__label, .form-group > label{
+        position: relative;
+        width: 100%;
+        margin-top: -10px;
+        > *{margin-top: 10px;}
+    } 
+    .form-group-half{width: 50%;}
+    &__wrap{
+        display: flex;
+        flex-wrap: wrap; 
+    }
+}
+// SELECT2 SIMPLE START
+.select2-container--default .select2-selection--single{
+    @extend .sl-form-control;
+    outline: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    position: relative;
+    @extend %flex;
+    height: 44px;
+    padding-left: 0;
+    color: $black-color2;
+    &:after{
+        content: "\e64b";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 14px;
+        line-height: 44px;
+        font-family: themify;
+        color: #999;
+    }
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder{color: $black-color2;}
+.select2-container--default .select2-selection--single .select2-selection__arrow{display: none;}
+.select2-container--open .select2-dropdown--below{border-color: $border-color;}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    outline: 0;
+    border-color: $border-color;
+    caret-color: $black-color2;
+}
+.select2-container--default .select2-results__option[aria-selected=true]{
+    background-color: $light-pink-color;
+    color: $black-color2;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected]{
+    background-color: $anchor-color;
+    color: $white-color;
+}
+.select2-results__option{
+    padding: 6px 20px;
+    line-height: 1;
+}
+// SELECT2 SIMPLE END
+// SELECT2 MULTIPLE START
+.select2-container--default .select2-selection--multiple,
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+    @extend %flex;
+    border-color: $border-color;
+    min-height: 44px;
+    border-radius: 4px;
+    padding-bottom: 5px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    position: relative;
+    @extend %flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    height: inherit;
+    &:after{
+        content: "\e64b";
+        position: absolute;
+        right: 20px;
+        top: 0;
+        font-size: 14px;
+        line-height: 36px;
+        font-family: themify;
+        color: #999;
+    }
+}
+.select2-container--default .select2-search--inline .select2-search__field{
+    caret-color: $black-color2;
+    width: 100% !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear{
+    color: $black-color2; 
+    position: absolute;
+    right: 35px;
+    top: 0;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    @extend %flex;
+    background-color: $light-pink-color;
+    border-color: $border-color;
+    padding: 0 10px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    color: $black-color2;
+    margin-left: 9px;
+    order: 2;
+}
+.select2-container,
+.select2-container .select2-search--inline{flex: auto;}

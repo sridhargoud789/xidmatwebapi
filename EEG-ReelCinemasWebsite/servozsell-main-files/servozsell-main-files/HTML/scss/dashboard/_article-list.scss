@@ -1,0 +1,38 @@
+.sl-articleList{
+    .sl-dashboardbox__content{
+        padding: 30px;
+        border: 1px solid #ddd;
+        margin: 0;
+        border-radius: 4px 4px 0 0;
+    }
+    .sl-featuredProducts--post{
+        &:hover{
+            box-shadow: none;
+        }
+        figure{
+            width: 175px;
+        }
+        img{min-width: unset;}
+    }
+    .sl-latestbloglist{
+        .sl-featuredProducts--post__content{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: auto;
+            padding: 10px 30px;
+        }
+    }
+    .sl-servicedays__spaces--rightarea{
+        margin-top: -9px;
+        flex-wrap: wrap;
+        > *{
+            margin-top: 9px;
+            &:nth-child(n+2){margin-left: 30px;}
+        }
+        p{margin-right: 0;}
+    }
+    [class^="col"]{
+        .sl-latestbloglist{margin-top: 10px;}
+    }
+}

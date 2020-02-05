@@ -1,0 +1,27 @@
+.sl-serviceProvider{
+    &__bloglist{
+        margin-top: -30px;
+    }
+}
+.sl-latestbloglist {
+    @extend %flex;
+    flex-direction: row;
+    flex-flow: row;
+    align-items: stretch;
+    border: 0;
+    margin-top: 30px;
+    .sl-featuredProducts--post__content{
+        border: 1px solid $border-color;
+        margin: 0;
+        border-radius: 0 $radius $radius 0;
+    }
+    figure {
+        img {
+            border-radius: $radius 0 0 $radius;
+            -webkit-border-radius :$radius 0 0 $radius;;
+            min-width: 301px;
+            height: 100%;
+        }
+        border: 0; 
+    }
+}

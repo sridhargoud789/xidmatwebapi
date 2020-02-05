@@ -1,0 +1,928 @@
+// SERVICE PROVIDER BANNER START
+#serviceProviderSingleBanner{
+    z-index: 0;
+    &.sl-owl-nav .owl-nav i{
+        background-color: rgba(255,255,255,0.3);
+        border-color: rgba($black-color,0.3);
+        &:hover{
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+}
+.sl-prettyPhotoImg{
+    display: block;
+    width: 100%;
+    img{width: 100%;}
+}
+.sl-img{
+    position: relative;
+    svg{
+        position: absolute;
+        visibility: hidden;
+        fill: #fbfbfb;
+        fill-rule: evenodd;
+        opacity: 0;
+    }
+    &:hover{
+        figure{
+            background-color: $black-color;
+            a > img{
+               opacity: 0.3;
+           }
+        }
+        svg{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    a{
+        @extend %flex;
+        justify-content: center;
+        svg{
+            position: absolute;
+            visibility: hidden;
+            fill: #fbfbfb;
+            fill-rule: evenodd;
+            opacity: 0;
+        }
+    }
+    span{
+        position: absolute;
+        font-size: 2rem;
+        color: #999;
+    }
+}
+// SERVICE PROVIDER BANNER END
+// APPOINTMENT START
+.sl-appointment{
+    @extend %flex;
+    margin-top: -130px ;
+    z-index: 9;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(#000,0.2);
+    box-shadow: 0 10px 30px 0 rgba(#000,0.2);
+    background-color: $white-color;
+    border-radius: $radius;
+    width: 100%;
+    padding: 30px;
+    em{
+        font-size: rem(14);
+        font-style: normal;
+    }
+    &__img{
+        img{
+            border-radius: 50%;
+            width: 100px;
+        }  
+    }
+    &__content{
+        padding: 0 20px;
+        margin-bottom: -7px;
+        .sl-slider__tags{margin-bottom: 13px;}
+        h5{
+            line-height: em(25,18);
+        }
+        h3{
+            line-height: em(34,28);
+        }
+    }
+    &__feature{
+        @extend %flex;
+        padding-bottom: 5px;
+        flex-wrap: wrap;
+        margin-top: -3px;
+        > div{
+            padding-top: 8px;
+            &:nth-child(n+2){
+                position: relative;
+                margin-left: 16px;
+                padding-left: 23px;
+                &::before{
+                    content: '|';
+                    position: absolute;
+                    font: 400 14px $para-font-family;
+                    color: $black-color2;
+                    left: 0;
+                }
+            }
+        }
+        & .sl-featureRating__stars{
+            &::before,
+            & span::after{line-height: 20px;}
+        }
+    }
+    &__note{
+        flex: 0 0 190px;
+        margin-left: auto;
+        text-align: center;
+        h6{
+            line-height: em(18,16);
+            font-weight: 700;
+        }
+        em{
+            font-size: rem(12);
+            font-style: italic;
+            display: inline-flex;
+            width: 80%;
+            line-height: em(16,12);
+        }
+        .sl-btn{
+            margin-top: 16px;
+        }
+    }
+}
+.sl-detail{
+    @extend %flex;
+    color: $black-color2;
+    flex-wrap: wrap;
+    margin-top: -3px;
+    margin:0 -15px;
+    & > div{
+        padding:0 15px;
+        padding-top: 3px;
+        em{
+            a{color: $black-color2;}
+            i{
+                padding-right: 8px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+// APPOINTMENT END
+// SERVICE PROVIDER SIDEBAR START
+// CONTACT DETAILS START
+.sl-contactDetail{
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    font: 400 rem(14) $heading-font-family;
+    margin-bottom: 30px;
+    &__content{
+        padding: 19px 30px 30px;
+    }
+    &__descripton{
+        margin-top: 8px;
+        & .sl-address-icon{color: #ffa726;}
+        & .sl-headphone-icon{color: #66bb6a;}
+        & .sl-email-icon{color: #ff7043;}
+        & .sl-mobile-icon{color: #e74c3c;}
+        & .sl-star-icon{color: #26a69a;}
+        & .sl-world-icon{color: #42a5f5;}
+        & li{
+            @extend %flex;
+            &:nth-child(n+2){padding-top: 12px;}
+            a{
+                color: $black-color;
+                display: block;
+                line-height: normal;
+            }
+        }
+        i{
+            font-size: 15px;
+            padding-right: 12px;
+        }
+        address{
+            margin: 0;
+        }
+        .sl-status{
+            & em{
+                position: relative;
+                padding-left: 9px;
+                margin-left: 5px;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto 0;
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    background-color: $green-color;
+                }
+            }
+        }
+    }
+    &__brands{
+        @extend %flex;
+        margin-top: 17px;
+        & li{
+            &:nth-last-child(n+2){margin-right: 20px;}
+        }
+    }
+    .sl-btn{margin-top: 18px;}
+    &__qr{
+        padding: 30px;
+        @extend %flex;
+        align-items: initial;
+        border-top: 1px solid $border-color;
+        &--img{
+            img{border: 1px solid $border-color2;}
+        }
+        &--content{
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            padding-left: 8px;
+            & h6{color: $red-orange-color;}
+            & span{
+                line-height: 10px;
+                & i{
+                    font-size: 34px;
+                    line-height: em(27,34);
+                }
+            }
+        }
+        &--icon{padding-bottom: 9px;}
+    }
+}
+// CONTACT DETAILS END
+.sl-status{
+    & em{font-style: normal;}
+}
+// PRODUCT PROVIDER SLIDER START
+.sl-product-provider{
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-color;
+    &__title{margin: -10px 0 -9px;}
+    &__btn{
+        @extend %flex;
+        justify-content: center;
+        .sl-btn{min-width: 194px;}
+    }
+}
+#slProductProviderOwl{margin: -23px 0 30px;}
+.sl-owl-dot{
+    & .owl-dots{
+        @extend %flex;
+        justify-content: center;
+        margin-top: 20px;
+        & .owl-dot{
+            width: 5px;
+            height: 5px;
+            background-color: $border-color;
+            border-radius: 50%;
+            &:nth-last-child(n+2){margin-right: 5px;}
+        }
+        & .active{background-color: $black-color;}
+    }
+}
+// PRODUCT PROVIDER SLIDER END
+// AD START
+.sl-sidebar-ad{
+    margin-top: 30px;
+    text-align: center;
+    a{display: block;}
+    img{width: 100%;}
+    & p{
+        @extend %flex;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: $black-color2;
+        margin-top: 5px;
+    }
+    & span{padding-left: 5px;}
+}
+// AD END
+// SERVICE PROVIDER SIDEBAR END
+// ABOUT FREELANCE START
+.sl-aboutFreelance{
+    &__description{
+        margin-top: -7px;
+        & p{
+            &:nth-child(n+2){margin-top: 24px;}
+        }
+    }
+}
+.sl-title{
+    h4{font-weight: 700;}
+    margin: -8px 0 22px;
+}
+// ABOUT FREELANCE END
+// LANGUAGE START
+.sl-languageWeKnow{
+    margin-top: 33px;
+    &__content{
+        td,
+        th{
+            border: 1px solid $border-color;
+            width: 25%;
+            padding: 10px 20px;
+            line-height: em(29,14);
+        }
+    }
+}
+// LANGUAGE END
+// EXPERIENCE POST START
+.sl-experience{
+    margin-top: 40px;
+}
+.sl-post{
+    padding: 20px;
+    &:nth-child(odd){background-color: $light-pink-color;}
+    &__content{
+        @extend %flex;
+        img{border-radius: 4px;}
+    }
+    &__title{
+        padding-left: 20px;
+        font: 400 rem(14) $heading-font-family;
+        h5{
+            line-height: em(24,18);
+            padding-bottom: 1px;
+        }
+        span{color: $black-color2;}
+    }
+    &__description{
+        margin: 10px 0 -7px 100px;
+    }
+}
+// EXPERIENCE POST END
+// AWARDS START
+.sl-awards{
+    margin-top: 40px;
+    &__content{margin-top: -30px;}
+    &__card{
+        border-radius: $radius;
+        margin-top: 30px;
+        &:hover{
+            -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+        }
+        img{
+            border-radius: $radius $radius 0 0;
+            width: 100%;
+        }
+    }
+    &__description{
+        border: 1px solid $border-color;
+        border-radius: 0 0 $radius $radius;
+        padding: 25px 30px 24px;
+        text-align: center;
+        h6{font: 400 rem(14) $heading-font-family;}
+        h5{line-height: em(24,18);}
+    }
+}
+// AWARDS END
+// AMENITIES START
+.sl-amenities{
+    margin-top: 40px;
+    &__content{
+        & i{padding-right: 10px;}
+    }
+}
+// AMENITIES END
+// OFFER SERVICES START
+.sl-offerServices{
+    margin-top: 40px;
+}
+// OFFER SERVICES END
+// AUDIO VIDEO GALLERY START
+.sl-audioVideoGallery{
+    margin-top: 40px;
+    &__content{
+        @extend %flex;
+        margin:-5px;
+        flex-wrap: wrap;
+        & figure{
+            padding:5px;
+            width: 33.33%;
+            border-radius: $radius;
+            img{
+                border-radius: $radius;
+                width: 100%;
+            }
+        }
+    }
+}
+// AUDIO VIDEO GALLERY END
+// CUSTOMER REVIEWS START
+.sl-customerReviews{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    & .sl-post{
+        background-color: $white-color;
+        padding: 0 0 30px;
+        &__content{
+            & h4{
+                width: 80px;
+                height: 80px;
+                background: #ffca28;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                border: 5px solid $white-color;
+                justify-content: center;
+            }
+        }
+    }
+    &__btn{
+        align-self: center;
+        margin-top: 10px;
+        & .sl-btn{min-width: 160px;}
+    }
+}
+// CUSTOMER REVIEWS END
+.sl-round{
+    border: 1px solid $border-color2;
+    border-radius: 50%;
+}
+// Appointment Popup Style
+.sl-appointmentPopup,
+.sl-contactpopup{
+    & .modal-header{
+        border: 0;
+        padding: 15px 30px;
+        background: $light-pink-color;
+        h4{
+            font-size: rem(16);
+            line-height: rem(20);
+       }
+       .close{
+            font-size: 16px;
+            color: $red-orange-color;
+            opacity: 1;
+            text-shadow: none;
+            margin: 0;
+            margin-left: auto;
+            padding: 0;
+            line-height: 20px;
+       }
+    } 
+    & .modal-content{
+        border: 0;
+        border-radius:4px;
+    }
+    &__footer{
+        padding:30px;
+        @extend %flex;
+        justify-content: space-between;
+        border-top: 1px solid $border-color2;
+        p{
+            font-size: rem(13);
+            color: $black-color2;
+        }
+        .sl-btn{
+            display: none;
+            margin: 0;
+        }
+    }
+    .modal-dialog{max-width: 730px;}
+    .modal-body{
+        padding: 30px;
+        display: none;
+        & .sl-checkbox{
+            margin-right:0;
+            & > label{
+                line-height: 18px;
+                & span{
+                    color: $black-color2;
+                    margin-left: 31px;
+                    font-size: rem(13);
+                }
+                &::before{
+                    width: 18px;
+                    height: 18px;
+                }
+                &::after{
+                    width: 16px;
+                    height: 16px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    &-footer{
+        .sl-appointmentPopup__footer--terms{display: none;}
+    }
+    &__1,
+    &__2,
+    &__3{
+        #appointmentPopup1{display: none;}
+        #appointmentPopup2{display: block;}
+        .sl-appointmentPopup__footer{
+            #sl-appointmentPopupbtn1{display: none;}
+            #sl-appointmentPopupbtn2{display: flex;}
+        }
+    }
+    &__2,
+    &__3{
+        #appointmentPopup2{display: none;}
+        #appointmentPopup3{display: block;}
+        .sl-appointmentPopup__footer{
+            #sl-appointmentPopupbtn2{display: none;}
+            #sl-appointmentPopupbtn3{display: flex;}
+        }
+    }
+    &__3{
+        #appointmentPopup3{display: none;}
+        #appointmentPopup4{display: block;}
+        .sl-appointmentPopup__footer{
+            #sl-appointmentPopupbtn3{display: none;}
+            #sl-appointmentPopupbtn4{display: flex;}
+        }
+    }
+}
+#appointmentPopup1{display: block;}
+#sl-appointmentPopupbtn1{display: flex;}
+.sl-joinsteps{
+    margin: 0 0 30px;
+    list-style: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    & li{
+        padding: 0 12px;
+        margin: 0 15px;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        list-style-type: none;
+        & + li:after{
+            width: 30px;
+            content: '';
+            top: 50%;
+            left: -30px;
+            height: 2px;
+            margin-top:-1px; 
+            background: $border-color;
+            position: absolute;
+        }
+        a{
+            color: $black-color2;
+            width: 40px;
+            height: 40px;
+            display: block;
+            text-align: center;
+            border-radius: 50px;
+            border:2px solid #ddd;
+            font: 600 13px/38px $heading-font-family;
+        }
+        &.sl-done-next a{
+            color: #fff;
+            background: #00cc8d;
+            border-color: #00cc8d; 
+            font-size: rem(14);
+        }
+        &.sl-active a{
+            color: $black-color;
+            border-color: #00cc8d;
+        }
+    }
+}
+.sl-form-appointment1{
+    .form-group-icon{
+        & i{
+            z-index: 9;
+            color: $black-color;
+            font-size: 14px;
+        }
+    }
+    .form-group select + .select2-container{
+        width: 100% !important;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered:after{display: none;}
+}
+.select2-container--default .select2-results__group{
+    padding: 0 30px;
+    font-size: rem(13);
+    line-height: rem(23);
+    position: relative;
+    color: $black-color;
+    font-weight: 600;
+    font-family: $heading-font-family;
+    &:before{
+        position: absolute;
+        left: 20px;
+        content: '';
+        width: 3px;
+        top: 12px;
+        height: 3px;
+        background: #ff5851;
+        line-height: 23px;
+        border-radius: 50px;
+    }
+}
+.select2-container--default .select2-results__option .select2-results__option{
+    color: $black-color2;
+    font-weight: 400;
+    font-size: rem(13);
+    line-height: rem(23);
+    position: relative;
+    padding: 0 30px 0 50px;
+    background: transparent;
+    font-family: $heading-font-family;
+}
+.select2-container--default .select2-results__option .select2-results__option[aria-selected="true"]:before{
+    position: absolute;
+    left: 30px;
+    color: #1abc9c;
+    content: '\f00c';
+    font-size: 12px;
+    line-height: 23px;
+    font-weight: 900;
+    font-family: 'Font Awesome 5 Free';
+}
+.sl-textfee-holder{
+    padding:19px;
+    background: #fcfcfc;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+}
+.sl-title-textfee {
+    border: 0;
+    position: relative;
+    cursor: pointer;
+    margin-top: -4px;
+    &:after {
+        top: 50%;
+        right: 0;
+        content: "\e648";
+        font-size: 12px;
+        margin: -10px 0 0;
+        line-height: 20px;
+        position: absolute;
+        color: $black-color2;
+        font-family: themify
+    }
+    & h4{
+        font-size: 18px;
+        line-height: 20px;
+    }
+    &.collapsed:after {
+        content: "\e64b"
+    }
+}
+.sl-taxesfees {
+    margin-top: 20px;
+    list-style: none;
+    & li {
+        list-style-type: none;
+        & + li {margin-top: 10px;}
+        & span {
+            display: flex;
+            line-height: 16px;
+            font-size: 13px;
+            font: 600 13px/16px $heading-font-family;
+            color: $black-color;
+            & em {
+                margin-left: auto;
+                font-style: normal;
+                color: $black-color;
+                & i {
+                    border: 0;
+                    color: #b4b4b4;
+                    min-width: 20px;
+                    text-align: right;
+                    font-size: 11px
+                }
+            }
+        }
+    }
+    .sl-textfee,
+    .sl-toteltextfee {
+        margin-top: 17px;
+        padding-top: 17px;
+        border-top: 1px solid $border-color2;
+        & span,
+        & span em {
+            color: $red-orange-color;
+        }
+    }
+    .sl-textfee{
+        & span,
+        & span em {color: $black-color;}
+        & i {
+            border: 0;
+            color: #b4b4b4;
+            min-width: 20px;
+            text-align: right;
+            font-size: 11px
+        }
+    }
+}
+.sl-appointment-holder{
+    margin-top: 20px;
+}
+.sl-popupsubtitle{
+    @extend %flex;
+    justify-content: space-between;
+    margin: 0 0 20px;
+    & h4{
+        margin: 0;
+        font-size: rem(16);
+        font-weight: 600;
+        line-height: rem(18);
+    }
+} 
+.sl-appointment-content{
+    display: flex;
+}
+.sl-appointment-calendar {    
+    width: 50%;
+    padding-right:15px; 
+}
+.sl-appointment-time-holder {
+    width: 50%;
+    padding-left:15px; 
+}
+.sl-calendar {
+    width: 100%;
+    float: left;
+    background:#fff;
+    border-radius:6px 6px 0 0;
+}
+/* Calendar Style*/
+.fc-toolbar{
+    margin:0;
+    padding:6px 20px;
+    text-align:center;
+    position:relative;
+    background:$black-color;
+    border-radius:4px 4px 0 0;
+    & .fc-left,
+    & .fc-right{
+        float:none;
+        display:inline-block;
+        vertical-align:middle;
+    }
+    & h2{
+        color:#fff;
+        font-size:14px;
+        font-weight:400;
+        line-height:16px;
+    }
+    & .fc-right .fc-today-button{display:none;}
+}
+.fc-button-group,
+.fc .fc-toolbar>*>*{margin:0;}
+.fc button{
+    top:50%;
+    border:0;
+    padding:0;
+    height:auto;
+    background:none;
+    box-shadow:none;
+    position:absolute;
+    margin:-12px 0 0 !important;
+    & .fc-icon{
+        margin:0;
+        padding:0;
+    }
+}
+.fc-icon-left-single-arrow:after{
+    top:auto;
+    font-weight:400;
+}
+.fc-corner-left span,
+.fc-corner-right span{
+    margin:0;
+    color:#fff;
+}
+.fc-state-default.fc-corner-left{left:20px;}
+.fc-state-default.fc-corner-right{right:20px;}
+.fc-view-container{
+    width:100%;
+    float:left;
+}
+.fc table{
+    margin:0;
+    font-size:14px;
+    font-weight:400;
+    & td,
+    & th{
+        padding:0;
+        cursor:pointer;
+        line-height:44px;
+        text-align: center;
+        font-weight: 400;
+        border-color:$border-color2;
+        vertical-align:middle;
+    }
+}
+.fc-row .fc-content-skeleton{padding:0;}
+.fc-basic-view .fc-body .fc-row{min-height:auto;}
+.fc-other-month.fc-past span{color:#999;}
+.fc-other-month.fc-future{
+    background:$light-pink-color;
+    border-color:$light-pink-color;
+}
+.fc-other-month.fc-future span{color:$light-pink-color;}
+.fc-today.fc-state-highlight{
+    background: $primary-color;
+    border-color: $primary-color;
+}
+// Time Slots Style
+.sl-timeslots{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+    & .sl-radio{
+        padding:5px;
+        width:33.33%;
+        margin: 0;
+        & input[type=radio] + label{
+            font-size:14px;
+            padding:0 12px;
+            @extend %flex;
+            font-weight:400;
+            line-height:33px;
+            background:#fff;
+            overflow: hidden;
+            border-radius:4px;
+            min-height: 35px;
+            text-align: center;
+            flex-direction: column;
+            border:1px solid $border-color;
+            color:$black-color;
+            @extend %sl-transition;
+            span{
+                margin: 0;
+                display: block;
+                @extend %sl-transition;
+            }
+            em{
+                display: block;
+                font-style: normal;
+                margin-bottom:-33px;
+                @extend %sl-transition;
+            }
+            &:hover{
+                border-color: $primary-color;
+                em{margin-bottom: -33px;}
+                span{margin-top: -33px;}
+            }
+            &:before{display: none;}
+        }
+        & input[type=radio]:checked + label{
+            border-color: $primary-color;
+            &:after,
+            &:before{display:none;}
+            em{margin-bottom: -33px;}
+            span{margin-top: -33px;}
+        }
+        & input[type=radio]:disabled{
+            & + label{
+                color:$black-color2;
+                background:$light-pink-color;
+                border-color: $light-pink-color;
+                &:hover span{margin: 0;}
+                em{display: none;}
+            }
+        }
+    }
+}
+.sl-selectedtime{
+    clear:both;
+    padding:0;
+    overflow:hidden;
+    margin:100px -20px 0;
+    border-top:1px solid $border-color2;
+}
+// Verify Section Style
+.sl-form-appointment2 .form-group .sl-checkbox{
+    margin-top:10px; 
+    display: block;
+}
+//  Authentication Code Section Style
+.sl-form-appointment3{
+    .form-group label{
+        display: block;
+        margin-top: -8px;
+        margin-bottom: 3px;
+    }
+}
+// Confirmed Popup Style
+.sl-confirmedmsg{
+    text-align: center;
+    & h4{
+        line-height: 1.2;
+        font-size: rem(16);
+        font-weight: 600;
+        margin-top:-4px;
+        margin-bottom: 5px;
+    }
+    & h3{
+        line-height: 1.2;
+        font-weight: 700;
+        font-size: rem(22);
+    }
+    & p{
+        margin-top: 19px;
+        margin-bottom: -7px;
+        color: $black-color2;
+    }
+}
+.sl-appointmentPopup__3 .sl-appointmentPopup__footer{
+    border: 0;
+    text-align: center;
+    padding: 0 30px 30px;
+    justify-content: center;
+}
+.sl-contactpopup .modal-dialog{max-width: 410px;}
+.sl-contactpopup .modal-body{display: block;}
+.sl-form-contact .sl-btnarea{margin-top: 10px;}

@@ -1,0 +1,203 @@
+.sl-right-icon{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    line-height: 44px;
+}
+.sl-below-line{
+    @extend %sl-below-line;
+    &__active:after{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.sl-online-before{
+    &:before{background-color: $green-color;}
+}
+.sl-away-before{
+    &:before{background-color: $yellow-color;}
+}
+.sl-busy-before{
+    &:before{background-color: $red-orange-color;}
+}
+.sl-offline-before{
+    &:before{
+        background-color: $light-pink-color;
+        border: 1px solid $black-color2;
+    }
+}
+.sl-bg-green{background-color: $green-color}
+.sl-bg-red-orange{background-color: $red-orange-color}
+.sl-red-orange{color: $red-orange-color !important}
+.sl-green{color: $green-color !important}
+.sl-green2{color: $green-color2 !important}
+.sl-bg-blue{background-color: $blue-color}
+.sl-red{color: $alert;}
+.sl-main{padding: 20px 0}
+.sl-main-section{padding: $sl-main-section}
+.sl-footer-section{padding: 50px 0}
+.sl-overlay{
+    background-color: rgba($black-color, 0.5);
+    min-height: inherit;
+    @extend %flex;
+}
+.sl-featureRating{
+    @extend %flex;
+    font-family: $heading-font-family;
+    color: $black-color2;
+    line-height: 19px;
+    &__stars{
+        @extend %flex;
+        @extend %sl-featureRating__stars;
+        letter-spacing: 1px;
+        &::before{
+            @extend %sl-featureRating;
+            @extend %sl-featureRating__starsIcon;
+            color: #dadada;
+        }
+        span{
+            @extend %sl-featureRating__stars;
+            width: 80%;
+            overflow: hidden;   
+            &::after{
+                @extend %sl-featureRating;
+                @extend %sl-featureRating__starsIcon;
+
+            }
+        }
+    }
+    em{
+        font-style: normal;
+        margin-left: 6px;
+    }
+}
+.sl-featureRatingDollars{
+    @extend %flex;
+    font-family: $heading-font-family;
+    color: $border-color;
+    line-height: 19px;
+    &__dollars{
+        @extend %flex;
+        @extend %sl-featureRating__stars;
+        letter-spacing: 2px;
+        width: 45px;
+        &::before{
+            @extend %sl-featureRating;
+            @extend %sl-featureRating__dollarsIcon;
+            color: #dadada;
+        }
+        span{
+            @extend %sl-featureRating__stars;
+            width: 80%;
+            overflow: hidden;   
+            &::after{
+                @extend %sl-featureRating;
+                @extend %sl-featureRating__dollarsIcon;
+
+            }
+        }
+    }
+}
+.sl-liked{
+    i::before{
+        font-weight: 900;
+        color: $red-orange-color;
+    }
+}
+.sl-tag{
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background-color: $primary-color;
+    min-width: 91px;
+    height: 26px;
+    padding: 0 15px;
+    border-radius: 6px 0 0 0;
+    clip-path: polygon(100% 0, 90% 50%, 100% 100%, 0 100%, 0 0);
+    h6{font-size: 13px;}
+}
+.sl-brands{
+    display: flex;
+    li{
+        &:nth-last-child(n+2){padding-right: 25px;}
+        a{
+            color: $border-color;
+            &:hover{color: $primary-color;}
+        } 
+    }
+}
+.sl-app{
+    display: flex;
+    a{
+        &:nth-last-child(n+2){padding-right: 10px;}
+        img{border-radius: 6px;}
+    }
+}
+.sl-payments{
+    display: flex;
+    li{
+        &:nth-last-child(n+2){margin-right: 6px;}
+        img{border-radius: 3px;}
+    }
+}
+// OWL NAV START
+.sl-owl-nav{
+    .sl-owl{
+        opacity: 0.2;
+        pointer-events: none;
+    }
+    .owl-nav i{
+        color: $black-color;
+        border: 1px solid $border-color;
+        border-radius: 50%;
+        padding: 12px;  
+        &:hover{
+            background-color: $primary-color;
+            border-color: $primary-color;
+        } 
+    }
+    .owl-prev,
+    .owl-next{
+        position: absolute;
+        top: 50%;
+        margin-top: -12px;
+    }
+    .owl-prev{left: 35px;}
+    .owl-next{right: 35px;}
+}
+// OWL NAV END
+.sl-more{
+    height: 100%;
+    line-height: 30px;
+}
+.sl-alert-color{
+    color: $alert;
+}
+.sl-closeasidebar{
+    @extend %flex;
+    position: absolute;
+    top: 50%;
+    left: unset;
+    right: 0;
+    margin-right: -41px;
+    border-radius: 0 50% 50% 0;
+    color: $red-orange-color;
+    font-size: 20px;
+    border: 1px solid $border-color;
+    padding: 10px;
+    background-color: $white-color;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    &:focus,
+    &:hover{color: $red-orange-color;}
+}
+.sl-asideshow{
+    .sl-closeasidebar{
+        border-radius: 50%;
+        margin-right: -21px;
+    }
+}
+.sl-scrollY-none {
+    overflow-y: hidden;
+}

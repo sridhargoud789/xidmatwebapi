@@ -1,0 +1,14 @@
+.sl-sectionHead{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: -7px 0 33px 0; 
+    &__title{
+        padding-bottom: 40px;
+        &.sl-below-line::after{
+            height: 4px;
+            width: 100px;
+        }
+    }
+    &__description{padding-top: 8px}
+}

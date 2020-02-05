@@ -1,0 +1,84 @@
+.sl-btn{
+    @extend %flex;
+    justify-content: center;
+    font: 600 14px $heading-font-family;
+    color: $black-color;
+    border: 2px solid $primary-color;
+    border-radius: 6px;
+    height: 44px;
+    padding: 0 10px;
+    min-width: 136px;
+    &:hover{
+        background-color: $primary-color;
+        color: $black-color;
+    }
+    &:focus{box-shadow: unset}
+    a{color: $black-color;}
+}
+.sl-btn-small{
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    &:hover{border-color: $primary-color;}
+    &.sl-btn-active{@extend .sl-btn-small:hover;}
+}
+.sl-btn-active{
+    background-color: $primary-color !important;
+    &:hover{background-color: $primary-color !important;}
+}
+.sl-advance-btn{
+    min-width: 180px;
+    border: 0;
+    padding: 0;
+    > span:first-child{
+        width: calc(100% - 44px);
+        + span{
+            min-width: unset;
+            border: 0;
+            border-left: 1px solid rgba($color: #000, $alpha: 0.2);
+            border-radius: 0 6px 6px 0;
+            flex-grow: 1;
+            height: inherit;
+            @extend %flex;
+            justify-content: center;
+       }
+    }
+    &:hover .sl-advance-icon i:nth-child(1)::after{left: 0}
+    &:hover .sl-advance-icon i:nth-child(2)::after{left: 75%}
+    &:hover .sl-advance-icon i:nth-child(3)::after{left: 50%}
+}
+
+.sl-advance-icon{
+    display: inline-block;
+    vertical-align: middle;
+    i{
+        background-color: $black-color;
+        width: 17px;
+        display: block;
+        margin: 7px 0 0;
+        position: relative;
+        border: 0.5px solid $black-color;
+
+        &:nth-child(1){
+            margin-top: 0;
+            &::after{left: 50%;}
+        }
+        &:nth-child(2)::after{left: 25%;}
+        &:nth-child(3)::after{left: 75%;}
+        &::after{
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            content: '';
+            background: #fff;
+            position: absolute;
+            border-radius: 50%;
+            margin: -2px 0 0 -2px;
+            border: 1px solid $black-color;
+            background: $primary-color;
+        }
+    }
+}
