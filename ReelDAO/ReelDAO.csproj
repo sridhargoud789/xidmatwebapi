@@ -82,6 +82,7 @@
     <Compile Include="Logger.cs" />
     <Compile Include="MobileBookingDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReelCinemaWS.DAO.csproj" />

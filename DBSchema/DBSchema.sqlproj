@@ -193,5 +193,6 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="dbo\Stored Procedures\GetAllMasterServices.sql" />
   </ItemGroup>
 </Project>
