@@ -48,6 +48,9 @@
     <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
+    <Reference Include="FromHeaderAttribute, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FromHeaderAttribute.2.0.4\lib\net45\FromHeaderAttribute.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Cors, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cors.dll</HintPath>
     </Reference>
@@ -90,6 +93,9 @@
     </Reference>
     <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Swagger.Net, Version=8.3.24.301, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swagger-Net.8.3.24.301\lib\net45\Swagger.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -339,7 +345,6 @@
     <Compile Include="Models\SaveNewCard.cs" />
     <Compile Include="Models\SeatPlan.cs" />
     <Compile Include="Models\GetTickets.cs" />
-    <Compile Include="Models\ServicesBO.cs" />
     <Compile Include="Models\ServiceViewModels.cs" />
     <Compile Include="Models\SetSeat.cs" />
     <Compile Include="Models\UserManagement.cs" />
@@ -349,6 +354,7 @@
     <Compile Include="Models\ValidateUBEMember.cs" />
     <Compile Include="Models\VISTAResponse.cs" />
     <Compile Include="NotificationHelper.cs" />
+    <Compile Include="PasswordHelper.cs" />
     <Compile Include="PaymentConfirmation.aspx.cs">
       <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +375,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SwaggerConfig.cs" />
     <Compile Include="UbyEmaarBAL.cs" />
     <Compile Include="Web References\Smartbutton.MemberActivity\Reference.cs">
       <AutoGen>True</AutoGen>
