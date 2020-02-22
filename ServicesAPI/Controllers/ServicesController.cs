@@ -58,7 +58,10 @@ namespace ServicesAPI.Controllers
                     string fileName = obj.ToString()+"." + extension;
 
                     //set the image path
-                    string filePath = Path.Combine(path, fileName);
+                    var folder = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData);
+                    string filePath = Path.Combine(folder, fileName);
+
+                    //string filePath = Path.Combine(path, fileName);
 
                     byte[] fileBytes = Convert.FromBase64String(file.base64.Split(',')[1].ToString());
 
