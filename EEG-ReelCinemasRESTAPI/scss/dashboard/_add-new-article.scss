@@ -1,0 +1,12 @@
+.sl-addNewArticle{
+    .sl-aboutDescription__content{
+        &:nth-child(n+2):nth-last-child(n+2){
+            padding-top: 25px;
+        }
+        .form-group{
+            &:nth-child(n+2){
+                .sl-aboutDescription__title{padding-top: 20px;}
+            }
+        }
+    }
+}

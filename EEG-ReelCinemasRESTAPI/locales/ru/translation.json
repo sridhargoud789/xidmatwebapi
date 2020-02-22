@@ -1,0 +1,24 @@
+{
+  "title": {
+    "p1": "Поиск более 10 миллионов",
+    "p2": "Модные поставщики услуг"
+  },
+  "description": {
+    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
+    "part2": "Switch language between english and german using buttons above."
+  },
+  "MostVisitedCatogoriesTitle": "Самые посещаемые категории.",
+  "ProvidersTxt": "Провайдеры",
+  "MasterServices": {
+    "Service1": "Услуги гида",
+    "Service2": "Транспортные Услуги",
+    "Service3": "Услуги по уборке и няне",
+    "Service4": "Авторемонт и Сервисные Центры",
+    "Service5": "Услуги разнорабочего",
+    "Service6": "Здравоохранение и врачи",
+    "Service7": "Прокат автомобилей",
+    "Service8": "Спорт и Фитнес",
+    "Service9": "Забота о животных",
+    "Service10": "другие"
+  }
+}

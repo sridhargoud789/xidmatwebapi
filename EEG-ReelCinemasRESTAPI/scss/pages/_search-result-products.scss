@@ -1,0 +1,117 @@
+// SEARCH PRODUCT SIDEBAR START
+.sl-searchProductSidebar{
+    &__content{
+        border: 1px solid $border-color;
+        border-radius: $radius;
+    }
+    &__form{
+        padding: 0;
+        h5{font-size: 1rem;}
+        p{
+            font-size: 0.8125rem;
+            color: $black-color;
+        } 
+        .sl-sidebar__categories{
+            border: 0;
+            .sl-sider-ul{padding-top: 0;}
+            .mCustomScrollbar{
+                max-height: 282px;
+                padding-top: 2px;
+            }
+            .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+                background-color: #e8e8e8;
+                width: 3px;
+            }
+            .mCSB_scrollTools .mCSB_draggerRail{
+                width: 3px;
+                background-color: $black-color;
+            }   
+        }
+    }
+    &__sortPrice{
+        border-top: 1px solid $border-color;
+        padding: 20px 30px 27px;
+        .sl-distance-side{padding-top: 6px;}
+        .sl-distance__description{margin-bottom: 11px;}
+        label,
+        input{
+            font-size: 0.8125rem;
+            color: #363636;
+        }
+    }
+    &__color{
+        @extend %sl-mainContentSide;
+        .sl-checkbox > label::before,
+        .sl-radio > label::before{box-shadow: none;}
+        .sl-black > label::before{
+            background: #000;
+            border-color: #000;
+        }
+        .sl-red > label::before{
+            background: #e74c3c;
+            border-color: #e74c3c;
+        }
+        .sl-blue > label::before{
+            background: #3498db;
+            border-color: #3498db;
+        }
+        .sl-orange > label::before{
+            background: #e67e22;
+            border-color: #e67e22;
+        }
+        .sl-purple > label::before{
+            background: #9b59b6;
+            border-color: #9b59b6;
+        }
+        .sl-green > label::before{
+            background: #2ecc71;
+            border-color: #2ecc71;
+        }
+        .sl-yellow > label::before{
+            background: #f1c40f;
+            border-color: #f1c40f;
+        }
+        .sl-checkbox input[type=checkbox]:checked + label:before,
+        .sl-radio input[type=checkbox]:checked + label:before{
+            width: 8px;
+            height: 8px;
+            margin-left: 2px;
+            outline: 1px auto #fff;
+        }
+        .sl-checkbox input[type=checkbox]:checked + label:after,
+        .sl-radio input[type=checkbox]:checked + label:after{
+            content: '';
+        }
+    }
+    &__memory{
+        @extend %sl-mainContentSide;
+    }
+    .sl-sidebar__rating{
+        @extend %sl-mainContentSide;
+    }
+    &__display{
+        @extend %sl-mainContentSide;
+    }
+    &__btn{
+        padding-top: 10px;
+        .sl-btn:nth-child(n+2){margin-top: 5px;}
+        .sl-btn{
+            &:hover{color: $black-color2;}
+        }
+        .sl-btn-reset{
+            color: #999;
+            border: 0;
+            &:hover{
+                background: transparent;
+                color: $black-color;
+            }
+        }
+    }
+}
+// SEARCH PRODUCT SIDEBAR END
+// SEARCH RESULT PRODUCT START
+.sl-searchResultProduct{
+    margin-top: -30px;
+}
+.ui-slider-range{background-color: $primary-color;}
+// SEARCH RESULT PRODUCT END

@@ -1,0 +1,434 @@
+@media (max-width:1680px){}
+@media (max-width:1536px){}
+@media (max-width:1440px){}
+@media (max-width:1366px){}
+@media (max-width:1280px){}
+@media (max-width:1200px){}
+@media (max-width:1199px){
+    .sl-tagsTable {
+        border: 0;
+        caption {font-size: 1.3em;}
+        thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        tr {
+            display: flex;
+            flex-wrap: wrap;
+            &:nth-child(n+2){
+               td{
+                   border-top: 0;
+               }
+            }
+        }
+        td {
+            display: block;
+            flex: 0 0 calc(100% / 2);
+            &:nth-child(n+3){border-top: 0;}
+            &:nth-child(odd){border-right: 0;}
+            &::before {
+            content: attr(data-label);
+            font-weight: bold;
+            text-transform: uppercase;
+            }
+        }
+    }    
+    .sl-buyPackagesCard{
+        &__card{
+            border-radius: $radius;
+            border: 1px solid $border-color;
+            width: calc((100% - 30px) / 2);
+            min-height: 574px;
+            box-shadow: none;
+            &:nth-child(n+3){margin-top: 30px;}
+            &:nth-child(even){margin-left: 30px;}
+            &:first-child{
+                border-radius: $radius;
+                border: 1px solid $border-color;
+            }
+            &:last-child{
+                border-radius: $radius;
+                border: 1px solid $border-color;
+            }
+        }
+    }
+    .sl-goldPackage{
+        .sl-buyPackagesCard__card--content{padding-top: 30px;}
+    } 
+    .sl-messageUser__area--right{margin: 5px 0 0 51px;}
+    .sl-messageUser__area--left{margin: 5px 51px 0 0;}
+    .sl-manageServices{
+        .form-group-half{width: 100%;}
+    }
+    .sl-profileSetting .nav-item{padding: 11.5px 10px;}
+    .sl-profileSetting{
+        .form-group-half{width: 50%;}
+        .sl-manageServices__uploadarea{padding: 30px 10px;}
+    }
+}
+@media (max-width:1199px) and (min-width:991px){
+    .sl-newAppointments__userDetail{flex-wrap: wrap;}
+    .sl-payment-method__bank{padding: 20px 10px;}
+    .sl-my-payoutsTable > tbody > tr > td:first-child{width: 45%;}
+    .sl-my-payoutsTable > tbody > tr > td{width: calc(55% / 3);}
+    .sl-articleList{
+        .sl-latestbloglist{
+            figure{width: 100%;}
+        }
+    }
+    .sl-messageUser__area{padding: 30px 10px;}
+    .sl-balance-info ul li{width: 100%;}
+    .sl-servicedays__spaces--content li{width: calc(100% / 3);}
+}
+@media (max-width:991px){
+    .sl-dashboardAsideholder{
+        padding: 0;
+        width: 280px;
+        background-color: #303030;
+        .sl-closeasidebar{
+            z-index: 10;
+            background: $black-color;
+            -webkit-box-shadow: 0 5px 10px 0 rgba($white-color, 0.2);
+            box-shadow: 0 5px 10px 0 rgba($white-color, 0.2);
+            border-color: #454545;
+            color: $white-color;
+            top: 30%;
+        }
+    }
+    .sl-newAppointments__services{padding-right: 0;}
+    .sl-buyPackage__count{
+        min-width: unset;
+        width: 100%;
+    }
+}
+@media (max-width:767px){
+    .sl-vendorform .form-group.sl-btnarea{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .sl-vendorform .form-group.sl-btnarea button{order: 2;}
+    .sl-vendorform .form-group.sl-btnarea span{order: 1;margin-top: 0;}
+    .sl-vendorform .form-group.sl-btnarea a.sl-btn{order: 3}
+    .sl-aboutDescription__table{
+        tr{
+            &:nth-child(n+2){
+                td{
+                    border-top: 0;
+                }
+             }
+        }
+        td{
+            &:nth-child(n+2){border-top: 0;}
+            &:nth-child(odd){border-right: 1px solid $border-color;}
+        }
+    }
+    .sl-tagsTable{
+        td{
+           flex: 0 0 50%;
+           &:nth-child(n+2){border-top: 1px solid $border-color;}
+           &:nth-child(n+3){border-top: 0;}
+           &:nth-child(odd){border-right: 0;}
+       }
+    }
+    .sl-aboutDescription__inputBtn .sl-btn{margin-left: 0;}
+    .sl-newAppointments__userDetail{flex-wrap: wrap;}
+    .sl-my-payoutsTable{
+        > tbody > tr{
+            &:first-child{
+                border-radius: 4px 4px 0 0;
+                td{
+                    &:first-child{border-radius: 4px 4px 0 0;}
+                }
+            }
+            &:last-child{
+                border-radius: 0 0 4px 4px;
+                td{
+                    &:last-child{border-radius: 0 0 4px 4px;}
+                }
+            }
+            &:nth-child(odd){background-color: $light-pink-color;}
+            &:nth-child(n+2){
+                > td{border-top: 0;}
+            }
+            > td{
+               display: flex;
+               align-items: center;
+               flex-wrap: wrap;
+               border: 1px solid $border-color;
+               padding: 12px 20px;
+               &:first-child{padding: 12px 20px;}
+               &:nth-child(n+2){border-top: 0;}
+               &::before{
+                   flex: 0 0 48%;
+                   font: 600 rem(13) $heading-font-family;
+                }
+           }
+        }
+    }
+    .sl-payment-method__bank{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .sl-payment-method__description{padding-left: 0;}
+    .sl-payment-method__btn{
+        padding: 6px 0 0 0;
+        margin: 0;
+    }
+    .sl-payment-method__content input[type=radio]:checked + label{
+        .sl-payment-method__description,
+        .sl-payment-method__btn{
+            padding-left: 30px;
+            -webkit-transition:all .3s ease-in-out;
+            -moz-transition:all .3s ease-in-out;
+            -ms-transition:all .3s ease-in-out;
+            -o-transition:all .3s ease-in-out;
+            transition:all .3s ease-in-out
+        }
+    }
+    .sl-booking-detail__content{
+        flex-direction: column;
+        padding: 0;
+    }
+    .sl-booking-detail__title{
+        flex: none;
+        padding: 13px 30px;
+    }
+    .sl-booking-detail__description{
+        border-top: 1px solid $border-color2;
+        width: 100%;
+        justify-content: center;
+        padding: 13px 30px;
+        &:after{display: none;}
+    }
+    .sl-articleList{
+        .sl-latestbloglist{
+            figure{width: 100%;}
+        }
+    }
+    .sl-buyPackage__count--content{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .sl-buyPackage__count--down{padding-top: 22px;}
+    .sl-buyPackagesCard__card{
+        width: 100%;
+        &:nth-child(even){margin-left: 0;}
+        &:nth-child(n+2){margin-top: 30px;}
+    }
+    .sl-messageUser{display: none;}
+    .sl-inbox__user{flex: auto;}
+    .sl-message-js{
+        .sl-inbox__user{display: none;}
+        .sl-messageUser{display: flex;}
+    }
+    .sl-balance-info ul li,
+    .sl-profile-alerts ul li{width: 100%;}
+    .sl-manageServices .form-group > label{flex-direction: row;}
+    .sl-servicedays__spaces--content li{width: calc(100% / 3);}
+    .sl-servicedays__spaces--rightarea{
+        flex-direction: column;
+        align-items: flex-end;
+        p{margin: 0 0 3px;}
+    }
+    .sl-myFavorites{
+        .sl-featuredProducts--post{
+            flex-direction: column;
+            figure{
+                width: 100%;
+                border-radius: $radius $radius 0 0;
+            }
+            img{border-radius: $radius $radius 0 0;}
+            &__content{
+                border-left: 0;
+            }
+        }
+    }
+    .sl-profileSetting{
+        .nav-item{
+           flex: 0 0 100%;
+           text-align: left;
+           &:nth-child(n+2){
+               border-top: 1px solid $border-color;
+               border-left: 0;
+           }
+           &:last-child{border-bottom: 1px solid $border-color;}
+       }
+       .form-group-half{width: 100%;}
+       .form-group > label{
+           flex-wrap: wrap;
+           .select2{
+               flex: 0 0 100%;
+               width: 100% !important;
+            }
+        }
+        .sl-profileSetting__socialmedia .sl-input-group,
+        .sl-input-btn .sl-input-group{flex-flow: row nowrap;}
+    }
+    .sl-experienceTab__accordian{
+        .sl-post__content{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .sl-post__title{padding: 15px 0 0 0;}
+        .sl-post__description{margin-left: 0;}
+    }
+    .sl-vendorform .sl-galleryTab__gallery--item{max-height: 230px;}
+}
+@media (max-width:575px){
+    .sl-newAppointments__detail{flex-wrap: wrap;}
+    .sl-newAppointments__userDetail{
+        flex-wrap: unset;
+        flex: 0 0 100%;
+    }
+    .sl-newAppointments__services{
+        margin-top: 15px;
+        padding-left: 20px;
+        &:before{
+            height: 1px;
+            width: 100%;
+            top: 0;
+        } 
+    }
+    .sl-servicedays__spaces--content li{width: 50%;}
+    .sl-servicedays__title{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+@media (max-width:568px){
+    .sl-privacy-form .sl-manageTimeSlots__btn,
+    .sl-change-password .sl-manageTimeSlots__btn,
+    .sl-deactivateac .sl-manageTimeSlots__btn{
+        flex-direction: column;
+        align-items: flex-start;
+        & > p{order: 1}
+        & > .sl-btn{order: 2;}
+    }
+}
+@media (max-width:480px){
+    .sl-usermenu li:hover a {background: #363636;}
+    .sl-usermenu .menu-item-has-children > ul{
+        right: 0;
+        box-shadow:none;
+    }
+    .sl-usermenu .menu-item-has-children:hover > ul{top: 100%;}
+    .sl-dashboardbox__content{padding: 30px 10px;}
+    .sl-aboutDescription__content{padding: 0 5px;}
+    .sl-tagsTable{
+        td{
+           flex: 0 0 100%;
+           &:nth-child(n+2){border-top: 0;}
+           &:nth-child(odd){border-right: 1px solid $border-color;}
+       }
+    }
+    .sl-manageServices__uploadarea,
+    .sl-articleList .sl-dashboardbox__content,
+    .sl-messageUser__area,
+    .sl-servicedays__spaces,
+    .sl-newAppointments .sl-pagination{padding: 30px 10px;}
+    .sl-newAppointments__userDetail,
+    .sl-newAppointments__services{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .sl-newAppointments__items{padding: 0 10px;}
+    .sl-allAppointments-notification .sl-newAppointments__userLogo:before{left: -16px;}
+    .sl-payment-method__bank{padding: 20px 10px;}
+    .sl-my-payoutsTable > tbody > tr > td{
+        padding: 12px 10px;
+        &:first-child{padding: 12px 10px;}
+    }
+    .sl-my-payoutsTable + .sl-pagination{
+        margin: rem(30) rem(-10) rem(-30);
+        padding: rem(30) rem(10);
+    }
+    .sl-appointment-holder{padding: 0;}
+    .sl-appointment-profile{
+        padding: 16px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        .sl-btn{margin-top: 22px;}
+    }
+    .sl-booking-detail{padding: 20px 10px 30px;}
+    .sl-booking-detail__description,
+    .sl-booking-detail__title{padding: 13px 10px;}
+    .sl-appointment-status{padding: 20px 10px;}
+    .sl-buyPackage__count--down{
+        flex-wrap: wrap;
+        width: 100%;
+        li{
+            flex: 0 0 calc(100% / 2);
+            padding: 0;
+            &:nth-child(n+3){padding-top: 20px;}
+            &:nth-child(3){
+                .sl-buyPackage__heading{
+                    &:before{display: none;}
+                }
+            }
+        }
+    }
+    .sl-buyPackagesCard__feature{padding: 24px 10px 30px;}
+    .sl-messageUser__heading{padding: 10px}
+    .sl-emoji .sl-input-group{padding: 19px 10px}
+    .sl-manageServices{
+        .form-group > label{
+           flex-direction: column;
+        }
+        .sl-form-append{
+            .sl-prepend,
+            .sl-select{
+                width: 100%;
+                border-radius: 4px;
+            }
+            .sl-append{
+                border: 1px solid $border-color;
+                border-radius: 4px;
+            }
+        } 
+    }
+    .sl-servicedays__spaces--content li{width: 100%;}
+    .sl-offeredServices .sl-servicedays__title{padding: 14.5px 20px 14.5px 10px;}
+    .sl-allnotification li{padding: rem(26) rem(10) rem(25);}
+    .sl-notititle{
+        flex-direction: column;
+        align-items: flex-start;
+        span{padding-top: 4px;}
+    }
+    .sl-allnotification-holder .sl-pagination{
+        margin: rem(30) rem(-10) rem(-30);
+        padding: rem(30) rem(10);
+    }
+    .sl-profileSetting__socialmedia{
+        flex-wrap: wrap;
+        > .sl-btn{margin: 10px 0 0 0;}
+    }
+    .sl-aboutDescription{padding: 30px 0;}
+    .sl-galleryTab{padding: 30px 10px;}
+    #sl-enddate{
+        padding: 0 50px 0 20px;
+    }
+}
+@media (max-width:420px){
+    .sl-messageUser__heading--logo{flex: 0 0 100%;}
+    .sl-messageUser--text{padding-left: 50px;}
+    .sl-messageUser__area--right{margin: 5px 0 0 21px;}
+    .sl-messageUser__area--left{margin: 5px 21px 0 0;}
+}
+@media (max-width:360px){
+    .sl-buyPackage__count--down{
+        li{
+            flex: 0 0 100%;
+            &:nth-child(n+2){padding-top: 20px;}
+            .sl-buyPackage__heading{
+                &:before{display: none;}
+            }
+        }
+    }
+}
+@media (max-width:340px){}

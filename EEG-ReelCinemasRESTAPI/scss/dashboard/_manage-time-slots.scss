@@ -1,0 +1,174 @@
+.sl-manageTimeSlots{
+    &__form{
+        label{
+            position: relative;
+            width: 100%;
+        }
+    }
+    &__appointmentspaces{
+        margin-top: 5px;
+        h6{line-height: em(21,16);}
+        span{  
+            @extend %multi-use-font;
+            font-size: rem(13);}
+        ul{
+            @extend %flex;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+        li{
+            margin-top: 10px;
+            &:nth-last-child(n+2){margin-right: 30px;}
+        }
+        .sl-radio,
+        .sl-checkbox{
+            margin-right: 0;
+        }
+    }
+    &__btn{
+        @extend %flex;
+        .sl-btn{
+            min-width: 160px;
+            margin: rem(10) rem(30) 0 0;
+        }
+        p{
+            margin-top: rem(10);
+            color: $black-color2;
+        }
+    }
+}
+.sl-calendarbtn{
+    color: #999;
+    font-size: 14px;
+    &:hover{color: #999;}
+}
+.sl-servicedays{
+    &__title{
+        @extend %flex;
+        background-color: $light-pink-color;
+        padding: 13px 30px 13px 20px;
+        border: 1px solid $border-color;
+        border-bottom: 0;
+        h6{line-height: em(18,16);}
+        &--hidden{
+            padding-left: 6px;
+            display: none;
+        }
+        &:first-child{border-radius: 4px 4px 0 0;}
+        &:nth-last-child(2){
+            border-radius: 0 0 4px 4px;
+            border-bottom: 1px solid $border-color;
+            &[aria-expanded = true]{
+                border-radius: 0;
+            }
+            & + div{
+                .sl-servicedays__spaces{
+                    border-bottom: 1px solid $border-color;
+                    border-top: 0;
+                    border-radius: 0 0 4px 4px;
+                }
+            }
+        }
+        &--rightarea{
+            margin-left: auto;
+            padding-left: 10px;
+            flex: none;
+            .sl-icon{
+                position: relative;
+                &:nth-child(n+2){
+                    margin-left: 34px;
+                    &::before{
+                        content: '|';
+                        position: absolute;
+                        left: -22px;
+                        color: $black-color;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+    &__spaces{
+        padding: 30px 29px;
+        border: 1px solid $border-color;
+        border-bottom: 0;
+        &--rightarea{
+            @extend %flex;
+            justify-content: flex-end;
+            p{margin-right: 30px;}
+            .sl-btn{
+                min-width: 133px;
+                height: 35px;
+            }
+        }
+        &--content{
+            @extend %flex;
+            flex-wrap: wrap;
+            margin: 5px -5px 0;
+            li{
+                @extend %flex;
+                padding: 5px;
+                overflow: hidden;
+                width: 25%;
+                @extend %sl-transition;
+                p{@extend %sl-transition;}
+                &:hover{
+                    border-color: $black-color;
+                    p{margin-top: -50px;}
+                    .sl-servicedays__spaces--text{
+                        bottom: 10px;
+                        margin-top: 0;
+                    }
+                    .sl-servicedays__spaces--crossbtn{
+                        i{
+                            color: #ff5851;
+                        }
+                    }
+                }
+            }
+        }
+        &--spaces{
+            position: relative;
+            @extend %flex;
+            justify-content: space-between;
+            padding: 4px 20px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            width: 100%;
+            overflow: hidden;
+            min-height: 35px;
+            line-height: 1;
+            *{line-height: inherit;}
+        }
+        &--text{
+            position: absolute;
+            bottom: -20px;
+            @extend %sl-transition;
+        }
+        &--crossbtn{
+            i{
+                font-size: 14px;
+                color: #999;
+            }
+        }
+    }
+}
+.sl-icon{font-size: 14px;}
+.sl-editbtn{
+    color: $blue-color;
+    &:hover{ @extend .sl-editbtn;}
+}
+.sl-delbtn{
+    color: $red-orange-color;
+    &:hover{ @extend .sl-delbtn;}
+}
+.sl-unavailable{
+    & .sl-servicedays__title--hidden{
+        display: block;
+    }
+    + div{
+        & .sl-servicedays__spaces--rightarea{
+            justify-content: center;
+        }
+    }
+}

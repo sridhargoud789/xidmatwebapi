@@ -1,0 +1,24 @@
+{
+  "title": {
+    "p1": "Search more than 10 million",
+    "p2": "Trendy Service Providers"
+  },
+  "description": {
+    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
+    "part2": "Switch language between english and german using buttons above."
+  },
+  "MostVisitedCatogoriesTitle": "Most Visited categories.",
+  "ProvidersTxt": "Providers",
+  "MasterServices": {
+    "Service1": "Tours Guide Services",
+    "Service2": "Transportation Services",
+    "Service3": "Cleaning & Nanny Services",
+    "Service4": "Car Repair & Service Centers",
+    "Service5": "Handy Man Services",
+    "Service6": "Health Care and doctors",
+    "Service7": "Rent A Car Services",
+    "Service8": "Sports & Fitness",
+    "Service9": "Pet Care",
+    "Service10": "Others"
+  }
+}

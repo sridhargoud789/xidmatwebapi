@@ -1,0 +1,167 @@
+.sl-payment-method{
+    &__content{
+        &:nth-child(n+2){margin-top: 10px;}
+    }
+    &__bank{
+        @extend %flex;
+        padding: 20px 30px;
+        border-radius: 4px;
+        img{
+            border: 1px solid $border-color2;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: $white-color;
+            margin-left: -12px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+    }
+    &__radio{
+        position: relative;
+        @extend %flex;
+        justify-content: center;
+        @extend %sl-transition;
+        &::before{
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 12px;
+            color: $green-color;
+            visibility: hidden;
+            opacity: 0;
+            @extend %sl-transition;
+        }
+    }
+    &__description{
+        padding-left: 10px;
+        @extend %sl-transition;
+        h5{margin-bottom: -5px;}
+        p{
+            font-family: $heading-font-family;
+            line-height: em(22,14);
+            color: $black-color2;
+        }
+    }
+    &__btn{
+        margin-left: auto;
+        padding-left: 10px;
+        @extend %sl-transition;
+        .sl-btn{min-width: 100px;}
+    }
+    &__dropdown{
+        padding: 20px 20px 14px;
+        border: 1px solid $green-color;
+        border-radius: 0 0 4px 4px;
+        border-top: 0;
+        p{
+            font-size: rem(12);
+            padding-top: 5px;
+            color: $black-color2;
+            a{
+                &:nth-child(n+2){
+                    position: relative;
+                    padding-left: 21px;
+                    &::before{
+                        content: '|';
+                        position: absolute;
+                        left: 7px;
+                        color: #d8d6d6;
+                        font: 400 rem(12) $para-font-family;
+                    }
+                }
+            }
+        }
+    }
+}
+.sl-bank{
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #fcfcfc;
+    &[aria-expanded = true]{
+        border-radius: 4px 4px 0 0;
+        border-color: $green-color;
+        border-bottom-color: $border-color;
+        img{filter: none;}
+        .sl-payment-method__radio{
+            &:before{
+                visibility: visible;
+                opacity: 1;
+                margin-right: 30px;
+            }
+        }
+    }
+}
+.sl-my-payoutsTable{
+    border-collapse: separate;
+    margin: 0;
+    border: 0;
+    border-spacing: 0;
+    thead{
+        &:first-child{
+            > tr:first-child{
+                >th{
+                    border: 0;
+                    text-align: left;
+                    padding: 15px 0 15px 18px;
+                    line-height: 23px;
+                    border-top: 1px solid $border-color;
+                    border-bottom: 1px solid $border-color;
+                    font: 600 rem(13) $heading-font-family;
+                    &:first-child{
+                        padding-left: 20px;
+                        border: 1px solid $border-color; 
+                        border-radius: 4px 0 0 0;
+                        border-right: 0;
+                    }
+                    &:last-child{
+                        border: 1px solid $border-color;
+                        border-radius: 0 4px 0 0;
+                        border-left: 0; 
+                    }
+                }
+            }
+        }
+        tr{
+            background: #fcfcfc;
+            color: $black-color;
+        }
+    }
+    > tbody{
+        > tr{
+            &:last-child{
+                > td{
+                    &:first-child{border-radius: 0 0 0 4px;}
+                    &:last-child{border-radius: 0 0 4px 0;}
+                }
+            }
+            > td{
+                border: 0;
+                border-bottom: 1px solid $border-color;
+                text-align: left;
+                color: $black-color;
+                font: 400 13px/24px $para-font-family;
+                padding: 12px 0 12px 18px ;
+                width: calc(50% / 3);
+                i{
+                    color: #999;
+                    margin-left: 7px;
+                    border-bottom: 0;
+                }
+                &:first-child{
+                    width: 50%;
+                    padding-left: 20px;
+                    border-left: 1px solid $border-color;
+                }
+                &:last-child{border-right: 1px solid $border-color;}
+            }
+        }
+    }
+    + .sl-pagination{
+		background: $light-pink-color;
+		padding: rem(30);
+		border-top: 1px solid $border-color;
+		margin: rem(30) rem(-30) rem(-30);
+		border-radius: 0 0 4px 4px;
+	}
+}

@@ -1,0 +1,138 @@
+.sl-comingsoon-main{overflow: hidden;padding: 0;}
+.sl-comingsoon{
+	@extend %flex;
+	justify-content: center;
+	text-align: center;
+	> div{
+		width: 50%;
+	}
+	&__img{
+		position:relative;
+		&:before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			z-index: 9;
+			height: 100%;
+			width: 130px;
+			background: url(../images/coming-soonborder.png);
+			background-repeat: no-repeat;
+			background-size:100% 100%;
+		}
+		& figure{
+			width: 100%;
+			margin:0; 
+			background-color: $black-color;
+		}
+		img{opacity: 0.8;}
+	}
+	.sl-footerLower{
+		bottom: 0;
+		position: absolute;
+		left: 0;
+		background: transparent;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		border-top: 1px solid #ddd;
+		padding: 12px 0;
+		min-height: 50px;
+		& p{font-size: 13px;color: #767676;}
+	}
+}
+.sl-comingsoondetails__logoarea{
+	position:relative;
+	padding: 0 0 30px;
+	margin-bottom: 32px;
+	&:after{
+		bottom: 0;
+		width: 100px;
+		content: '';
+		left: 50%;
+		height: 3px;
+		position:absolute;
+		margin-left: -50px; 
+		background:$primary-color;
+	}
+	strong .sl-cs-logo2{display: none;}
+}
+.sl-comingsooncontent__title{
+	margin:0 0 10px;
+	& h4{
+		font-size: rem(26);
+		line-height: 1.25;
+		font-weight: 700;
+	}
+	& h2{
+		font-size: rem(46);
+		line-height: 1;
+		margin:0 0 16px;
+		color: $primary-color;
+	}
+}
+.sl-comingsooncontent__description{
+	width: 70%;
+	margin: 0 auto;
+}
+.sl-cscounter-holder{
+	padding: 0 115px;
+	margin-top: 54px;
+	& .sl-cscounter{
+		@extend %flex;
+		flex-wrap: wrap;
+		margin: -28px -14px 0;
+		&__holder{
+			width: 25%;
+			padding: 28px 14px 0;
+			border-radius:4px;
+			& .sl-cscounter__countdown{
+				padding:30px;
+				min-height: 160px;
+				@extend %flex;
+				flex-direction: column;
+				justify-content: center;
+				border: 1px solid #ddd;
+				border-radius:4px;
+				& h4{
+					font-size: rem(40);
+					line-height: 28px;
+					margin-bottom:16px;
+				}
+				& span{
+					display: block;
+					font-size: 16px;
+					line-height: 16px;
+					text-transform: capitalize;
+				}
+			}
+		}
+	}
+}
+.sl-formcomingsoon{
+	width: 60%;
+	margin: 80px auto 0;
+	&__input{
+		p{
+			font-size: rem(13);
+			margin-top:3px; 
+			color: $black-color2;
+			text-align: left;
+		}
+	}
+	& fieldset{
+		position: relative;
+	}
+	.form-group{
+		display: flex;
+		margin: 0;
+	}
+	& .form-control{
+		border-radius:4px;
+	}
+	& .sl-btn{
+		min-width: 160px;
+		border-radius:4px;
+		margin-left: 10px;
+	}
+}

@@ -1,0 +1,30 @@
+body{@extend %multi-use-font;}
+h1{
+    font: 700 rem(48)/em(54,48) $heading-font-family;
+    @extend %margin-bottom-0;
+}
+h2{
+    font: 700 rem(36)/em(38,36) $heading-font-family;
+    @extend %margin-bottom-0;
+}
+h3{
+    font: 700 rem(28)/em(36,28) $heading-font-family;
+    @extend %margin-bottom-0;
+}
+h4{
+    font: 600 rem(24)/em(32,24) $heading-font-family;
+    @extend %margin-bottom-0;
+}
+h5{
+    font: 600 rem(18)/em(34,18) $heading-font-family;
+    @extend %margin-bottom-0;
+}
+h6{
+    font: 600 rem(16)/em(38,16) $heading-font-family; 
+    @extend %margin-bottom-0;
+}
+p{
+    @extend %multi-use-font;
+    @extend %margin-bottom-0;
+}
+.sl-form-control input::placeholder{@extend %multi-use-font;}

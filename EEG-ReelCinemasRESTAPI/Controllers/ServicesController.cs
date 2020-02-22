@@ -33,6 +33,48 @@ namespace EEG_ReelCinemasRESTAPI.Controllers
         private string VistaOptionalClientId = "";
         private string ReturnValue = string.Empty;
 
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/UploadFiles")]
+        public async Task<object> UploadFiles(FileUploadReq req)
+        {
+            try
+            {
+                FileUploadResp resp = new FileUploadResp();
+                List<FilesResp> respfiles = new List<FilesResp>(); 
+                foreach (var file in req.FileUpload)
+                {
+                    String path = HttpContext.Current.Server.MapPath("~/PublicFiles"); //Path
+
+                    Guid obj = Guid.NewGuid();
+                    string extension = file.type.Split('/')[1].ToString();
+                    string fileName = obj.ToString() + extension;
+
+                    //set the image path
+                    string filePath = Path.Combine(path, fileName);
+
+                    byte[] fileBytes = Convert.FromBase64String(file.base64);
+
+                    System.IO.File.WriteAllBytes(filePath, fileBytes);
+
+                    
+                    respfiles.Add(new FilesResp()
+                    {
+                        FileName = fileName,
+                        FilePath = filePath
+                    });
+                }
+                resp.Files = respfiles.ToArray();
+                return resp;
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
+
 
         [HttpPost]
         // [AuthenticateRequest]

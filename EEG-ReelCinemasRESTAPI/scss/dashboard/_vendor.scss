@@ -1,0 +1,43 @@
+.sl-vendorform{
+	& .sl-manageServices__uploadarea{min-height: 230px;}
+	& .sl-manageServices__uploadarea svg,
+	& .sl-manageServices__uploadarea rect{height: 250px;} 
+	& .sl-uploadedimg{
+		padding: 0;
+		background-color: $white-color;
+	}
+	& .form-group{
+		margin-bottom: 0;
+		.sl-form-control{border-radius: 4px;}
+		&.sl-btnarea{
+			margin: rem(5) 0 0; 
+			@extend %flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			>*{margin-top: 10px;}
+			button{margin-right: 30px;}
+			& span{
+				margin-right: auto;
+				font-size: rem(13);  
+				color: $black-color2;
+				padding-right: 10px;
+			}
+		}
+	}
+	.sl-galleryTab__gallery--item{
+		margin-top: 0;
+		min-height: inherit;
+		width: 100%;
+		img{
+			width: 100%;
+			min-height: inherit;
+			object-fit: cover;
+			object-position: right;
+		}
+	}
+}
+.mce-branding-powered-by{display: none !important;}
+.form-group > .mce-panel{
+	border-radius: 4px;
+	border: 1px solid $border-color !important;
+}

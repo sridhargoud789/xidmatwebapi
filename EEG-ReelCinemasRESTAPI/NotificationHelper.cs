@@ -127,7 +127,7 @@ namespace EEG_ReelCinemasRESTAPI
                 string currentDateTime1 = DateTime.Now.ToString("yyyyMMdd");
                 string strPath1 = @"" + ConfigurationManager.AppSettings["ExceptionFolder"].ToString() + currentDateTime1 + "SMSException";
 
-                using (StreamWriter sw = File.AppendText(strPath1))
+                using (StreamWriter sw = System.IO.File.AppendText(strPath1))
                 {
                     sw.WriteLine("=============Error Logging WEBSITE ===========");
                     sw.WriteLine("===========Start============= " + DateTime.Now);
@@ -188,7 +188,7 @@ namespace EEG_ReelCinemasRESTAPI
             {
                 if (!string.IsNullOrEmpty(bookingId))
                 {
-                    if (!File.Exists(HttpContext.Current.Server.MapPath("~/QRCode/") + bookingId + ".png"))
+                    if (!System.IO.File.Exists(HttpContext.Current.Server.MapPath("~/QRCode/") + bookingId + ".png"))
                     {
                         QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
                         String encoding = "Byte";

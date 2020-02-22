@@ -1,0 +1,36 @@
+.sl-404__img{
+	max-width: 540px;
+	margin:0 auto 45px;
+	position:relative;
+	&:before{
+		    position: absolute;
+			content: '';
+			width: 166px;
+			height: 166px;
+			background: url(../images/404-scroll.png);
+			top: 50%;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			border-radius: 50%;
+			left: 50%;
+			margin: -83px 0 0 -83px;
+			-webkit-animation: fa-spin 7s infinite linear;
+			animation: fa-spin 7s infinite linear;
+	}
+	& > img{
+		width: 100%;
+		display: block;
+	}
+}
+.sl-404details{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+}
+.sl-404details__title h2{
+	font-size: 24px;
+	margin:0 0 19px;
+}
+.sl-404details__btnarea{margin-top: 23px;}

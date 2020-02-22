@@ -311,6 +311,7 @@
     <Compile Include="Models\EnrollUByEmaarMember.cs" />
     <Compile Include="Models\EventPassGeneratorRequest.cs" />
     <Compile Include="Models\ExtendBookingTime.cs" />
+    <Compile Include="Models\FileUploadBO.cs" />
     <Compile Include="Models\GetBookingInfo.cs" />
     <Compile Include="Models\GetConcessionList.cs" />
     <Compile Include="Models\GetConfigurations.cs" />
@@ -1220,6 +1221,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="ICS\" />
     <Folder Include="PassBookFiles\" />
+    <Folder Include="PublicFiles\" />
     <Folder Include="QRCode\" />
   </ItemGroup>
   <ItemGroup>

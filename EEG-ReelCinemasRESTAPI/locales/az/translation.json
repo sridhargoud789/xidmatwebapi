@@ -1,0 +1,24 @@
+{
+  "title": {
+    "p1": "10 milyondan çox axtarın",
+    "p2": "Trendy xidmət təminatçıları"
+  },
+  "description": {
+    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
+    "part2": "Switch language between english and german using buttons above."
+  },
+  "MostVisitedCatogoriesTitle": "Ən çox ziyarət edilən kateqoriyalar.",
+  "ProvidersTxt": "Təchizatçılar",
+  "MasterServices": {
+    "Service1": "Turlar Bələdçi Xidmətləri",
+    "Service2": "Nəqliyyat xidmətləri",
+    "Service3": "Təmizlik və dayə xidmətləri",
+    "Service4": "Avtomobil təmiri və xidmət mərkəzləri",
+    "Service5": "Əlli Xidmətlər",
+    "Service6": "Səhiyyə və həkimlər",
+    "Service7": "Kirayə Avtomobil Xidmətləri",
+    "Service8": "İdman və Fitness",
+    "Service9": "Heyvanlara Qayğı",
+    "Service10": "Digərləri"
+  }
+}

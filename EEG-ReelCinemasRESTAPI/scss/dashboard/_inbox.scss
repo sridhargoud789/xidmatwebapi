@@ -1,0 +1,155 @@
+.sl-inbox{
+    .sl-dashboardbox__content{
+        display: flex;
+        border-radius: 0 0 $radius $radius;
+        padding: 0;
+    }
+    &__user{
+        flex: 0 0 35%;
+        border-right: 1px solid $border-color;
+        .sl-input-group{
+            padding: 10px 20px;
+            border-bottom: 1px solid $border-color;
+        }
+        &--list{
+            max-height: 730px;
+            li{
+                @extend %flex;
+                min-height: 73px;
+                padding: 10px 20px;
+                border-top: 1px solid $border-color;
+                &:first-child{border-top: 0;}
+            }
+            img{border-radius: 50%;}
+        }
+        &--text{
+            padding-left: 10px;
+            h5{
+                font-size: rem(14);
+                line-height: em(22,14);
+            }
+            h6{
+                font-size: rem(13);
+                line-height: em(24,13);
+                color: $black-color2;
+                margin-top: -2px;
+            }
+        }
+    }
+    &__unread{
+        background-color: $light-pink-color;
+    }
+    .mCSB_inside>.mCSB_container{margin-right: 0;}
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+    .mCSB_scrollTools .mCSB_draggerRail{margin-right: 0;}
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background-color: #e6e6e6;}
+    .mCSB_scrollTools .mCSB_draggerRail{background-color: #9d9d9d;}
+    .mCSB_scrollTools{width: 3px;}
+}
+.sl-user-active{
+    position: relative;
+    :before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0; 
+        width: 3px;
+        min-height: 100%;
+        background-color: $primary-color;
+    }
+}
+.sl-messageUser{
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    .mCSB_scrollTools{visibility: hidden;}
+    &__heading{
+        @extend %flex;
+        flex-wrap: wrap;
+        padding: 10px 30px;
+        img{border-radius: 50%;}
+        border-bottom: 1px solid $border-color;
+        min-height: 101px;
+        &--logo{@extend %flex;}
+    }
+    &__back{
+        padding-right: 30px;
+        font-size: 20px;
+        color: $black-color2;
+        cursor: pointer;
+        &:hover{color: $black-color2;}
+    }
+    &__delete{
+        font-size: 18px;
+        color: #b4b4b4;
+        transform: rotate(90deg);
+        margin-left: auto;
+        padding-left: 10px;
+        cursor: pointer;
+        &:hover{color: #b4b4b4;}
+    }
+    &--text{
+        padding-left: 15px;
+        h5{
+            font-size: rem(18);
+            line-height: em(26,18);
+        }
+        h6{
+            font-size: rem(14);
+            line-height: em(22,14);
+            color: $black-color2;
+            margin-top: -2px;
+        }
+    }
+    &__area{
+        margin-top: auto;
+        padding: 30px;
+        max-height: 610px;
+        p{
+            padding: 12px 20px;
+            background-color: #fcfcfc;
+            border: 1px solid $border-color2;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        span{
+            font: 400 rem(11)/em(12,11) $para-font-family;
+            color: #999;
+            padding-top: 8px;
+        } 
+        img{
+            margin-top: 10px;
+            border: 1px solid $border-color2;
+            border-radius: 4px;
+            background-color: #fcfcfc;
+        }
+        &--right,
+        &--left{
+            display: flex;
+            flex-direction: column;
+        }
+        &--right{
+            align-items: flex-end;
+            margin: 5px 0 0 121px;
+        }
+        &--left{
+            align-items: flex-start;
+            margin: 5px 121px 0 0;
+        }
+    }
+}
+.sl-emoji{
+    border-top: 1px solid $border-color;
+    .sl-input-group{
+        padding: 19px;
+       > a:first-child{
+            min-width: 44px;
+            border: 1px solid #ddd;
+            &:hover{background-color: $white-color;}
+        }
+    }
+    .sl-form-control{
+        border-radius: 0;
+        border-left: 0;
+    }
+}

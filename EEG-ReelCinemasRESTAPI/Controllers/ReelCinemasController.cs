@@ -19,7 +19,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -2198,7 +2197,7 @@ namespace EEG_ReelCinemasRESTAPI.Controllers
 
                     try
                     {
-                        File.WriteAllBytes(ConfigurationManager.AppSettings["pkpassPath"].ToString() + "/" + response.FileName, bFile);
+                       System.IO.File.WriteAllBytes(ConfigurationManager.AppSettings["pkpassPath"].ToString() + "/" + response.FileName, bFile);
                     }
                     catch (Exception ex)
                     {

@@ -1,0 +1,124 @@
+.sl-dashboardbox{
+    &:nth-child(n+2){
+        margin-top: 30px;
+    }
+}
+.sl-manageServices{
+    &__uploadarea{
+        background-color: $light-pink-color;
+        @extend %flex;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 186px;
+        padding: 30px;
+        h5{
+            font-size: rem(20);
+            font-weight: 700;
+            line-height: em(27,20);
+        }
+        > span{
+            font-size: 60px;
+            color: $border-color;
+            line-height: 73px;
+            padding-bottom: 4px;
+        }
+        p{
+            font-size: rem(13);
+            input{display: none;}
+            label{cursor: copy;}
+            span{color: $anchor-color;}
+            i{
+                font-size: 13px;
+                color: #999;
+            }
+        }
+        .tipso_style{border-bottom: 0;}
+        svg{
+            position: absolute;
+            fill: transparent;  
+            stroke: #ddd;
+            left: 0;
+            right: 0;
+            margin: auto;
+            overflow: visible;
+            z-index: -1;
+            padding: 0 1px;
+        }
+        svg,
+        rect{
+            height: 204px;
+            width: 100%;
+        }
+        rect{
+            stroke-width: 2px;
+            stroke-dasharray: 12, 12;
+            rx: 4px;
+        }
+    }
+    .sl-form-append{
+        .sl-prepend{
+            border-radius: 4px 0 0 4px;
+        }
+        .sl-append{
+            border-left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+    }
+    .sl-btnarea{
+        @extend %flex;
+        flex-wrap: wrap;
+        padding-top: 15px;
+        margin-top: -10px;
+        > button {
+            margin-top: 10px;
+            margin-right: 30px;
+        }
+        .sl-btn{min-width: 160px;}
+        & > span{
+            color: $black-color2;
+            margin-top: 10px;
+            margin-right: auto;
+        }
+        > a.sl-btn{margin-top: 10px;}
+    }
+}
+.sl-manageServices__upload{
+    position: relative;
+    padding: 10px;
+}
+.sl-form-append{
+    .sl-prepend{
+        width: calc(100% - 150px);
+    }
+    .sl-select{
+        width: 150px;
+
+    }
+}
+.sl-offeredServices{
+    .sl-servicedays__title{padding: 14.5px 30px 14.5px 20px;}
+    &--rightarea{
+        @extend %flex;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+        .sl-btn{
+            min-width: 133px;
+            height: 35px;
+        }
+        p{
+            padding-right: 30px;
+            font-size: rem(13);
+        }
+        + .sl-servicedays__title{border-radius: 4px 4px 0 0;}
+    }
+    &__heading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h6{line-height: em(16,16);}
+        span{
+            font: 400 rem(14) $heading-font-family;
+            padding-top: 6px;
+        }
+    }
+}

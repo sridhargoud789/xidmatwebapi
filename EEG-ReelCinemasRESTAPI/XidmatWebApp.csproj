@@ -1,0 +1,2853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.8\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.8\build\Microsoft.CodeAnalysis.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.AspNetCore.Razor.Design.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('..\packages\Microsoft.AspNetCore.Razor.Design.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props')" />
+  <Import Project="..\packages\Microsoft.DiaSymReader.Native.1.7.0\build\Microsoft.DiaSymReader.Native.props" Condition="Exists('..\packages\Microsoft.DiaSymReader.Native.1.7.0\build\Microsoft.DiaSymReader.Native.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2290B752-E84E-4CD2-8FAF-246C9B259EE5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XidmatWebApp</RootNamespace>
+    <AssemblyName>XidmatWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="FromHeaderAttribute, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FromHeaderAttribute.2.0.4\lib\net45\FromHeaderAttribute.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.7\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Antiforgery, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Antiforgery.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Antiforgery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.Policy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cors, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Diagnostics.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Diagnostics.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Diagnostics.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Html.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Html.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Html.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.2\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.JsonPatch, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.JsonPatch.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.JsonPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Localization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Localization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Metadata, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Metadata.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ApiExplorer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.ApiExplorer.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ApiExplorer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.2.2.5\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Cors, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.DataAnnotations, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.DataAnnotations.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Formatters.Json, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Formatters.Json.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Formatters.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Localization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Localization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Razor, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Razor.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Razor.Extensions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Razor.Extensions.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.RazorPages, Version=2.2.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.RazorPages.2.2.5\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.RazorPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.TagHelpers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.TagHelpers.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.TagHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.ViewFeatures.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Language, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Language.3.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Razor.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Runtime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Runtime.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.2.2.2\lib\netstandard2.0\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=3.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.3.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=3.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.3.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Razor, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Razor.3.1.1\lib\netstandard2.0\Microsoft.CodeAnalysis.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.1.1\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.3.1.1\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Composite, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Composite.3.1.1\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.3.1.1\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.3.1.1\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=3.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.3.1.1\lib\netstandard2.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.8\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OpenApi, Version=1.1.4.0, Culture=neutral, PublicKeyToken=3f5743946376f042, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OpenApi.1.1.4\lib\net46\Microsoft.OpenApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="Passbook.Generator, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotnet-passbook.2.0.2\lib\netstandard2.0\Passbook.Generator.dll</HintPath>
+    </Reference>
+    <Reference Include="RestClient.Net, Version=3.2.0.0, Culture=neutral, PublicKeyToken=e5ebafcd8cc6b3d3, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestClient.Net.3.2.0\lib\net45\RestClient.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="RestClient.Net.Abstractions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=e5ebafcd8cc6b3d3, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestClient.Net.Abstractions.3.2.0\lib\net45\RestClient.Net.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Swagger.Net, Version=8.3.25.1, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Swagger.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.Swagger, Version=5.0.0.0, Culture=neutral, PublicKeyToken=62657d7474907593, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.AspNetCore.Swagger.5.0.0\lib\netstandard2.0\Swashbuckle.AspNetCore.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.1\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.FileVersionInfo.4.3.0\lib\net46\System.Diagnostics.FileVersionInfo.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.StackTrace.4.3.0\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.4.7.0\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.8.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.4.7.0\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.4.7.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.7.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Thread.4.3.0\lib\net46\System.Threading.Thread.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.XPath, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.4.3.0\lib\net46\System.Xml.XPath.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="AuthenticationHelper.cs" />
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="Common\AuthenticateRequestAttribute.cs" />
+    <Compile Include="Common\Smartbutton\MemberActivityBl.cs" />
+    <Compile Include="Common\Smartbutton\MemberBl.cs" />
+    <Compile Include="Common\Smartbutton\MemberContactBl.cs" />
+    <Compile Include="Common\Smartbutton\MemberSecurityBl.cs" />
+    <Compile Include="Common\Smartbutton\OfferBl.cs" />
+    <Compile Include="Common\Smartbutton\PortalBl.cs" />
+    <Compile Include="Common\Smartbutton\RewardBl.cs" />
+    <Compile Include="Common\Smartbutton\TransactionBl.cs" />
+    <Compile Include="Common\SMS.cs" />
+    <Compile Include="Common\WebRequest.cs" />
+    <Compile Include="Connected Services\UByEmaar\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MasterServicesController.cs" />
+    <Compile Include="Controllers\ReelCinemasController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageMang.cs" />
+    <Compile Include="Models\AddConcessions.cs" />
+    <Compile Include="Models\AddTicket.cs" />
+    <Compile Include="Models\AddWallet.cs" />
+    <Compile Include="Models\BookingSummary.cs" />
+    <Compile Include="Models\CancelOrder.cs" />
+    <Compile Include="Models\CheckGiftCardBalanceReq.cs" />
+    <Compile Include="Models\Cinemas.cs" />
+    <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\CompleteOrderByCard.cs" />
+    <Compile Include="Models\CompleteOrderByGiftCard.cs" />
+    <Compile Include="Models\CompleteOrderByUBELoyalty.cs" />
+    <Compile Include="Models\CompleteOrderLoyaltyCard.cs" />
+    <Compile Include="Models\ConfirmationEntity.cs" />
+    <Compile Include="Models\DeleteSavedCard.cs" />
+    <Compile Include="Models\EarnUByEmaarpoints.cs" />
+    <Compile Include="Models\EmaarEmpSendOtp.cs" />
+    <Compile Include="Models\EnrollUByEmaarMember.cs" />
+    <Compile Include="Models\EventPassGeneratorRequest.cs" />
+    <Compile Include="Models\ExtendBookingTime.cs" />
+    <Compile Include="Models\GetBookingInfo.cs" />
+    <Compile Include="Models\GetConcessionList.cs" />
+    <Compile Include="Models\GetConfigurations.cs" />
+    <Compile Include="Models\GetMoviesByExperience.cs" />
+    <Compile Include="Models\GetOffers.cs" />
+    <Compile Include="Models\GetSavedCard.cs" />
+    <Compile Include="Models\GetUserBookingDetails.cs" />
+    <Compile Include="Models\NoonPayment.cs" />
+    <Compile Include="Models\NoonPaymentCapture.cs" />
+    <Compile Include="Models\Response\DineInConfig.cs" />
+    <Compile Include="Models\Response\GetNoonPaymentOrderDetails.cs" />
+    <Compile Include="Models\Response\GetOffersResp.cs" />
+    <Compile Include="Models\GetOrder.cs" />
+    <Compile Include="Models\Response\InfluxResponse.cs" />
+    <Compile Include="Models\PaymentInfo.cs" />
+    <Compile Include="Models\RemoveConcessions.cs" />
+    <Compile Include="Models\Response\AddConcessionResp.cs" />
+    <Compile Include="Models\Response\AddTicketResp.cs" />
+    <Compile Include="Models\Response\CompleteOrderPaymentByGiftCardResp.cs" />
+    <Compile Include="Models\Response\CompleteOrderPaymentByUBECardResp.cs" />
+    <Compile Include="Models\Response\GetConcessionListResp.cs" />
+    <Compile Include="Models\Response\GetOrderResp.cs" />
+    <Compile Include="Models\Response\GetSeatPlanResp.cs" />
+    <Compile Include="Models\Response\GetTicketTypesResp.cs" />
+    <Compile Include="Models\Response\GiftCardBalance.cs" />
+    <Compile Include="Models\Response\NoonPaymentCaptureResp.cs" />
+    <Compile Include="Models\Response\NoonPaymentResp.cs" />
+    <Compile Include="Models\Response\SessionListResp.cs" />
+    <Compile Include="Models\Response\SetSeatResp.cs" />
+    <Compile Include="Models\Response\StandardTicketTypesConfig.cs" />
+    <Compile Include="Models\Response\ValidateOffErrorRes.cs" />
+    <Compile Include="Models\SaveNewCard.cs" />
+    <Compile Include="Models\SeatPlan.cs" />
+    <Compile Include="Models\GetTickets.cs" />
+    <Compile Include="Models\ServiceViewModels.cs" />
+    <Compile Include="Models\SetSeat.cs" />
+    <Compile Include="Models\UserManagement.cs" />
+    <Compile Include="Models\ValidateEmaarEmp.cs" />
+    <Compile Include="Models\ValidateOffers.cs" />
+    <Compile Include="Models\Response\ValidateOffersResponse.cs" />
+    <Compile Include="Models\ValidateUBEMember.cs" />
+    <Compile Include="Models\VISTAResponse.cs" />
+    <Compile Include="NotificationHelper.cs" />
+    <Compile Include="PasswordHelper.cs" />
+    <Compile Include="PaymentConfirmation.aspx.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentConfirmation.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentResponse.aspx.cs">
+      <DependentUpon>PaymentResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentResponse.aspx.designer.cs">
+      <DependentUpon>PaymentResponse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UbyEmaarBAL.cs" />
+    <Compile Include="Web References\Smartbutton.MemberActivity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.MemberContact\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.MemberSecurity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Member\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Offer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Portal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Reward\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Smartbutton.Transaction\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.BlockPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.CancelBlockedPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.EarnPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.GetPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.GetTierResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.MemberDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.PointAdjustmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.QuickRegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.RedeemPointsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.SendOTPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.UpdateLoyaltyProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\EEG_ReelCinemasRESTAPI.UByEmaar.ValidateOTPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="ConfigurationSettings\AppSettings-Production.config" />
+    <Content Include="ConfigurationSettings\AppSettings-Staging.config" />
+    <Content Include="ConfigurationSettings\AppSettings-Local.config" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Connected Services\UByEmaar\Service.disco" />
+    <None Include="Connected Services\UByEmaar\configuration91.svcinfo" />
+    <None Include="Connected Services\UByEmaar\configuration.svcinfo" />
+    <None Include="Connected Services\UByEmaar\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bootstrap-datepicker.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\dashboard-responsive.css" />
+    <Content Include="css\dashboard.css" />
+    <Content Include="css\fontawesome\fa-brands.css" />
+    <Content Include="css\fontawesome\fa-brands.min.css" />
+    <Content Include="css\fontawesome\fa-regular.css" />
+    <Content Include="css\fontawesome\fa-regular.min.css" />
+    <Content Include="css\fontawesome\fa-solid.css" />
+    <Content Include="css\fontawesome\fa-solid.min.css" />
+    <Content Include="css\fontawesome\fontawesome-all.css" />
+    <Content Include="css\fontawesome\fontawesome-all.min.css" />
+    <Content Include="css\fontawesome\fontawesome.css" />
+    <Content Include="css\fontawesome\fontawesome.min.css" />
+    <Content Include="css\fullcalendar.min.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="css\lightpick.css" />
+    <Content Include="css\linearicons.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\prettyPhoto.css" />
+    <Content Include="css\select2.min.css" />
+    <Content Include="css\themify-icons.css" />
+    <Content Include="css\tipso.css" />
+    <Content Include="css\webfonts\fa-brands-400.svg" />
+    <Content Include="css\webfonts\fa-regular-400.svg" />
+    <Content Include="css\webfonts\fa-solid-900.svg" />
+    <Content Include="Emailer\BookingConfirmation.html" />
+    <Content Include="Emailer\dubaimall.html" />
+    <Content Include="Emailer\images\ads-01.gif" />
+    <Content Include="Emailer\images\ads-02.gif" />
+    <Content Include="Emailer\images\barcode.jpg" />
+    <Content Include="Emailer\images\booking-conf.jpg" />
+    <Content Include="Emailer\images\breaker-bottom.jpg" />
+    <Content Include="Emailer\images\breaker-middle.jpg" />
+    <Content Include="Emailer\images\breaker-top.jpg" />
+    <Content Include="Emailer\images\btn-print-ur-ticket.png" />
+    <Content Include="Emailer\images\btn-share.png" />
+    <Content Include="Emailer\images\corver-left-bottom.png" />
+    <Content Include="Emailer\images\corver-left-top.png" />
+    <Content Include="Emailer\images\corver-right-bottom.png" />
+    <Content Include="Emailer\images\corver-right-top.png" />
+    <Content Include="Emailer\images\emaar-logo.jpg" />
+    <Content Include="Emailer\images\fb.png" />
+    <Content Include="Emailer\images\feedback.png" />
+    <Content Include="Emailer\images\google-store.jpg" />
+    <Content Include="Emailer\images\guy-fieris-burger.jpg" />
+    <Content Include="Emailer\images\icon-android.png" />
+    <Content Include="Emailer\images\icon-calendar-black.jpg" />
+    <Content Include="Emailer\images\icon-calendar.jpg" />
+    <Content Include="Emailer\images\icon-cinema.png" />
+    <Content Include="Emailer\images\icon-clock.jpg" />
+    <Content Include="Emailer\images\icon-date-time.png" />
+    <Content Include="Emailer\images\icon-direction.jpg" />
+    <Content Include="Emailer\images\icon-facebook.png" />
+    <Content Include="Emailer\images\icon-fb.png" />
+    <Content Include="Emailer\images\icon-feedback.png" />
+    <Content Include="Emailer\images\icon-food.jpg" />
+    <Content Include="Emailer\images\icon-food.png" />
+    <Content Include="Emailer\images\icon-insta.png" />
+    <Content Include="Emailer\images\icon-instagram.png" />
+    <Content Include="Emailer\images\icon-iphone.png" />
+    <Content Include="Emailer\images\icon-location.jpg" />
+    <Content Include="Emailer\images\icon-phone.png" />
+    <Content Include="Emailer\images\icon-saet.jpg" />
+    <Content Include="Emailer\images\icon-screen.png" />
+    <Content Include="Emailer\images\icon-screen1.jpg" />
+    <Content Include="Emailer\images\icon-screen].jpg" />
+    <Content Include="Emailer\images\icon-seat.png" />
+    <Content Include="Emailer\images\icon-ticket.jpg" />
+    <Content Include="Emailer\images\icon-ticket.png" />
+    <Content Include="Emailer\images\icon-tickets.png" />
+    <Content Include="Emailer\images\icon-twitter.png" />
+    <Content Include="Emailer\images\icon-wallet.jpg" />
+    <Content Include="Emailer\images\icon-wallet.png" />
+    <Content Include="Emailer\images\icon-youtube.png" />
+    <Content Include="Emailer\images\in.png" />
+    <Content Include="Emailer\images\logo.jpg" />
+    <Content Include="Emailer\images\logo.png" />
+    <Content Include="Emailer\images\map-alghurair.jpg" />
+    <Content Include="Emailer\images\map-dubaimall.jpg" />
+    <Content Include="Emailer\images\map-dubaimarinamall.jpg" />
+    <Content Include="Emailer\images\map-jabelali.jpg" />
+    <Content Include="Emailer\images\map-rovedowntown.jpg" />
+    <Content Include="Emailer\images\map-thepointe.jpg" />
+    <Content Include="Emailer\images\map-thespringssouk.jpg" />
+    <Content Include="Emailer\images\mobileapp.jpg" />
+    <Content Include="Emailer\images\operaimage1.gif" />
+    <Content Include="Emailer\images\operaimage2.gif" />
+    <Content Include="Emailer\images\pg13-rating.jpg" />
+    <Content Include="Emailer\images\qr-code.png" />
+    <Content Include="Emailer\images\QRcode.png" />
+    <Content Include="Emailer\images\queries.png" />
+    <Content Include="Emailer\images\RC-logo.png" />
+    <Content Include="Emailer\images\Reel-Cinemas1.jpg" />
+    <Content Include="Emailer\images\Reel-Cinemas2.jpg" />
+    <Content Include="Emailer\images\Reel-Dine-in1.jpg" />
+    <Content Include="Emailer\images\Reel-Dine-in2.jpg" />
+    <Content Include="Emailer\images\Reel-Platinum1.jpg" />
+    <Content Include="Emailer\images\Reel-Platinum2.jpg" />
+    <Content Include="Emailer\images\separator-grey-inverse.jpg" />
+    <Content Include="Emailer\images\separator-grey.jpg" />
+    <Content Include="Emailer\images\separator-white.jpg" />
+    <Content Include="Emailer\images\social-media.jpg" />
+    <Content Include="Emailer\images\spacer.gif" />
+    <Content Include="Emailer\images\top-header.jpg" />
+    <Content Include="Emailer\images\tw.png" />
+    <Content Include="Emailer\images\verify.png" />
+    <Content Include="Emailer\images\yt.png" />
+    <Content Include="Emailer\RC-Al-Ghurair-Centre.html" />
+    <Content Include="Emailer\RC-Dubai-Mall.html" />
+    <Content Include="Emailer\RC-Dubai-Marina-Mall.html" />
+    <Content Include="Emailer\RC-Jebel-Ali-Recreation-Club.html" />
+    <Content Include="Emailer\RC-Rove-Downtown.html" />
+    <Content Include="Emailer\RC-The-Pointe.html" />
+    <Content Include="Emailer\RC-The-Springs-Souk.html" />
+    <Content Include="Emailer\ResetPassword.html" />
+    <Content Include="Emailer\WelcomeEmailer.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="images\404-scroll.png" />
+    <Content Include="images\404.png" />
+    <Content Include="images\aboutus\img-01.jpg" />
+    <Content Include="images\aboutus\img-02.jpg" />
+    <Content Include="images\aboutus\img-03.jpg" />
+    <Content Include="images\aboutus\img-04.jpg" />
+    <Content Include="images\aboutus\img-05.jpg" />
+    <Content Include="images\aboutus\index-1.htm" />
+    <Content Include="images\aboutus\index-2.htm" />
+    <Content Include="images\aboutus\index-3.htm" />
+    <Content Include="images\aboutus\index-4.htm" />
+    <Content Include="images\aboutus\index-5.htm" />
+    <Content Include="images\aboutus\index-6.htm" />
+    <Content Include="images\aboutus\index-7.htm" />
+    <Content Include="images\aboutus\index-8.htm" />
+    <Content Include="images\aboutus\index.htm" />
+    <Content Include="images\all-payouts\img-01.jpg" />
+    <Content Include="images\all-payouts\img-02.jpg" />
+    <Content Include="images\all-payouts\index-1.htm" />
+    <Content Include="images\all-payouts\index-2.htm" />
+    <Content Include="images\all-payouts\index-3.htm" />
+    <Content Include="images\all-payouts\index-4.htm" />
+    <Content Include="images\all-payouts\index-5.htm" />
+    <Content Include="images\all-payouts\index-6.htm" />
+    <Content Include="images\all-payouts\index-7.htm" />
+    <Content Include="images\all-payouts\index-8.htm" />
+    <Content Include="images\all-payouts\index.htm" />
+    <Content Include="images\blog-single\banner-img.jpg" />
+    <Content Include="images\blog-single\index-1.htm" />
+    <Content Include="images\blog-single\index-2.htm" />
+    <Content Include="images\blog-single\index-3.htm" />
+    <Content Include="images\blog-single\index-4.htm" />
+    <Content Include="images\blog-single\index-5.htm" />
+    <Content Include="images\blog-single\index-6.htm" />
+    <Content Include="images\blog-single\index-7.htm" />
+    <Content Include="images\blog-single\index-8.htm" />
+    <Content Include="images\blog-single\index.htm" />
+    <Content Include="images\blog-single\user-imgs\img-01.jpg" />
+    <Content Include="images\blog-single\user-imgs\img-02.jpg" />
+    <Content Include="images\blog-single\user-imgs\img-03.jpg" />
+    <Content Include="images\blog-single\user-imgs\img-04.jpg" />
+    <Content Include="images\blog-single\user-imgs\img-05.jpg" />
+    <Content Include="images\blog-single\user-imgs\index-1.htm" />
+    <Content Include="images\blog-single\user-imgs\index-2.htm" />
+    <Content Include="images\blog-single\user-imgs\index-3.htm" />
+    <Content Include="images\blog-single\user-imgs\index-4.htm" />
+    <Content Include="images\blog-single\user-imgs\index-5.htm" />
+    <Content Include="images\blog-single\user-imgs\index-6.htm" />
+    <Content Include="images\blog-single\user-imgs\index-7.htm" />
+    <Content Include="images\blog-single\user-imgs\index-8.htm" />
+    <Content Include="images\blog-single\user-imgs\index.htm" />
+    <Content Include="images\blog-single\video-banner.jpg" />
+    <Content Include="images\bloggrid\img-01.jpg" />
+    <Content Include="images\bloggrid\img-02.jpg" />
+    <Content Include="images\bloggrid\img-03.jpg" />
+    <Content Include="images\bloggrid\img-04.jpg" />
+    <Content Include="images\bloggrid\img-05.jpg" />
+    <Content Include="images\bloggrid\img-06.jpg" />
+    <Content Include="images\bloggrid\index-1.htm" />
+    <Content Include="images\bloggrid\index-2.htm" />
+    <Content Include="images\bloggrid\index-3.htm" />
+    <Content Include="images\bloggrid\index-4.htm" />
+    <Content Include="images\bloggrid\index-5.htm" />
+    <Content Include="images\bloggrid\index-6.htm" />
+    <Content Include="images\bloggrid\index-7.htm" />
+    <Content Include="images\bloggrid\index-8.htm" />
+    <Content Include="images\bloggrid\index.htm" />
+    <Content Include="images\buy-package\card\img-01.jpg" />
+    <Content Include="images\buy-package\card\img-02.jpg" />
+    <Content Include="images\buy-package\card\img-03.jpg" />
+    <Content Include="images\buy-package\card\index-1.htm" />
+    <Content Include="images\buy-package\card\index-2.htm" />
+    <Content Include="images\buy-package\card\index-3.htm" />
+    <Content Include="images\buy-package\card\index-4.htm" />
+    <Content Include="images\buy-package\card\index-5.htm" />
+    <Content Include="images\buy-package\card\index-6.htm" />
+    <Content Include="images\buy-package\card\index-7.htm" />
+    <Content Include="images\buy-package\card\index-8.htm" />
+    <Content Include="images\buy-package\card\index.htm" />
+    <Content Include="images\buy-package\img-01.png" />
+    <Content Include="images\buy-package\index-1.htm" />
+    <Content Include="images\buy-package\index-2.htm" />
+    <Content Include="images\buy-package\index-3.htm" />
+    <Content Include="images\buy-package\index-4.htm" />
+    <Content Include="images\buy-package\index-5.htm" />
+    <Content Include="images\buy-package\index-6.htm" />
+    <Content Include="images\buy-package\index-7.htm" />
+    <Content Include="images\buy-package\index-8.htm" />
+    <Content Include="images\buy-package\index.htm" />
+    <Content Include="images\coming-soonbg.jpg" />
+    <Content Include="images\coming-soonborder.png" />
+    <Content Include="images\comingsoon-logo.png" />
+    <Content Include="images\comingsoon-logo2.png" />
+    <Content Include="images\contactimg\img-01.jpg" />
+    <Content Include="images\contactimg\index-1.htm" />
+    <Content Include="images\contactimg\index-2.htm" />
+    <Content Include="images\contactimg\index-3.htm" />
+    <Content Include="images\contactimg\index-4.htm" />
+    <Content Include="images\contactimg\index-5.htm" />
+    <Content Include="images\contactimg\index-6.htm" />
+    <Content Include="images\contactimg\index-7.htm" />
+    <Content Include="images\contactimg\index-8.htm" />
+    <Content Include="images\contactimg\index.htm" />
+    <Content Include="images\db-vendor\img-01.jpg" />
+    <Content Include="images\db-vendor\index-1.htm" />
+    <Content Include="images\db-vendor\index-2.htm" />
+    <Content Include="images\db-vendor\index-3.htm" />
+    <Content Include="images\db-vendor\index-4.htm" />
+    <Content Include="images\db-vendor\index-5.htm" />
+    <Content Include="images\db-vendor\index-6.htm" />
+    <Content Include="images\db-vendor\index-7.htm" />
+    <Content Include="images\db-vendor\index-8.htm" />
+    <Content Include="images\db-vendor\index.htm" />
+    <Content Include="images\errorpage\img-01.jpg" />
+    <Content Include="images\errorpage\index-1.htm" />
+    <Content Include="images\errorpage\index-2.htm" />
+    <Content Include="images\errorpage\index-3.htm" />
+    <Content Include="images\errorpage\index-4.htm" />
+    <Content Include="images\errorpage\index-5.htm" />
+    <Content Include="images\errorpage\index-6.htm" />
+    <Content Include="images\errorpage\index-7.htm" />
+    <Content Include="images\errorpage\index-8.htm" />
+    <Content Include="images\errorpage\index.htm" />
+    <Content Include="images\example-images\1_standard.jpg" />
+    <Content Include="images\example-images\1_zoom.jpg" />
+    <Content Include="images\example-images\2_standard.jpg" />
+    <Content Include="images\example-images\2_zoom.jpg" />
+    <Content Include="images\example-images\3_standard_1.jpg" />
+    <Content Include="images\example-images\3_standard_2.jpg" />
+    <Content Include="images\example-images\3_standard_3.jpg" />
+    <Content Include="images\example-images\3_standard_4.jpg" />
+    <Content Include="images\example-images\3_thumbnail_1.jpg" />
+    <Content Include="images\example-images\3_thumbnail_2.jpg" />
+    <Content Include="images\example-images\3_thumbnail_3.jpg" />
+    <Content Include="images\example-images\3_thumbnail_4.jpg" />
+    <Content Include="images\example-images\3_zoom_1.jpg" />
+    <Content Include="images\example-images\3_zoom_2.jpg" />
+    <Content Include="images\example-images\3_zoom_3.jpg" />
+    <Content Include="images\example-images\3_zoom_4.jpg" />
+    <Content Include="images\example-images\index-1.htm" />
+    <Content Include="images\example-images\index-2.htm" />
+    <Content Include="images\example-images\index-3.htm" />
+    <Content Include="images\example-images\index-4.htm" />
+    <Content Include="images\example-images\index-5.htm" />
+    <Content Include="images\example-images\index-6.htm" />
+    <Content Include="images\example-images\index-7.htm" />
+    <Content Include="images\example-images\index-8.htm" />
+    <Content Include="images\example-images\index.htm" />
+    <Content Include="images\example-images\test_standard.jpg" />
+    <Content Include="images\example-images\test_zoom.jpg" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\img-01.jpg" />
+    <Content Include="images\img-02.jpg" />
+    <Content Include="images\inbox\index-1.htm" />
+    <Content Include="images\inbox\index-2.htm" />
+    <Content Include="images\inbox\index-3.htm" />
+    <Content Include="images\inbox\index-4.htm" />
+    <Content Include="images\inbox\index-5.htm" />
+    <Content Include="images\inbox\index-6.htm" />
+    <Content Include="images\inbox\index-7.htm" />
+    <Content Include="images\inbox\index-8.htm" />
+    <Content Include="images\inbox\index.htm" />
+    <Content Include="images\inbox\message-user\img-01.jpg" />
+    <Content Include="images\inbox\message-user\img-01.png" />
+    <Content Include="images\inbox\message-user\img-02.png" />
+    <Content Include="images\inbox\message-user\index-1.htm" />
+    <Content Include="images\inbox\message-user\index-2.htm" />
+    <Content Include="images\inbox\message-user\index-3.htm" />
+    <Content Include="images\inbox\message-user\index-4.htm" />
+    <Content Include="images\inbox\message-user\index-5.htm" />
+    <Content Include="images\inbox\message-user\index-6.htm" />
+    <Content Include="images\inbox\message-user\index-7.htm" />
+    <Content Include="images\inbox\message-user\index-8.htm" />
+    <Content Include="images\inbox\message-user\index.htm" />
+    <Content Include="images\inbox\user\img-01.jpg" />
+    <Content Include="images\inbox\user\img-02.jpg" />
+    <Content Include="images\inbox\user\img-03.jpg" />
+    <Content Include="images\inbox\user\img-04.jpg" />
+    <Content Include="images\inbox\user\img-05.jpg" />
+    <Content Include="images\inbox\user\img-06.jpg" />
+    <Content Include="images\inbox\user\img-07.jpg" />
+    <Content Include="images\inbox\user\img-08.jpg" />
+    <Content Include="images\inbox\user\img-09.jpg" />
+    <Content Include="images\inbox\user\img-10.jpg" />
+    <Content Include="images\inbox\user\index-1.htm" />
+    <Content Include="images\inbox\user\index-2.htm" />
+    <Content Include="images\inbox\user\index-3.htm" />
+    <Content Include="images\inbox\user\index-4.htm" />
+    <Content Include="images\inbox\user\index-5.htm" />
+    <Content Include="images\inbox\user\index-6.htm" />
+    <Content Include="images\inbox\user\index-7.htm" />
+    <Content Include="images\inbox\user\index-8.htm" />
+    <Content Include="images\inbox\user\index.htm" />
+    <Content Include="images\index-1.htm" />
+    <Content Include="images\index-2.htm" />
+    <Content Include="images\index-3.htm" />
+    <Content Include="images\index-4.htm" />
+    <Content Include="images\index-5.htm" />
+    <Content Include="images\index-6.htm" />
+    <Content Include="images\index-7.htm" />
+    <Content Include="images\index-8.htm" />
+    <Content Include="images\index.htm" />
+    <Content Include="images\index\cart\img-01.png" />
+    <Content Include="images\index\cart\img-02.png" />
+    <Content Include="images\index\cart\img-03.png" />
+    <Content Include="images\index\cart\img-04.png" />
+    <Content Include="images\index\cart\img-05.png" />
+    <Content Include="images\index\cart\img-06.png" />
+    <Content Include="images\index\cart\index-1.htm" />
+    <Content Include="images\index\cart\index-2.htm" />
+    <Content Include="images\index\cart\index-3.htm" />
+    <Content Include="images\index\cart\index-4.htm" />
+    <Content Include="images\index\cart\index-5.htm" />
+    <Content Include="images\index\cart\index-6.htm" />
+    <Content Include="images\index\cart\index-7.htm" />
+    <Content Include="images\index\cart\index-8.htm" />
+    <Content Include="images\index\cart\index.htm" />
+    <Content Include="images\index\category\img-01.jpg" />
+    <Content Include="images\index\category\img-02.jpg" />
+    <Content Include="images\index\category\img-03.jpg" />
+    <Content Include="images\index\category\img-04.jpg" />
+    <Content Include="images\index\category\img-05.jpg" />
+    <Content Include="images\index\category\img-06.jpg" />
+    <Content Include="images\index\category\img-07.jpg" />
+    <Content Include="images\index\category\img-08.jpg" />
+    <Content Include="images\index\category\img-09.jpg" />
+    <Content Include="images\index\category\img-10.jpg" />
+    <Content Include="images\index\category\index-1.htm" />
+    <Content Include="images\index\category\index-2.htm" />
+    <Content Include="images\index\category\index-3.htm" />
+    <Content Include="images\index\category\index-4.htm" />
+    <Content Include="images\index\category\index-5.htm" />
+    <Content Include="images\index\category\index-6.htm" />
+    <Content Include="images\index\category\index-7.htm" />
+    <Content Include="images\index\category\index-8.htm" />
+    <Content Include="images\index\category\index.htm" />
+    <Content Include="images\index\category\tours.jpg" />
+    <Content Include="images\index\community\banner.jpg" />
+    <Content Include="images\index\community\index-1.htm" />
+    <Content Include="images\index\community\index-2.htm" />
+    <Content Include="images\index\community\index-3.htm" />
+    <Content Include="images\index\community\index-4.htm" />
+    <Content Include="images\index\community\index-5.htm" />
+    <Content Include="images\index\community\index-6.htm" />
+    <Content Include="images\index\community\index-7.htm" />
+    <Content Include="images\index\community\index-8.htm" />
+    <Content Include="images\index\community\index.htm" />
+    <Content Include="images\index\featured-products\img-01.jpg" />
+    <Content Include="images\index\featured-products\img-02.jpg" />
+    <Content Include="images\index\featured-products\img-03.jpg" />
+    <Content Include="images\index\featured-products\img-04.jpg" />
+    <Content Include="images\index\featured-products\img-05.jpg" />
+    <Content Include="images\index\featured-products\img-06.jpg" />
+    <Content Include="images\index\featured-products\img-07.jpg" />
+    <Content Include="images\index\featured-products\img-08.jpg" />
+    <Content Include="images\index\featured-products\img-09.jpg" />
+    <Content Include="images\index\featured-products\img-10.jpg" />
+    <Content Include="images\index\featured-products\img-11.jpg" />
+    <Content Include="images\index\featured-products\img-12.jpg" />
+    <Content Include="images\index\featured-products\img-13.jpg" />
+    <Content Include="images\index\featured-products\img-14.jpg" />
+    <Content Include="images\index\featured-products\img-15.jpg" />
+    <Content Include="images\index\featured-products\img-16.jpg" />
+    <Content Include="images\index\featured-products\index-1.htm" />
+    <Content Include="images\index\featured-products\index-2.htm" />
+    <Content Include="images\index\featured-products\index-3.htm" />
+    <Content Include="images\index\featured-products\index-4.htm" />
+    <Content Include="images\index\featured-products\index-5.htm" />
+    <Content Include="images\index\featured-products\index-6.htm" />
+    <Content Include="images\index\featured-products\index-7.htm" />
+    <Content Include="images\index\featured-products\index-8.htm" />
+    <Content Include="images\index\featured-products\index.htm" />
+    <Content Include="images\index\feedback\banner.jpg" />
+    <Content Include="images\index\feedback\index-1.htm" />
+    <Content Include="images\index\feedback\index-2.htm" />
+    <Content Include="images\index\feedback\index-3.htm" />
+    <Content Include="images\index\feedback\index-4.htm" />
+    <Content Include="images\index\feedback\index-5.htm" />
+    <Content Include="images\index\feedback\index-6.htm" />
+    <Content Include="images\index\feedback\index-7.htm" />
+    <Content Include="images\index\feedback\index-8.htm" />
+    <Content Include="images\index\feedback\index.htm" />
+    <Content Include="images\index\feedback\user-icon\img-01.jpg" />
+    <Content Include="images\index\feedback\user-icon\img-02.jpg" />
+    <Content Include="images\index\feedback\user-icon\index-1.htm" />
+    <Content Include="images\index\feedback\user-icon\index-2.htm" />
+    <Content Include="images\index\feedback\user-icon\index-3.htm" />
+    <Content Include="images\index\feedback\user-icon\index-4.htm" />
+    <Content Include="images\index\feedback\user-icon\index-5.htm" />
+    <Content Include="images\index\feedback\user-icon\index-6.htm" />
+    <Content Include="images\index\feedback\user-icon\index-7.htm" />
+    <Content Include="images\index\feedback\user-icon\index-8.htm" />
+    <Content Include="images\index\feedback\user-icon\index.htm" />
+    <Content Include="images\index\footer\app\img-01.jpg" />
+    <Content Include="images\index\footer\app\img-02.jpg" />
+    <Content Include="images\index\footer\app\index-1.htm" />
+    <Content Include="images\index\footer\app\index-2.htm" />
+    <Content Include="images\index\footer\app\index-3.htm" />
+    <Content Include="images\index\footer\app\index-4.htm" />
+    <Content Include="images\index\footer\app\index-5.htm" />
+    <Content Include="images\index\footer\app\index-6.htm" />
+    <Content Include="images\index\footer\app\index-7.htm" />
+    <Content Include="images\index\footer\app\index-8.htm" />
+    <Content Include="images\index\footer\app\index.htm" />
+    <Content Include="images\index\footer\flags\img-01.jpg" />
+    <Content Include="images\index\footer\flags\img-02.jpg" />
+    <Content Include="images\index\footer\flags\img-03.jpg" />
+    <Content Include="images\index\footer\flags\img-04.jpg" />
+    <Content Include="images\index\footer\flags\img-05.jpg" />
+    <Content Include="images\index\footer\flags\index-1.htm" />
+    <Content Include="images\index\footer\flags\index-2.htm" />
+    <Content Include="images\index\footer\flags\index-3.htm" />
+    <Content Include="images\index\footer\flags\index-4.htm" />
+    <Content Include="images\index\footer\flags\index-5.htm" />
+    <Content Include="images\index\footer\flags\index-6.htm" />
+    <Content Include="images\index\footer\flags\index-7.htm" />
+    <Content Include="images\index\footer\flags\index-8.htm" />
+    <Content Include="images\index\footer\flags\index.htm" />
+    <Content Include="images\index\footer\footer-logo.png" />
+    <Content Include="images\index\footer\index-1.htm" />
+    <Content Include="images\index\footer\index-2.htm" />
+    <Content Include="images\index\footer\index-3.htm" />
+    <Content Include="images\index\footer\index-4.htm" />
+    <Content Include="images\index\footer\index-5.htm" />
+    <Content Include="images\index\footer\index-6.htm" />
+    <Content Include="images\index\footer\index-7.htm" />
+    <Content Include="images\index\footer\index-8.htm" />
+    <Content Include="images\index\footer\index.htm" />
+    <Content Include="images\index\footer\payments\img-01.jpg" />
+    <Content Include="images\index\footer\payments\img-02.jpg" />
+    <Content Include="images\index\footer\payments\img-03.jpg" />
+    <Content Include="images\index\footer\payments\img-04.jpg" />
+    <Content Include="images\index\footer\payments\img-05.jpg" />
+    <Content Include="images\index\footer\payments\img-06.jpg" />
+    <Content Include="images\index\footer\payments\index-1.htm" />
+    <Content Include="images\index\footer\payments\index-2.htm" />
+    <Content Include="images\index\footer\payments\index-3.htm" />
+    <Content Include="images\index\footer\payments\index-4.htm" />
+    <Content Include="images\index\footer\payments\index-5.htm" />
+    <Content Include="images\index\footer\payments\index-6.htm" />
+    <Content Include="images\index\footer\payments\index-7.htm" />
+    <Content Include="images\index\footer\payments\index-8.htm" />
+    <Content Include="images\index\footer\payments\index.htm" />
+    <Content Include="images\index\index-1.htm" />
+    <Content Include="images\index\index-2.htm" />
+    <Content Include="images\index\index-3.htm" />
+    <Content Include="images\index\index-4.htm" />
+    <Content Include="images\index\index-5.htm" />
+    <Content Include="images\index\index-6.htm" />
+    <Content Include="images\index\index-7.htm" />
+    <Content Include="images\index\index-8.htm" />
+    <Content Include="images\index\index.htm" />
+    <Content Include="images\index\main-banner\img-01.jpg" />
+    <Content Include="images\index\main-banner\img-01.png" />
+    <Content Include="images\index\main-banner\img-02.jpg" />
+    <Content Include="images\index\main-banner\img-03.jpg" />
+    <Content Include="images\index\main-banner\img-04.jpg" />
+    <Content Include="images\index\main-banner\img-05.jpg" />
+    <Content Include="images\index\main-banner\img-06.jpg" />
+    <Content Include="images\index\main-banner\img-07.jpg" />
+    <Content Include="images\index\main-banner\img-08.jpg" />
+    <Content Include="images\index\main-banner\index-1.htm" />
+    <Content Include="images\index\main-banner\index-2.htm" />
+    <Content Include="images\index\main-banner\index-3.htm" />
+    <Content Include="images\index\main-banner\index-4.htm" />
+    <Content Include="images\index\main-banner\index-5.htm" />
+    <Content Include="images\index\main-banner\index-6.htm" />
+    <Content Include="images\index\main-banner\index-7.htm" />
+    <Content Include="images\index\main-banner\index-8.htm" />
+    <Content Include="images\index\main-banner\index.htm" />
+    <Content Include="images\index\packages\img-01.jpg" />
+    <Content Include="images\index\packages\img-02.jpg" />
+    <Content Include="images\index\packages\img-03.jpg" />
+    <Content Include="images\index\packages\index-1.htm" />
+    <Content Include="images\index\packages\index-2.htm" />
+    <Content Include="images\index\packages\index-3.htm" />
+    <Content Include="images\index\packages\index-4.htm" />
+    <Content Include="images\index\packages\index-5.htm" />
+    <Content Include="images\index\packages\index-6.htm" />
+    <Content Include="images\index\packages\index-7.htm" />
+    <Content Include="images\index\packages\index-8.htm" />
+    <Content Include="images\index\packages\index.htm" />
+    <Content Include="images\index\service-provider\img-01.jpg" />
+    <Content Include="images\index\service-provider\img-02.jpg" />
+    <Content Include="images\index\service-provider\img-03.jpg" />
+    <Content Include="images\index\service-provider\img-04.jpg" />
+    <Content Include="images\index\service-provider\img-05.jpg" />
+    <Content Include="images\index\service-provider\img-06.jpg" />
+    <Content Include="images\index\service-provider\img-07.jpg" />
+    <Content Include="images\index\service-provider\img-08.jpg" />
+    <Content Include="images\index\service-provider\img-09.jpg" />
+    <Content Include="images\index\service-provider\img-10.jpg" />
+    <Content Include="images\index\service-provider\img-11.jpg" />
+    <Content Include="images\index\service-provider\img-12.jpg" />
+    <Content Include="images\index\service-provider\index-1.htm" />
+    <Content Include="images\index\service-provider\index-2.htm" />
+    <Content Include="images\index\service-provider\index-3.htm" />
+    <Content Include="images\index\service-provider\index-4.htm" />
+    <Content Include="images\index\service-provider\index-5.htm" />
+    <Content Include="images\index\service-provider\index-6.htm" />
+    <Content Include="images\index\service-provider\index-7.htm" />
+    <Content Include="images\index\service-provider\index-8.htm" />
+    <Content Include="images\index\service-provider\index.htm" />
+    <Content Include="images\index\service-provider\user-icon\img-01.jpg" />
+    <Content Include="images\index\service-provider\user-icon\img-02.jpg" />
+    <Content Include="images\index\service-provider\user-icon\img-03.jpg" />
+    <Content Include="images\index\service-provider\user-icon\img-04.jpg" />
+    <Content Include="images\index\service-provider\user-icon\img-05.jpg" />
+    <Content Include="images\index\service-provider\user-icon\img-06.jpg" />
+    <Content Include="images\index\service-provider\user-icon\index-1.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-2.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-3.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-4.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-5.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-6.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-7.htm" />
+    <Content Include="images\index\service-provider\user-icon\index-8.htm" />
+    <Content Include="images\index\service-provider\user-icon\index.htm" />
+    <Content Include="images\index\stats\banner.jpg" />
+    <Content Include="images\index\stats\index-1.htm" />
+    <Content Include="images\index\stats\index-2.htm" />
+    <Content Include="images\index\stats\index-3.htm" />
+    <Content Include="images\index\stats\index-4.htm" />
+    <Content Include="images\index\stats\index-5.htm" />
+    <Content Include="images\index\stats\index-6.htm" />
+    <Content Include="images\index\stats\index-7.htm" />
+    <Content Include="images\index\stats\index-8.htm" />
+    <Content Include="images\index\stats\index.htm" />
+    <Content Include="images\index\user-logo.gif" />
+    <Content Include="images\insight\img-01.jpg" />
+    <Content Include="images\insight\img-01.png" />
+    <Content Include="images\insight\img-02.jpg" />
+    <Content Include="images\insight\img-02.png" />
+    <Content Include="images\insight\img-03.jpg" />
+    <Content Include="images\insight\index-1.htm" />
+    <Content Include="images\insight\index-2.htm" />
+    <Content Include="images\insight\index-3.htm" />
+    <Content Include="images\insight\index-4.htm" />
+    <Content Include="images\insight\index-5.htm" />
+    <Content Include="images\insight\index-6.htm" />
+    <Content Include="images\insight\index-7.htm" />
+    <Content Include="images\insight\index-8.htm" />
+    <Content Include="images\insight\index.htm" />
+    <Content Include="images\insight\profile.jpg" />
+    <Content Include="images\insight\user-img.jpg" />
+    <Content Include="images\insight\user\img-01.jpg" />
+    <Content Include="images\insight\user\img-02.jpg" />
+    <Content Include="images\insight\user\img-03.jpg" />
+    <Content Include="images\insight\user\img-04.jpg" />
+    <Content Include="images\insight\user\img-05.jpg" />
+    <Content Include="images\insight\user\img-06.jpg" />
+    <Content Include="images\insight\user\img-07.jpg" />
+    <Content Include="images\insight\user\img-08.jpg" />
+    <Content Include="images\insight\user\img-09.jpg" />
+    <Content Include="images\insight\user\index-1.htm" />
+    <Content Include="images\insight\user\index-2.htm" />
+    <Content Include="images\insight\user\index-3.htm" />
+    <Content Include="images\insight\user\index-4.htm" />
+    <Content Include="images\insight\user\index-5.htm" />
+    <Content Include="images\insight\user\index-6.htm" />
+    <Content Include="images\insight\user\index-7.htm" />
+    <Content Include="images\insight\user\index-8.htm" />
+    <Content Include="images\insight\user\index.htm" />
+    <Content Include="images\loader.png" />
+    <Content Include="images\main-logo.png" />
+    <Content Include="images\manage-services\img-01.png" />
+    <Content Include="images\manage-services\index-1.htm" />
+    <Content Include="images\manage-services\index-2.htm" />
+    <Content Include="images\manage-services\index-3.htm" />
+    <Content Include="images\manage-services\index-4.htm" />
+    <Content Include="images\manage-services\index-5.htm" />
+    <Content Include="images\manage-services\index-6.htm" />
+    <Content Include="images\manage-services\index-7.htm" />
+    <Content Include="images\manage-services\index-8.htm" />
+    <Content Include="images\manage-services\index.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-1.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-2.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-3.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-4.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-5.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-6.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-7.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index-8.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\index.htm" />
+    <Content Include="images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\dark_square\index-1.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-2.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-3.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-4.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-5.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-6.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-7.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index-8.htm" />
+    <Content Include="images\prettyPhoto\dark_square\index.htm" />
+    <Content Include="images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="images\prettyPhoto\default\index-1.htm" />
+    <Content Include="images\prettyPhoto\default\index-2.htm" />
+    <Content Include="images\prettyPhoto\default\index-3.htm" />
+    <Content Include="images\prettyPhoto\default\index-4.htm" />
+    <Content Include="images\prettyPhoto\default\index-5.htm" />
+    <Content Include="images\prettyPhoto\default\index-6.htm" />
+    <Content Include="images\prettyPhoto\default\index-7.htm" />
+    <Content Include="images\prettyPhoto\default\index-8.htm" />
+    <Content Include="images\prettyPhoto\default\index.htm" />
+    <Content Include="images\prettyPhoto\default\loader.gif" />
+    <Content Include="images\prettyPhoto\default\sprite.png" />
+    <Content Include="images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\facebook\index-1.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-2.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-3.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-4.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-5.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-6.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-7.htm" />
+    <Content Include="images\prettyPhoto\facebook\index-8.htm" />
+    <Content Include="images\prettyPhoto\facebook\index.htm" />
+    <Content Include="images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="images\prettyPhoto\index-1.htm" />
+    <Content Include="images\prettyPhoto\index-2.htm" />
+    <Content Include="images\prettyPhoto\index-3.htm" />
+    <Content Include="images\prettyPhoto\index-4.htm" />
+    <Content Include="images\prettyPhoto\index-5.htm" />
+    <Content Include="images\prettyPhoto\index-6.htm" />
+    <Content Include="images\prettyPhoto\index-7.htm" />
+    <Content Include="images\prettyPhoto\index-8.htm" />
+    <Content Include="images\prettyPhoto\index.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\light_rounded\index-1.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-2.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-3.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-4.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-5.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-6.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-7.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index-8.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\index.htm" />
+    <Content Include="images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="images\prettyPhoto\light_square\index-1.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-2.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-3.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-4.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-5.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-6.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-7.htm" />
+    <Content Include="images\prettyPhoto\light_square\index-8.htm" />
+    <Content Include="images\prettyPhoto\light_square\index.htm" />
+    <Content Include="images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="images\product-single\img-01.png" />
+    <Content Include="images\product-single\img-02.png" />
+    <Content Include="images\product-single\img-03.jpg" />
+    <Content Include="images\product-single\img-04.jpg" />
+    <Content Include="images\product-single\img-05.jpg" />
+    <Content Include="images\product-single\img-06.jpg" />
+    <Content Include="images\product-single\img-07.jpg" />
+    <Content Include="images\product-single\img-video.jpg" />
+    <Content Include="images\product-single\index-1.htm" />
+    <Content Include="images\product-single\index-2.htm" />
+    <Content Include="images\product-single\index-3.htm" />
+    <Content Include="images\product-single\index-4.htm" />
+    <Content Include="images\product-single\index-5.htm" />
+    <Content Include="images\product-single\index-6.htm" />
+    <Content Include="images\product-single\index-7.htm" />
+    <Content Include="images\product-single\index-8.htm" />
+    <Content Include="images\product-single\index.htm" />
+    <Content Include="images\product-single\Reviews\img-01.jpg" />
+    <Content Include="images\product-single\Reviews\img-02.jpg" />
+    <Content Include="images\product-single\Reviews\img-03.jpg" />
+    <Content Include="images\product-single\Reviews\img-04.jpg" />
+    <Content Include="images\product-single\Reviews\index-1.htm" />
+    <Content Include="images\product-single\Reviews\index-2.htm" />
+    <Content Include="images\product-single\Reviews\index-3.htm" />
+    <Content Include="images\product-single\Reviews\index-4.htm" />
+    <Content Include="images\product-single\Reviews\index-5.htm" />
+    <Content Include="images\product-single\Reviews\index-6.htm" />
+    <Content Include="images\product-single\Reviews\index-7.htm" />
+    <Content Include="images\product-single\Reviews\index-8.htm" />
+    <Content Include="images\product-single\Reviews\index.htm" />
+    <Content Include="images\product-single\thumbnails\img-01.jpg" />
+    <Content Include="images\product-single\thumbnails\img-02.jpg" />
+    <Content Include="images\product-single\thumbnails\img-03.jpg" />
+    <Content Include="images\product-single\thumbnails\img-04.jpg" />
+    <Content Include="images\product-single\thumbnails\img-05.jpg" />
+    <Content Include="images\product-single\thumbnails\img-06.jpg" />
+    <Content Include="images\product-single\thumbnails\index-1.htm" />
+    <Content Include="images\product-single\thumbnails\index-2.htm" />
+    <Content Include="images\product-single\thumbnails\index-3.htm" />
+    <Content Include="images\product-single\thumbnails\index-4.htm" />
+    <Content Include="images\product-single\thumbnails\index-5.htm" />
+    <Content Include="images\product-single\thumbnails\index-6.htm" />
+    <Content Include="images\product-single\thumbnails\index-7.htm" />
+    <Content Include="images\product-single\thumbnails\index-8.htm" />
+    <Content Include="images\product-single\thumbnails\index.htm" />
+    <Content Include="images\profile-settings\gallery\img-01.jpg" />
+    <Content Include="images\profile-settings\gallery\img-02.jpg" />
+    <Content Include="images\profile-settings\gallery\img-03.jpg" />
+    <Content Include="images\profile-settings\gallery\img-04.jpg" />
+    <Content Include="images\profile-settings\gallery\img-05.jpg" />
+    <Content Include="images\profile-settings\gallery\img-06.jpg" />
+    <Content Include="images\profile-settings\gallery\img-07.jpg" />
+    <Content Include="images\profile-settings\gallery\img-08.jpg" />
+    <Content Include="images\profile-settings\gallery\index-1.htm" />
+    <Content Include="images\profile-settings\gallery\index-2.htm" />
+    <Content Include="images\profile-settings\gallery\index-3.htm" />
+    <Content Include="images\profile-settings\gallery\index-4.htm" />
+    <Content Include="images\profile-settings\gallery\index-5.htm" />
+    <Content Include="images\profile-settings\gallery\index-6.htm" />
+    <Content Include="images\profile-settings\gallery\index-7.htm" />
+    <Content Include="images\profile-settings\gallery\index-8.htm" />
+    <Content Include="images\profile-settings\gallery\index.htm" />
+    <Content Include="images\profile-settings\index-1.htm" />
+    <Content Include="images\profile-settings\index-2.htm" />
+    <Content Include="images\profile-settings\index-3.htm" />
+    <Content Include="images\profile-settings\index-4.htm" />
+    <Content Include="images\profile-settings\index-5.htm" />
+    <Content Include="images\profile-settings\index-6.htm" />
+    <Content Include="images\profile-settings\index-7.htm" />
+    <Content Include="images\profile-settings\index-8.htm" />
+    <Content Include="images\profile-settings\index.htm" />
+    <Content Include="images\register\img-01.jpg" />
+    <Content Include="images\register\index-1.htm" />
+    <Content Include="images\register\index-2.htm" />
+    <Content Include="images\register\index-3.htm" />
+    <Content Include="images\register\index-4.htm" />
+    <Content Include="images\register\index-5.htm" />
+    <Content Include="images\register\index-6.htm" />
+    <Content Include="images\register\index-7.htm" />
+    <Content Include="images\register\index-8.htm" />
+    <Content Include="images\register\index.htm" />
+    <Content Include="images\register\logo.png" />
+    <Content Include="images\register\main-bg.jpg" />
+    <Content Include="images\service-provider-single\ad.jpg" />
+    <Content Include="images\service-provider-single\awards\img-01.jpg" />
+    <Content Include="images\service-provider-single\awards\img-02.jpg" />
+    <Content Include="images\service-provider-single\awards\img-03.jpg" />
+    <Content Include="images\service-provider-single\awards\index-1.htm" />
+    <Content Include="images\service-provider-single\awards\index-2.htm" />
+    <Content Include="images\service-provider-single\awards\index-3.htm" />
+    <Content Include="images\service-provider-single\awards\index-4.htm" />
+    <Content Include="images\service-provider-single\awards\index-5.htm" />
+    <Content Include="images\service-provider-single\awards\index-6.htm" />
+    <Content Include="images\service-provider-single\awards\index-7.htm" />
+    <Content Include="images\service-provider-single\awards\index-8.htm" />
+    <Content Include="images\service-provider-single\awards\index.htm" />
+    <Content Include="images\service-provider-single\banner-img\img-01.jpg" />
+    <Content Include="images\service-provider-single\banner-img\img-01.png" />
+    <Content Include="images\service-provider-single\banner-img\img-01.svg" />
+    <Content Include="images\service-provider-single\banner-img\img-02.jpg" />
+    <Content Include="images\service-provider-single\banner-img\img-03.jpg" />
+    <Content Include="images\service-provider-single\banner-img\index-1.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-2.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-3.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-4.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-5.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-6.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-7.htm" />
+    <Content Include="images\service-provider-single\banner-img\index-8.htm" />
+    <Content Include="images\service-provider-single\banner-img\index.htm" />
+    <Content Include="images\service-provider-single\experience\img-01.jpg" />
+    <Content Include="images\service-provider-single\experience\img-02.jpg" />
+    <Content Include="images\service-provider-single\experience\img-03.jpg" />
+    <Content Include="images\service-provider-single\experience\img-04.jpg" />
+    <Content Include="images\service-provider-single\experience\img-05.jpg" />
+    <Content Include="images\service-provider-single\experience\img-06.jpg" />
+    <Content Include="images\service-provider-single\experience\index-1.htm" />
+    <Content Include="images\service-provider-single\experience\index-2.htm" />
+    <Content Include="images\service-provider-single\experience\index-3.htm" />
+    <Content Include="images\service-provider-single\experience\index-4.htm" />
+    <Content Include="images\service-provider-single\experience\index-5.htm" />
+    <Content Include="images\service-provider-single\experience\index-6.htm" />
+    <Content Include="images\service-provider-single\experience\index-7.htm" />
+    <Content Include="images\service-provider-single\experience\index-8.htm" />
+    <Content Include="images\service-provider-single\experience\index.htm" />
+    <Content Include="images\service-provider-single\img-01.jpg" />
+    <Content Include="images\service-provider-single\img-02.jpg" />
+    <Content Include="images\service-provider-single\index-1.htm" />
+    <Content Include="images\service-provider-single\index-2.htm" />
+    <Content Include="images\service-provider-single\index-3.htm" />
+    <Content Include="images\service-provider-single\index-4.htm" />
+    <Content Include="images\service-provider-single\index-5.htm" />
+    <Content Include="images\service-provider-single\index-6.htm" />
+    <Content Include="images\service-provider-single\index-7.htm" />
+    <Content Include="images\service-provider-single\index-8.htm" />
+    <Content Include="images\service-provider-single\index.htm" />
+    <Content Include="images\service-provider-single\video-gallery\img-01.jpg" />
+    <Content Include="images\service-provider-single\video-gallery\img-02.jpg" />
+    <Content Include="images\service-provider-single\video-gallery\img-03.jpg" />
+    <Content Include="images\service-provider-single\video-gallery\index-1.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-2.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-3.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-4.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-5.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-6.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-7.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index-8.htm" />
+    <Content Include="images\service-provider-single\video-gallery\index.htm" />
+    <Content Include="images\vendor\img-01.jpg" />
+    <Content Include="images\vendor\img-02.jpg" />
+    <Content Include="images\vendor\img-03.jpg" />
+    <Content Include="images\vendor\img-04.jpg" />
+    <Content Include="images\vendor\index-1.htm" />
+    <Content Include="images\vendor\index-2.htm" />
+    <Content Include="images\vendor\index-3.htm" />
+    <Content Include="images\vendor\index-4.htm" />
+    <Content Include="images\vendor\index-5.htm" />
+    <Content Include="images\vendor\index-6.htm" />
+    <Content Include="images\vendor\index-7.htm" />
+    <Content Include="images\vendor\index-8.htm" />
+    <Content Include="images\vendor\index.htm" />
+    <Content Include="images\vendor\logo.png" />
+    <Content Include="images\vendor\products\img-01.jpg" />
+    <Content Include="images\vendor\products\img-02.jpg" />
+    <Content Include="images\vendor\products\img-03.jpg" />
+    <Content Include="images\vendor\products\img-04.jpg" />
+    <Content Include="images\vendor\products\img-05.jpg" />
+    <Content Include="images\vendor\products\img-06.jpg" />
+    <Content Include="images\vendor\products\img-07.jpg" />
+    <Content Include="images\vendor\products\img-08.jpg" />
+    <Content Include="images\vendor\products\img-09.jpg" />
+    <Content Include="images\vendor\products\img-10.jpg" />
+    <Content Include="images\vendor\products\img-11.jpg" />
+    <Content Include="images\vendor\products\img-12.jpg" />
+    <Content Include="images\vendor\products\index-1.htm" />
+    <Content Include="images\vendor\products\index-2.htm" />
+    <Content Include="images\vendor\products\index-3.htm" />
+    <Content Include="images\vendor\products\index-4.htm" />
+    <Content Include="images\vendor\products\index-5.htm" />
+    <Content Include="images\vendor\products\index-6.htm" />
+    <Content Include="images\vendor\products\index-7.htm" />
+    <Content Include="images\vendor\products\index-8.htm" />
+    <Content Include="images\vendor\products\index.htm" />
+    <Content Include="js\main.js" />
+    <Content Include="js\vendor\appear.js" />
+    <Content Include="js\vendor\backgroundstretch.js" />
+    <Content Include="js\vendor\bootstrap-datepicker.min.js" />
+    <Content Include="js\vendor\bootstrap.min.js" />
+    <Content Include="js\vendor\countdown.js" />
+    <Content Include="js\vendor\countTo.js" />
+    <Content Include="js\vendor\fullcalendar.min.js" />
+    <Content Include="js\vendor\gmap3.min.js" />
+    <Content Include="js\vendor\gmaps.min.js" />
+    <Content Include="js\vendor\jquery-library.js" />
+    <Content Include="js\vendor\jquery-ui.js" />
+    <Content Include="js\vendor\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="js\vendor\jquery.min.js" />
+    <Content Include="js\vendor\jquery.ui.touch-punch.js" />
+    <Content Include="js\vendor\lightpick.js" />
+    <Content Include="js\vendor\linkify-jquery.min.js" />
+    <Content Include="js\vendor\linkify.min.js" />
+    <Content Include="js\vendor\moment.min.js" />
+    <Content Include="js\vendor\owl.carousel.min.js" />
+    <Content Include="js\vendor\popper.min.js" />
+    <Content Include="js\vendor\prettyPhoto.js" />
+    <Content Include="js\vendor\readmore.js" />
+    <Content Include="js\vendor\select2.min.js" />
+    <Content Include="js\vendor\tinymce\jquery.tinymce.min.js" />
+    <Content Include="js\vendor\tinymce\license.txt" />
+    <Content Include="js\vendor\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="js\vendor\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\code\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="js\vendor\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="js\vendor\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\help\img\logo.png" />
+    <Content Include="js\vendor\tinymce\plugins\help\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\hr\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\image\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\link\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\lists\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\media\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\paste\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\preview\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\print\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\save\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\table\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\template\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\toc\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="js\vendor\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="js\vendor\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="js\vendor\tinymce\themes\inlite\theme.js" />
+    <Content Include="js\vendor\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="js\vendor\tinymce\themes\modern\theme.js" />
+    <Content Include="js\vendor\tinymce\themes\modern\theme.min.js" />
+    <Content Include="js\vendor\tinymce\tinymce.js" />
+    <Content Include="js\vendor\tinymce\tinymce.min.js" />
+    <Content Include="js\vendor\tipso.js" />
+    <Content Include="Passbook\PassbookGenerator.dll" />
+    <Content Include="PaymentConfirmation.aspx" />
+    <Content Include="PaymentResponse.aspx" />
+    <Content Include="pkpass\BG%402X.png" />
+    <Content Include="pkpass\BG.png" />
+    <Content Include="pkpass\icon%402x.png" />
+    <Content Include="pkpass\icon%403x.png" />
+    <Content Include="pkpass\icon.png" />
+    <Content Include="pkpass\logo%402x.png" />
+    <Content Include="pkpass\logo.png" />
+    <Content Include="pkpass\poster.jpg" />
+    <Content Include="Passbook\AppleIncRootCertificate.cer" />
+    <Content Include="Passbook\AppleWWDRCA.cer" />
+    <Content Include="Passbook\PassTypeCert.p12" />
+    <Content Include="Emailer\images\.DS_Store" />
+    <Content Include="Json\ConfirmationBanners.Json" />
+    <Content Include="Json\DineInCombo.Json" />
+    <Content Include="Json\DineinModifier.Json" />
+    <Content Include="Json\ErrorInfo.json" />
+    <Content Include="Json\ErrorType.json" />
+    <Content Include="Json\PaymentConfig.json" />
+    <Content Include="Json\StandardTicketTypes.Json" />
+    <Content Include="Json\TimerConfig.json" />
+    <Content Include="Json\UbyEmaar.json" />
+    <Content Include="Json\Cinemas.Json" />
+    <None Include="Connected Services\UByEmaar\Service.wsdl" />
+    <None Include="Connected Services\UByEmaar\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UByEmaar\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UByEmaar\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Json\ConfirmationBanners - oldtemplate.Json" />
+    <Content Include="Json\DineInCombo_renamed.Json" />
+    <Content Include="Json\StandardTicketTypes1.Json" />
+    <Content Include="css\dashboard.css.map" />
+    <Content Include="css\main.css.map" />
+    <Content Include="css\webfonts\fa-brands-400.eot" />
+    <Content Include="css\webfonts\fa-brands-400.ttf" />
+    <Content Include="css\webfonts\fa-brands-400.woff" />
+    <Content Include="css\webfonts\fa-brands-400.woff2" />
+    <Content Include="css\webfonts\fa-regular-400.eot" />
+    <Content Include="css\webfonts\fa-regular-400.ttf" />
+    <Content Include="css\webfonts\fa-regular-400.woff" />
+    <Content Include="css\webfonts\fa-regular-400.woff2" />
+    <Content Include="css\webfonts\fa-solid-900.eot" />
+    <Content Include="css\webfonts\fa-solid-900.ttf" />
+    <Content Include="css\webfonts\fa-solid-900.woff" />
+    <Content Include="css\webfonts\fa-solid-900.woff2" />
+    <Content Include="js\vendor\tinymce\langs\readme.md" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="js\vendor\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="locales\ar\translation.json" />
+    <Content Include="locales\az\translation.json" />
+    <Content Include="locales\en\translation.json" />
+    <Content Include="locales\ru\translation.json" />
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.BlockPointsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.CancelBlockedPointsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.EarnPointsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.GetPointsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.GetTierResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.LoginResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.MemberDetailsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.PointAdjustmentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.QuickRegisterResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.RedeemPointsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.SendOTPResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.UpdateLoyaltyProfileResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UByEmaar\XidmatWebApp.UByEmaar.ValidateOTPResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Repository\RC_MobileAPP_Configuration.json" />
+    <Content Include="Repository\MoviesSession_MobileApp.json" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <None Include="Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web References\Smartbutton.MemberContact\FetchAddressCountryListReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchAddressRegionListReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberAccountPhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberContactInfoReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberEmailAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberMobilePhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberPhoneNumbersReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\FetchMemberPostalAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="scss\abstracts\_functions.scss" />
+    <Content Include="scss\abstracts\_placeholders.scss" />
+    <Content Include="scss\abstracts\_variables.scss" />
+    <Content Include="scss\base\_base.scss" />
+    <Content Include="scss\base\_globalclasses.scss" />
+    <Content Include="scss\base\_keyframes.scss" />
+    <Content Include="scss\base\_socialicon.scss" />
+    <Content Include="scss\base\_transitions.scss" />
+    <Content Include="scss\base\_typography.scss" />
+    <Content Include="scss\components\_button.scss" />
+    <Content Include="scss\components\_form.scss" />
+    <Content Include="scss\dashboard.scss" />
+    <Content Include="scss\dashboard\_accountprivacy.scss" />
+    <Content Include="scss\dashboard\_add-new-article.scss" />
+    <Content Include="scss\dashboard\_all-payouts.scss" />
+    <Content Include="scss\dashboard\_appointment-single.scss" />
+    <Content Include="scss\dashboard\_article-list.scss" />
+    <Content Include="scss\dashboard\_buy-package.scss" />
+    <Content Include="scss\dashboard\_inbox.scss" />
+    <Content Include="scss\dashboard\_insight.scss" />
+    <Content Include="scss\dashboard\_manage-services.scss" />
+    <Content Include="scss\dashboard\_manage-time-slots.scss" />
+    <Content Include="scss\dashboard\_my-favorites.scss" />
+    <Content Include="scss\dashboard\_notifications.scss" />
+    <Content Include="scss\dashboard\_profile-settings.scss" />
+    <Content Include="scss\dashboard\_vendor.scss" />
+    <Content Include="scss\index\_grid.scss" />
+    <Content Include="scss\index\_sectionhead.scss" />
+    <Content Include="scss\layout\_footer.scss" />
+    <Content Include="scss\layout\_header.scss" />
+    <Content Include="scss\main.scss" />
+    <Content Include="scss\pages\_404.scss" />
+    <Content Include="scss\pages\_aboutus.scss" />
+    <Content Include="scss\pages\_blog-single.scss" />
+    <Content Include="scss\pages\_bloggrid.scss" />
+    <Content Include="scss\pages\_bloglist.scss" />
+    <Content Include="scss\pages\_comingsoon.scss" />
+    <Content Include="scss\pages\_contact.scss" />
+    <Content Include="scss\pages\_index.scss" />
+    <Content Include="scss\pages\_policy.scss" />
+    <Content Include="scss\pages\_product-single.scss" />
+    <Content Include="scss\pages\_register.scss" />
+    <Content Include="scss\pages\_search-result-products.scss" />
+    <Content Include="scss\pages\_service-provider-single.scss" />
+    <Content Include="scss\pages\_service-provider.scss" />
+    <Content Include="scss\pages\_vendor-become.scss" />
+    <Content Include="scss\pages\_vendor-single.scss" />
+    <Content Include="scss\_dashboard-responsive.scss" />
+    <Content Include="scss\_responsive.scss" />
+    <Content Include="Views\Registration\index.cshtml" />
+    <Content Include="Views\MasterServices\index.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <None Include="Web References\Smartbutton.MemberContact\MemberContact.disco" />
+    <Content Include="Web References\Smartbutton.MemberSecurity\ChangePasswordReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\ChangePINReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EmailVerificationIssueCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EmailVerificationSubmitCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EnrollmentVerificationIssueCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\EnrollmentVerificationSubmitCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\FetchMemberLastPasswordChangeDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberSecurity\MemberSecurity.disco" />
+    <Content Include="Web References\Smartbutton.Member\AddMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\AddMemberChildInfoReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\AddMemberToClubReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\AssignMemberToHeadOfHouseholdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\ClearDependentFromHeadOfHouseholdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\DeleteMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\DeleteMemberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\EnrollMemberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\EnrollMemberWithGeneratedIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchHeadOfHouseholdDependentsExtendedReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchHeadOfHouseholdDependentsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberAccountIDsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberChildInfoReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberCoreReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberEnrollmentDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberHeadOfHouseholdStatusExtendedReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberHeadOfHouseholdStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberLanguagePreferenceReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberPropertyCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchMemberStateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchTypesMemberGenderReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\FetchTypesMemberNamePrefixReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberContact\MemberContact.wsdl" />
+    <Content Include="Web References\Smartbutton.MemberContact\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberAccountPhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberEmailAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberMobilePhoneNumberReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberPhoneNumbersReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberContact\SaveMemberPostalAddressReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberSecurity\MemberSecurity.wsdl" />
+    <Content Include="Web References\Smartbutton.MemberSecurity\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\SetPasswordReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\SetPINReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\TextVerificationIssueCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\TextVerificationSubmitCodeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\ValidatePasswordReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberSecurity\ValidatePINReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Member\Member.disco" />
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMember360Return.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberExpirationsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberExpirationsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberHistoryForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberHistoryReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberInteractionsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberIssuedRewardsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberIssuedRewardsForDateRangeWithRewardCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberIssuedRewardsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberNextPointsToExpireReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberPointBalancesReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberPointBalancesSourceDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberPointsToAutoExpireReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberTransactionsForDateRangeExtReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberTransactionsForDateRangeReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.MemberActivity\FetchMemberTransactionsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.MemberActivity\MemberActivity.wsdl" />
+    <Content Include="Web References\Smartbutton.MemberActivity\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Smartbutton.Member\Member.wsdl" />
+    <Content Include="Web References\Smartbutton.Member\MemberExistsInClubReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\MemberExistsInMemberDescriptorReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\RemoveMemberFromClubReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberActiveStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberBirthdateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberEmployeeStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberGenderReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberNameReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberPointsLockedStatusReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberPrefCommLanguageReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberPropertyCustomFieldsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SaveMemberTwitterUsernameReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SetMemberClubsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SetMemberDescriptorReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\SetMemberDescriptorsReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\UpdateExistingMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\UpdateMemberDescriptorExpireDateReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Member\ValidateMemberAccountIdReturn.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\CancelMemberRewardReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\CancelMemberRewardsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchChoiceRewardWithLanguagesReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberChoiceRewardListReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberRewardCustomFieldsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberRewardReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchMemberRewardViewURLReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchRewardCustomFieldsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchRewardTypeIssueLimitReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\FetchRewardTypeIssueStatisticsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\IssueChoiceRewardReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\IssueMultipleChoiceRewardsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\IssueVariableRewardReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsEligibleForPOSReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsWithMemberRewardCustomFieldsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberActiveRewardsWithRewardCustomFieldsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleChoiceRewardsExtReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleChoiceRewardsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleVariableRewardsExtendedReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\MemberEligibleVariableRewardsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Offer\Offer.wsdl" />
+    <Content Include="Web References\Smartbutton.Offer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\PointsToNextRecurringRewardReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\RedeemMemberRewardReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\RedeemMemberRewardsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseCouponRedemptionAndCancelCouponReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseCouponRedemptionsAndCancelCouponsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionAndSetToPendingReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionsAndSetToPendingReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ReverseRewardRedemptionsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\SaveMemberRewardCustomFieldReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\SaveMemberRewardCustomFieldsReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\SaveRewardTypeIssueLimitReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ValidateMemberRewardBarcodeReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ValidateMemberRewardIdReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Offer\ValidateVariableRewardAmountReturn2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Portal\Portal.disco" />
+    <None Include="Web References\Smartbutton.Offer\Offer.disco" />
+    <Content Include="Web References\Smartbutton.Portal\respCrossLogin1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Portal\respExternalLogin1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsMemberPendingRewards.xsd" />
+    <Content Include="Web References\Smartbutton.Reward\dsMemberPendingRewards1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsMemberRewards.xsd" />
+    <Content Include="Web References\Smartbutton.Reward\dsMemberRewards1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\dsMemberRewardsExt1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsRewardReverseRedemptionResults.xsd" />
+    <Content Include="Web References\Smartbutton.Reward\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\dsRewardReverseRedemptionResults1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respCancelIssuedReward1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respIssueChoiceReward1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respIssueVariableReward1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewards1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewardsExt1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewardsSet1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberIssuedRewardsSetExt1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberPendingRewards1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respMemberPendingRewardsSet1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respPickupPendingReward1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRedeemIssuedReward1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRedeemPendingReward1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRetIssuedRewardDetails1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRetIssuedRewardStatus1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respRetIssuedRewardStatusExt1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemption1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemptionsToPending1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemptionsToPendingSet1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respReverseRewardRedemptionToPending1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respValidateRewardExternalReference1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Reward\respValidateVariableRewardAmount1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\Reward.disco" />
+    <Content Include="Web References\Smartbutton.Transaction\CancelTransactionReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchProductCustomFieldReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchProductReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionBasketReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionBonusPointDetailsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionCustomFieldsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\FetchTransactionReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssuePointAdjustmentReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssuePointTransferReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionMultipleProductBasketCustomFieldsBookingDateReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionMultipleProductBasketReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionMultipleProductBasketWithCustomFieldsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionNoBasketReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionNoBasketWithCustomFieldsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\IssueTransactionSingleProductBasketReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Transaction\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\Smartbutton.Transaction\SaveProductReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\SaveProductTransactionFlagsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\ScoreTransactionMultipleProductBasketReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Smartbutton.Transaction\Transaction.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Web References\Smartbutton.Portal\Portal.wsdl" />
+    <Content Include="Web References\Smartbutton.Portal\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Smartbutton.Reward\dsMemberRewardsExt.xsd" />
+    <None Include="Web References\Smartbutton.Reward\Reward.wsdl" />
+    <None Include="Web References\Smartbutton.Transaction\Transaction.wsdl" />
+    <Content Include="Web References\Smartbutton.Transaction\TransactionExternalReferenceExistsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\UpdateTransactionCustomFieldsReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Smartbutton.Transaction\ValidateProductReturn1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.API_Production.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
+    <Folder Include="ICS\" />
+    <Folder Include="PassBookFiles\" />
+    <Folder Include="QRCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReelDAO\XidmatDAO.csproj">
+      <Project>{ff4eeb6c-efa0-4a75-bb4c-3db630e76187}</Project>
+      <Name>XidmatDAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReelDVO\XidmatDVO.csproj">
+      <Project>{51ee1ea8-7d32-49ad-b30b-f94e1828dfaa}</Project>
+      <Name>XidmatDVO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/Services/Portal.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Portal\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/Services/Portal.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Portal_Portal</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/Services/Reward.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Reward\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/Services/Reward.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Reward_Reward</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/Member.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Member\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/Member.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Member_Member</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/MemberActivity.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.MemberActivity\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/MemberActivity.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_MemberActivity_MemberActivity</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/MemberContact.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.MemberContact\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/MemberContact.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_MemberContact_MemberContact</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/MemberSecurity.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.MemberSecurity\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/MemberSecurity.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_MemberSecurity_MemberSecurity</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/Offer.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Offer\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/Offer.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Offer_Offer</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ca.smartbutton.com/WS/Transaction.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Smartbutton.Transaction\</RelPath>
+      <UpdateFromURL>https://ca.smartbutton.com/WS/Transaction.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EEG_ReelCinemasRESTAPI_Smartbutton_Transaction_Transaction</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\UByEmaar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'API_Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53244</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.DiaSymReader.Native.1.7.0\build\Microsoft.DiaSymReader.Native.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.DiaSymReader.Native.1.7.0\build\Microsoft.DiaSymReader.Native.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.AspNetCore.Razor.Design.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.AspNetCore.Razor.Design.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.8\build\Microsoft.CodeAnalysis.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.8\build\Microsoft.CodeAnalysis.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
