@@ -77,7 +77,7 @@ namespace ServicesAPI.Controllers
             catch (Exception ex)
             {
 
-                return null;
+                return JsonConvert.SerializeObject(ex);
             }
         }
 
