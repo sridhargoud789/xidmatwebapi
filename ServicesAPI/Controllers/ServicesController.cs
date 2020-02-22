@@ -48,8 +48,8 @@ namespace ServicesAPI.Controllers
                 for (int i = 0; i < req.Length; i++)
                 {
                     var file = req[i];
-                
-                    String path = HttpContext.Current.Server.MapPath("~/PublicFiles"); //Path
+
+                    String path = ConfigurationManager.AppSettings["PublicFolderPath"].ToString();// HttpContext.Current.Server.MapPath("~/PublicFiles"); //Path
 
                     Guid obj = Guid.NewGuid();
                     int icnt = file.name.Split('.').Length;
@@ -58,10 +58,7 @@ namespace ServicesAPI.Controllers
                     string fileName = obj.ToString()+"." + extension;
 
                     //set the image path
-                    var folder = Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData);
-                    string filePath = Path.Combine(folder, fileName);
-
-                    //string filePath = Path.Combine(path, fileName);
+                    string filePath = Path.Combine(path, fileName);
 
                     byte[] fileBytes = Convert.FromBase64String(file.base64.Split(',')[1].ToString());
 
