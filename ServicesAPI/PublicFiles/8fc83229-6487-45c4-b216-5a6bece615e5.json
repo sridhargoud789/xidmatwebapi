@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "fb1dfbf2-c27d-4aef-9946-17060c16480a",
+		"name": "Executive Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://execpanel.emaar.com/v1/Auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X_User",
+						"value": "mmomin.dic@emaar.ae"
+					},
+					{
+						"key": "X_Word",
+						"value": ""
+					},
+					{
+						"key": "X_AuthUserName",
+						"value": "b8f78f0bbb505ba1e023634f21cadf74"
+					},
+					{
+						"key": "X_AuthPassword",
+						"value": "588300c215f01e28bd66aeb6976a844a67c0e704d0c619cc98e2eff721517534"
+					},
+					{
+						"key": "X_AppUpdateDate",
+						"value": "2019-06-27"
+					}
+				],
+				"url": {
+					"raw": "https://execpanel.emaar.com/v1/Auth",
+					"protocol": "https",
+					"host": [
+						"execpanel",
+						"emaar",
+						"com"
+					],
+					"path": [
+						"v1",
+						"Auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://execpanel.emaar.com/v4/DashboardData",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X_AuthUserName",
+						"value": "b8f78f0bbb505ba1e023634f21cadf74"
+					},
+					{
+						"key": "X_AuthPassword",
+						"value": "588300c215f01e28bd66aeb6976a844a67c0e704d0c619cc98e2eff721517534"
+					},
+					{
+						"key": "X_AppUpdateDate",
+						"value": "2019-06-27"
+					}
+				],
+				"url": {
+					"raw": "https://execpanel.emaar.com/v4/DashboardData",
+					"protocol": "https",
+					"host": [
+						"execpanel",
+						"emaar",
+						"com"
+					],
+					"path": [
+						"v4",
+						"DashboardData"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
