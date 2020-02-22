@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="https://ca.smartbutton.com/Services/Reward.asmx?wsdl" docRef="https://ca.smartbutton.com/Services/Reward.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="https://ca.smartbutton.com/Services/Reward.asmx" xmlns:q1="https://app.smartbutton.com/Services/" binding="q1:RewardSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="https://ca.smartbutton.com/Services/Reward.asmx" xmlns:q2="https://app.smartbutton.com/Services/" binding="q2:RewardSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-</discovery>

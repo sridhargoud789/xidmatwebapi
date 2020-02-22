@@ -3,19 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEG-ReelCinemasRESTAPI", "EEG-ReelCinemasRESTAPI\EEG-ReelCinemasRESTAPI.csproj", "{2290B752-E84E-4CD2-8FAF-246C9B259EE5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FF4EEB6C-EFA0-4A75-BB4C-3DB630E76187} = {FF4EEB6C-EFA0-4A75-BB4C-3DB630E76187}
-		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA} = {51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEG-ReelCinemasWebsite", "EEG-ReelCinemasWebsite\EEG-ReelCinemasWebsite.csproj", "{5FF6BB4F-BB12-407F-9A34-738EED825985}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReelDAO", "ReelDAO\ReelDAO.csproj", "{FF4EEB6C-EFA0-4A75-BB4C-3DB630E76187}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReelDVO", "ReelDVO\ReelDVO.csproj", "{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBSchema", "DBSchema\DBSchema.sqlproj", "{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesAPI", "ServicesAPI\ServicesAPI.csproj", "{2FF1D722-735E-4DD8-975E-CA1CCB0FB98B}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -30,18 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2290B752-E84E-4CD2-8FAF-246C9B259EE5}.API_Production|Any CPU.ActiveCfg = API_Production|Any CPU
-		{2290B752-E84E-4CD2-8FAF-246C9B259EE5}.API_Production|Any CPU.Build.0 = API_Production|Any CPU
-		{2290B752-E84E-4CD2-8FAF-246C9B259EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2290B752-E84E-4CD2-8FAF-246C9B259EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2290B752-E84E-4CD2-8FAF-246C9B259EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2290B752-E84E-4CD2-8FAF-246C9B259EE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FF6BB4F-BB12-407F-9A34-738EED825985}.API_Production|Any CPU.ActiveCfg = API_Production|Any CPU
-		{5FF6BB4F-BB12-407F-9A34-738EED825985}.API_Production|Any CPU.Build.0 = API_Production|Any CPU
-		{5FF6BB4F-BB12-407F-9A34-738EED825985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FF6BB4F-BB12-407F-9A34-738EED825985}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FF6BB4F-BB12-407F-9A34-738EED825985}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FF6BB4F-BB12-407F-9A34-738EED825985}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF4EEB6C-EFA0-4A75-BB4C-3DB630E76187}.API_Production|Any CPU.ActiveCfg = API_Production|Any CPU
 		{FF4EEB6C-EFA0-4A75-BB4C-3DB630E76187}.API_Production|Any CPU.Build.0 = API_Production|Any CPU
 		{FF4EEB6C-EFA0-4A75-BB4C-3DB630E76187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -54,15 +32,6 @@ Global
 		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51EE1EA8-7D32-49AD-B30B-F94E1828DFAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.API_Production|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.API_Production|Any CPU.Build.0 = Debug|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.API_Production|Any CPU.Deploy.0 = Debug|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EC7ACBF-1C67-49A7-8D83-EB31D44853CF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{2FF1D722-735E-4DD8-975E-CA1CCB0FB98B}.API_Production|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF1D722-735E-4DD8-975E-CA1CCB0FB98B}.API_Production|Any CPU.Build.0 = Release|Any CPU
 		{2FF1D722-735E-4DD8-975E-CA1CCB0FB98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
