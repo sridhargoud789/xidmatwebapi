@@ -60,6 +60,26 @@ namespace ReelDAO
 
             }
         }
+        public DataTable SavePublicFiles(string strJSON)
+        {
+            try
+            {
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                DbCommand command = db.GetStoredProcCommand("SavePublicFiles");
+                db.AddInParameter(command, "strJSON", DbType.String, strJSON);
+
+                return db.ExecuteDataSet(command).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                //new LogDao().InsertLog("", "ERROR", "MobileBookingDao", "GetServiceSettings", "", "REQUEST", JsonConvert.SerializeObject(ex), "MOBILE", null);
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
         public DataTable GetAllCompanyServices(Int64 MasterServiceID,Int64 CompanyID)
         {
             try

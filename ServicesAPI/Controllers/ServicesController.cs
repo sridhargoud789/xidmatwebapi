@@ -23,6 +23,7 @@ using System.Web.Http;
 using ServicesAPI.Models;
 using EEG_ReelCinemasRESTAPI.Models;
 
+using System.Web.Hosting;
 namespace ServicesAPI.Controllers
 {
 
@@ -39,40 +40,42 @@ namespace ServicesAPI.Controllers
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/UploadFiles")]
-        public async Task<object> UploadFiles(Files[] req)
+        public async Task<object> UploadFiles()
         {
             try
             {
-                FileUploadResp resp = new FileUploadResp();
-                List<FilesResp> respfiles = new List<FilesResp>();
-                for (int i = 0; i < req.Length; i++)
+
+                var file = HttpContext.Current.Request.Files.Count > 0 ?
+                        HttpContext.Current.Request.Files[0] : null;
+
+                if (file != null && file.ContentLength > 0)
                 {
-                    var file = req[i];
-
-                    String path = ConfigurationManager.AppSettings["PublicFolderPath"].ToString();// HttpContext.Current.Server.MapPath("~/PublicFiles"); //Path
-
-                    Guid obj = Guid.NewGuid();
-                    int icnt = file.name.Split('.').Length;
-
-                    string extension = file.name.Split('.')[icnt-1].ToString();
-                    string fileName = obj.ToString()+"." + extension;
-
-                    //set the image path
-                    string filePath = Path.Combine(path, fileName);
-
-                    byte[] fileBytes = Convert.FromBase64String(file.base64.Split(',')[1].ToString());
-
-                    System.IO.File.WriteAllBytes(filePath, fileBytes);
-
-
-                    respfiles.Add(new FilesResp()
+                    var fileName = Path.GetFileName(file.FileName);
+                    Files oFile = new Files();
+                    
+                    byte[] oBytes = new byte[file.ContentLength];
+                    using (BinaryReader theReader = new BinaryReader(file.InputStream))
                     {
-                        FileName = fileName,
-                        FilePath = filePath
-                    });
+                        oBytes  = theReader.ReadBytes(file.ContentLength);
+                    }
+                    oFile.base64 = Convert.ToBase64String(oBytes);
+                    oFile.name = fileName.ToString();
+                    oFile.size = file.ContentLength.ToString();
+                    oFile.type = file.ContentType;
+
+                    List<Files> obj = new List<Files>();
+                    obj.Add(oFile);
+
+                    DataTable dt = new DataTable();
+                    dt = new ServicesDAO().SavePublicFiles(JsonConvert.SerializeObject(obj.ToArray()));
+
+                    return Request.CreateResponse(HttpStatusCode.OK, dt);
                 }
-                resp.Files = respfiles.ToArray();
-                return resp;
+                else
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {
