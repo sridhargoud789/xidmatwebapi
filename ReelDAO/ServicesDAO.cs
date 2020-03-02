@@ -233,7 +233,7 @@ namespace ReelDAO
             }
 
         }
-        public void AddUpdateServicesMedia(Int64 ServicesID, string Filenames,string Filepaths)
+        public void AddUpdateServicesMedia(Int64 ServicesID, string Filenames,string Filepaths,string FileIds)
         {
             
             int result = 0;
@@ -247,6 +247,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "ServicesID", DbType.Int64, ServicesID);
                 db.AddInParameter(command, "Filenames", DbType.String, Filenames);
                 db.AddInParameter(command, "Filepaths", DbType.String, Filepaths);
+                db.AddInParameter(command, "FileIds", DbType.String, FileIds);
 
                 result = db.ExecuteNonQuery(command);
                 
@@ -262,7 +263,7 @@ namespace ReelDAO
             
         }
 
-        public void AddUpdateProfileMedia(Int64 CompanyID, string Filenames, string Filepaths)
+        public void AddUpdateProfileMedia(Int64 CompanyID, string Filenames, string Filepaths, string FileIds)
         {
 
             int result = 0;
@@ -276,6 +277,8 @@ namespace ReelDAO
                 db.AddInParameter(command, "CompanyID", DbType.Int64, CompanyID);
                 db.AddInParameter(command, "Filenames", DbType.String, Filenames);
                 db.AddInParameter(command, "Filepaths", DbType.String, Filepaths);
+                db.AddInParameter(command, "FileIds", DbType.String, FileIds);
+
 
                 result = db.ExecuteNonQuery(command);
 

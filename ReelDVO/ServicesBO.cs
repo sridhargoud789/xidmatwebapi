@@ -89,6 +89,8 @@ namespace EEG_ReelCinemasRESTAPI.Models
 
         public string Filenames { get; set; }
         public string Filepaths { get; set; }
+        public string FileIds { get; set; }
+
 
     }
     public class CreateServiceReq
@@ -101,6 +103,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string Timings { get; set; }
         public string Filenames { get; set; }
         public string Filepaths { get; set; }
+        public string FileIds { get; set; }
     }
 
     public class ServiceRequestReq

@@ -178,9 +178,9 @@ namespace ServicesAPI.Controllers
                 bool status = false;
                 string statusMessage = string.Empty;
                 Int64 ServicesID = new ServicesDAO().CreateService(req, out status, out statusMessage);
-                if (ServicesID > 0 && req.Filenames != "")
+                if (ServicesID > 0 && req.FileIds != "")
                 {
-                    new ServicesDAO().AddUpdateServicesMedia(ServicesID, req.Filenames, req.Filepaths);
+                    new ServicesDAO().AddUpdateServicesMedia(ServicesID, req.Filenames, req.Filepaths,req.FileIds);
                 }
 
                 oResp.status = status;
@@ -254,9 +254,9 @@ namespace ServicesAPI.Controllers
                 Int64 UserId = 0;
                 CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description);
 
-                if (CompanyId > 0 && req.Filenames != "")
+                if (CompanyId > 0 && req.FileIds != "")
                 {
-                    new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths);
+                    new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths,req.FileIds);
                 }
 
 
