@@ -262,7 +262,7 @@ namespace ServicesAPI.Controllers
 
                 var PasswordSalt = PasswordHelper.GeneratePassword(10);
                 var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
-                UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender, req.DOB, req.MobileNoCountryCode,
+                UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender,req.MobileNoCountryCode,
                                                     req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;

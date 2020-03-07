@@ -332,7 +332,7 @@ namespace ReelDAO
             return CompanyServiceID;
         }
 
-        public Int64 CreateUser(string EmailId, string Password, string PasswordSalt, string FirstName, string LastName, string Gender, DateTime DOB, string MobileNoCountryCode,
+        public Int64 CreateUser(string EmailId, string Password, string PasswordSalt, string FirstName, string LastName, string Gender,string MobileNoCountryCode,
             string MobileNo, string PhoneNoCountryCode, string PhoneNo, Int64 CompanyID, out bool status, out string statusMessage)
         {
             Int64 UserID = 0;
@@ -351,7 +351,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "FirstName", DbType.String, FirstName);
                 db.AddInParameter(command, "LastName", DbType.String, LastName);
                 db.AddInParameter(command, "Gender", DbType.String, Gender);
-                db.AddInParameter(command, "DOB", DbType.Date, DOB);
+              //  db.AddInParameter(command, "DOB", DbType.Date, DOB);
                 db.AddInParameter(command, "MobileNoCountryCode", DbType.String, MobileNoCountryCode);
                 db.AddInParameter(command, "MobileNo", DbType.String, MobileNo);
                 db.AddInParameter(command, "PhoneNoCountryCode", DbType.String, PhoneNoCountryCode);
