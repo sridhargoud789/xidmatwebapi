@@ -90,6 +90,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string Filenames { get; set; }
         public string Filepaths { get; set; }
         public string FileIds { get; set; }
+        public string CountryCode { get; set; }
 
 
     }
@@ -104,6 +105,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string Filenames { get; set; }
         public string Filepaths { get; set; }
         public string FileIds { get; set; }
+        public string CountryCode { get; set; }
     }
 
     public class ServiceRequestReq
@@ -114,6 +116,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string MobileNoCC { get; set; }
         public string MobileNo { get; set; }
         public string Description { get; set; }
+        public string CountryCode { get; set; }
     }
 
     public class AddServiceViewCountReq {

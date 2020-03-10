@@ -148,7 +148,7 @@ namespace ReelDAO
             }
         }
 
-        public Int64 CreateCompany(string CompanyName, string Description)
+        public Int64 CreateCompany(string CompanyName, string Description,string CountryCode)
         {
             Int64 CompanyID = 0;
             int result = 0;
@@ -161,6 +161,7 @@ namespace ReelDAO
                 command = db.GetStoredProcCommand("CreateCompany");
                 db.AddInParameter(command, "CompanyName", DbType.String, CompanyName);
                 db.AddInParameter(command, "Description", DbType.String, Description);
+                db.AddInParameter(command, "CountryCode", DbType.String, CountryCode);
                 db.AddOutParameter(command, "CompanyID", DbType.Int64, 10);
                 result = db.ExecuteNonQuery(command);
                 CompanyID = int.Parse(db.GetParameterValue(command, "CompanyID").ToString());
@@ -194,6 +195,8 @@ namespace ReelDAO
                 db.AddInParameter(command, "MobileNoCC", DbType.String, req.MobileNoCC);
                 db.AddInParameter(command, "MobileNo", DbType.String, req.MobileNo);
                 db.AddInParameter(command, "Description", DbType.String, req.Description);
+                db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
+
                 result = db.ExecuteNonQuery(command);
 
             }
@@ -311,6 +314,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "ServiceTitle", DbType.String, req.ServiceTitle);
                 db.AddInParameter(command, "ServiceDescription", DbType.String, req.ServiceDescription);
                 db.AddInParameter(command, "Timings", DbType.String, req.Timings);
+                db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
 
                 db.AddOutParameter(command, "CompanyServiceID", DbType.Int64, 10);
                 db.AddOutParameter(command, "Status", DbType.Boolean, 10);

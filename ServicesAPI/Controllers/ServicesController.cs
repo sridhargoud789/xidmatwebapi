@@ -22,6 +22,7 @@ using System.Web;
 using System.Web.Http;
 using ServicesAPI.Models;
 using EEG_ReelCinemasRESTAPI.Models;
+using ServicesAPI.Helpers;
 
 using System.Web.Hosting;
 namespace ServicesAPI.Controllers
@@ -37,6 +38,15 @@ namespace ServicesAPI.Controllers
         private string VistaOptionalClientId = "";
         private string ReturnValue = string.Empty;
 
+        [HttpGet]
+        [Route("api/Services/GetFile/{FileId}")]
+        public string GetFile(string FileId)
+        {
+            return GoogleDriveAPIHelper.DownloadGoogleFile(FileId);//("1RWFwIVGWH0aX7klTWyLtV2N361bkC9He");
+
+
+        }
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/UploadFiles")]
@@ -44,7 +54,7 @@ namespace ServicesAPI.Controllers
         {
             try
             {
-
+                string GDrivefileID = string.Empty;
                 var file = HttpContext.Current.Request.Files.Count > 0 ?
                         HttpContext.Current.Request.Files[0] : null;
 
@@ -52,24 +62,30 @@ namespace ServicesAPI.Controllers
                 {
                     var fileName = Path.GetFileName(file.FileName);
                     Files oFile = new Files();
+
+                    Guid guid = Guid.NewGuid();
+                    string FileName = guid.ToString() + System.IO.Path.GetExtension(file.FileName).ToLower(); 
+                    HttpPostedFileBase filebase =new HttpPostedFileWrapper(file);
                     
-                    byte[] oBytes = new byte[file.ContentLength];
-                    using (BinaryReader theReader = new BinaryReader(file.InputStream))
-                    {
-                        oBytes  = theReader.ReadBytes(file.ContentLength);
-                    }
-                    oFile.base64 = Convert.ToBase64String(oBytes);
-                    oFile.name = fileName.ToString();
-                    oFile.size = file.ContentLength.ToString();
-                    oFile.type = file.ContentType;
+                     GDrivefileID = GoogleDriveAPIHelper.FileUploadInFolder(filebase,FileName);
 
-                    List<Files> obj = new List<Files>();
-                    obj.Add(oFile);
+                    //byte[] oBytes = new byte[file.ContentLength];
+                    //using (BinaryReader theReader = new BinaryReader(file.InputStream))
+                    //{
+                    //    oBytes  = theReader.ReadBytes(file.ContentLength);
+                    //}
+                    //oFile.base64 = Convert.ToBase64String(oBytes);
+                    //oFile.name = fileName.ToString();
+                    //oFile.size = file.ContentLength.ToString();
+                    //oFile.type = file.ContentType;
 
-                    DataTable dt = new DataTable();
-                    dt = new ServicesDAO().SavePublicFiles(JsonConvert.SerializeObject(obj.ToArray()));
+                    //List<Files> obj = new List<Files>();
+                    //obj.Add(oFile);
 
-                    return Request.CreateResponse(HttpStatusCode.OK, dt);
+                    //DataTable dt = new DataTable();
+                    //dt = new ServicesDAO().SavePublicFiles(JsonConvert.SerializeObject(obj.ToArray()));
+
+                    return Request.CreateResponse(HttpStatusCode.OK, GDrivefileID);
                 }
                 else
                 {
@@ -85,6 +101,37 @@ namespace ServicesAPI.Controllers
         }
 
 
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/GetAdvtMedia")]
+        public async Task<object> GetAdvtMedia()
+        {
+            try
+            {
+                string strOutPut = string.Empty;
+
+                var li  = GoogleDriveAPIHelper.GetDriveFiles("1xI0fBTf8LzVpW-TPAeI8CTx7qptyAl18").ToList();
+                //foreach (var l in li)
+                //{
+                //    if (l.MimeType== "image/jpeg" || l.MimeType == "image/png" || l.MimeType == "image/jpg")
+                //    {
+                //        strOutPut += "<div class='item'><img src='https://drive.google.com/uc?id=" + l.Id + "' alt='Image Description' /></div>";
+                //    }
+                //    else if (l.MimeType== "video/mp4")
+                //    {
+                //        strOutPut += "<div class='item'><iframe src='https://drive.google.com/uc?id=" + l.Id + "'></div>";
+                //    }
+                    
+                //}
+
+                return Request.CreateResponse(HttpStatusCode.OK, li);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
 
         [HttpPost]
         // [AuthenticateRequest]
@@ -252,7 +299,7 @@ namespace ServicesAPI.Controllers
 
                 Int64 CompanyId = 0;
                 Int64 UserId = 0;
-                CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description);
+                CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description,req.CountryCode);
 
                 if (CompanyId > 0 && req.FileIds != "")
                 {
@@ -264,6 +311,10 @@ namespace ServicesAPI.Controllers
                 var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
                 UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender,req.MobileNoCountryCode,
                                                     req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
+                
+
+                //new WebMail().SendMailMessage(req.EmailId, "feroz@xidmat.com", "sridhargoud789@gmail.com", "", "test", "test body", null);
+
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;
             }
