@@ -289,6 +289,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="GoogleDriveFiles\Capture.jpg" />
     <Content Include="PublicFiles\87a241d2-1fc8-4f0f-b947-b18df97c9c42.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -312,6 +313,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="client_secret_924229124477-pnm12ig92jhdnhef6equjbal3vsaksud.apps.googleusercontent.com.json" />
+    <Content Include="DriveServiceCredentials.json\Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" />
     <None Include="Properties\PublishProfiles\xidmatapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -338,7 +340,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="GoogleDriveFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
