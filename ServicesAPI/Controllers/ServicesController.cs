@@ -165,8 +165,7 @@ namespace ServicesAPI.Controllers
             {
                 DataTable dt = new DataTable();
                 dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID);
-                var oResp = JsonConvert.SerializeObject(dt);
-                return oResp;
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
             {
@@ -184,8 +183,7 @@ namespace ServicesAPI.Controllers
             {
                 DataTable dt = new DataTable();
                 dt = new ServicesDAO().GetAllServicesRequests(req);
-                var oResp = JsonConvert.SerializeObject(dt);
-                return oResp;
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
             {
@@ -203,8 +201,7 @@ namespace ServicesAPI.Controllers
             {
                 DataTable dt = new DataTable();
                 dt = new ServicesDAO().GetAllCompanies();
-                var oResp = JsonConvert.SerializeObject(dt);
-                return oResp;
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
             {
@@ -386,7 +383,7 @@ namespace ServicesAPI.Controllers
                             oUserBO.CreatedBy = r["CreatedBy"].ToString();
                             oUserBO.IsActive = r["IsActive"].ToString() == "1" ? true : false;
                             oUserBO.CompanyID = Int64.Parse(r["CompanyID"].ToString());
-
+                            oUserBO.RoleId = int.Parse(r["RoleId"].ToString());
                             status = true;
                             statusMessage = "SUCCESS";
                             oResp.UserObject = oUserBO;

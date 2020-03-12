@@ -44,6 +44,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
     public class UserBO
     {
         public Int64 UserId { get; set; }
+        public int RoleId { get; set; }
         public string EmailId { get; set; }
         public string Password { get; set; }
         public string PasswordSalt { get; set; }
