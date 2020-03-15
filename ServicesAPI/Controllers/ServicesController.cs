@@ -64,10 +64,14 @@ namespace ServicesAPI.Controllers
                     Files oFile = new Files();
 
                     Guid guid = Guid.NewGuid();
-                    string FileName = guid.ToString() + System.IO.Path.GetExtension(file.FileName).ToLower(); 
-                    HttpPostedFileBase filebase =new HttpPostedFileWrapper(file);
-                    
-                     GDrivefileID = GoogleDriveAPIHelper.FileUploadInFolder(filebase,FileName);
+                    string FileName = guid.ToString() + System.IO.Path.GetExtension(file.FileName).ToLower();
+
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/PublicFiles"),Path.GetFileName(FileName));
+                    file.SaveAs(path);
+
+                    //HttpPostedFileBase filebase =new HttpPostedFileWrapper(file);
+
+                    // GDrivefileID = GoogleDriveAPIHelper.FileUploadInFolder(filebase,FileName);
 
                     //byte[] oBytes = new byte[file.ContentLength];
                     //using (BinaryReader theReader = new BinaryReader(file.InputStream))
@@ -85,7 +89,7 @@ namespace ServicesAPI.Controllers
                     //DataTable dt = new DataTable();
                     //dt = new ServicesDAO().SavePublicFiles(JsonConvert.SerializeObject(obj.ToArray()));
 
-                    return Request.CreateResponse(HttpStatusCode.OK, GDrivefileID);
+                    return Request.CreateResponse(HttpStatusCode.OK, FileName);
                 }
                 else
                 {
