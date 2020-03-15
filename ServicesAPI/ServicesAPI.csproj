@@ -290,6 +290,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="GoogleDriveFiles\Capture.jpg" />
+    <Content Include="PublicFiles\87a241d2-1fc8-4f0f-b947-b18df97c9c42.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -314,6 +315,9 @@
     <Content Include="client_secret_924229124477-pnm12ig92jhdnhef6equjbal3vsaksud.apps.googleusercontent.com.json" />
     <Content Include="DriveServiceCredentials.json\Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" />
     <None Include="Properties\PublishProfiles\xidmatapi - Web Deploy.pubxml" />
+    <Content Include="PublicFiles\8fc83229-6487-45c4-b216-5a6bece615e5.json" />
+    <Content Include="PublicFiles\946bea0f-006f-4956-95c9-e7f21b60ce3e.docx" />
+    <Content Include="PublicFiles\a667c6c9-d0de-4f63-ba57-732169115247.pdf" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
