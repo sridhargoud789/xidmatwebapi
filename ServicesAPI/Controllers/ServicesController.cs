@@ -214,6 +214,33 @@ namespace ServicesAPI.Controllers
             }
         }
 
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/ManageMyProducts")]
+        public async Task<object> ManageMyProducts(ManageProductsReq req)
+        {
+            RegisterResp oResp = new RegisterResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                Int64 ProductId = new ServicesDAO().ManageMyProducts(req, out status, out statusMessage);
+                if (ProductId > 0 && req.FileIds != "")
+                {
+                    new ServicesDAO().AddUpdateProductsMedia(ProductId, req.FileIds);
+                }
+
+                oResp.status = status;
+                oResp.statusMessage = statusMessage;
+            }
+            catch (Exception ex)
+            {
+                oResp.status = false;
+                oResp.statusMessage = ex.Message;
+            }
+            return oResp;
+        }
+
 
         [HttpPost]
         // [AuthenticateRequest]
