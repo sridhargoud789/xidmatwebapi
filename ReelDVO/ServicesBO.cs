@@ -109,6 +109,17 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string CountryCode { get; set; }
     }
 
+    public class ManageProductsReq
+    {
+        public int MasterProductId { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public Int64 UserId { get; set; }
+        public string FileIds { get; set; }
+
+
+    }
+
     public class ServiceRequestReq
     {
         public Int64 CompanyServiceID { get; set; }
@@ -120,11 +131,13 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string CountryCode { get; set; }
     }
 
-    public class AddServiceViewCountReq {
+    public class AddServiceViewCountReq
+    {
         public Int64 ServiceID { get; set; }
     }
 
-    public class GetAllServicesRequestsReq {
+    public class GetAllServicesRequestsReq
+    {
 
         public Int64 CompanyId { get; set; }
         public Int64 MasterServiceId { get; set; }
