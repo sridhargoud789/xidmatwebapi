@@ -66,7 +66,7 @@ namespace ServicesAPI.Controllers
                     Guid guid = Guid.NewGuid();
                     string FileName = guid.ToString() + System.IO.Path.GetExtension(file.FileName).ToLower();
 
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/PublicFiles"),Path.GetFileName(FileName));
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/PublicFiles"), Path.GetFileName(FileName));
                     file.SaveAs(path);
 
                     //HttpPostedFileBase filebase =new HttpPostedFileWrapper(file);
@@ -95,7 +95,7 @@ namespace ServicesAPI.Controllers
                 {
                     return null;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace ServicesAPI.Controllers
             {
                 string strOutPut = string.Empty;
 
-                var li  = GoogleDriveAPIHelper.GetDriveFiles("1xI0fBTf8LzVpW-TPAeI8CTx7qptyAl18").ToList();
+                var li = GoogleDriveAPIHelper.GetDriveFiles("1xI0fBTf8LzVpW-TPAeI8CTx7qptyAl18").ToList();
                 //foreach (var l in li)
                 //{
                 //    if (l.MimeType== "image/jpeg" || l.MimeType == "image/png" || l.MimeType == "image/jpg")
@@ -125,7 +125,7 @@ namespace ServicesAPI.Controllers
                 //    {
                 //        strOutPut += "<div class='item'><iframe src='https://drive.google.com/uc?id=" + l.Id + "'></div>";
                 //    }
-                    
+
                 //}
 
                 return Request.CreateResponse(HttpStatusCode.OK, li);
@@ -214,6 +214,33 @@ namespace ServicesAPI.Controllers
             }
         }
 
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/ManageMyProducts")]
+        public async Task<object> ManageMyProducts(ManageProductsReq req)
+        {
+            RegisterResp oResp = new RegisterResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                Int64 ProductId = new ServicesDAO().ManageMyProducts(req, out status, out statusMessage);
+                if (ProductId > 0 && req.FileIds != "")
+                {
+                    new ServicesDAO().AddUpdateProductsMedia(ProductId, req.FileIds);
+                }
+
+                oResp.status = status;
+                oResp.statusMessage = statusMessage;
+            }
+            catch (Exception ex)
+            {
+                oResp.status = false;
+                oResp.statusMessage = ex.Message;
+            }
+            return oResp;
+        }
+
 
         [HttpPost]
         // [AuthenticateRequest]
@@ -228,7 +255,7 @@ namespace ServicesAPI.Controllers
                 Int64 ServicesID = new ServicesDAO().CreateService(req, out status, out statusMessage);
                 if (ServicesID > 0 && req.FileIds != "")
                 {
-                    new ServicesDAO().AddUpdateServicesMedia(ServicesID, req.Filenames, req.Filepaths,req.FileIds);
+                    new ServicesDAO().AddUpdateServicesMedia(ServicesID, req.Filenames, req.Filepaths, req.FileIds);
                 }
 
                 oResp.status = status;
@@ -300,19 +327,19 @@ namespace ServicesAPI.Controllers
 
                 Int64 CompanyId = 0;
                 Int64 UserId = 0;
-                CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description,req.CountryCode);
+                CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description, req.CountryCode);
 
                 if (CompanyId > 0 && req.FileIds != "")
                 {
-                    new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths,req.FileIds);
+                    new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths, req.FileIds);
                 }
 
 
                 var PasswordSalt = PasswordHelper.GeneratePassword(10);
                 var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
-                UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender,req.MobileNoCountryCode,
+                UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender, req.MobileNoCountryCode,
                                                     req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
-                
+
 
                 //new WebMail().SendMailMessage(req.EmailId, "feroz@xidmat.com", "sridhargoud789@gmail.com", "", "test", "test body", null);
 
