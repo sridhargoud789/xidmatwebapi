@@ -80,7 +80,7 @@ namespace ReelDAO
 
             }
         }
-        public DataTable GetAllCompanyServices(Int64 MasterServiceID,Int64 CompanyID)
+        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace ReelDAO
             {
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 DbCommand command = db.GetStoredProcCommand("GetAllCompanies");
-                
+
                 return db.ExecuteDataSet(command).Tables[0];
             }
             catch (Exception ex)
@@ -148,7 +148,7 @@ namespace ReelDAO
             }
         }
 
-        public Int64 CreateCompany(string CompanyName, string Description,string CountryCode)
+        public Int64 CreateCompany(string CompanyName, string Description, string CountryCode)
         {
             Int64 CompanyID = 0;
             int result = 0;
@@ -236,9 +236,9 @@ namespace ReelDAO
             }
 
         }
-        public void AddUpdateServicesMedia(Int64 ServicesID, string Filenames,string Filepaths,string FileIds)
+        public void AddUpdateServicesMedia(Int64 ServicesID, string Filenames, string Filepaths, string FileIds)
         {
-            
+
             int result = 0;
             try
             {
@@ -253,7 +253,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "FileIds", DbType.String, FileIds);
 
                 result = db.ExecuteNonQuery(command);
-                
+
             }
             catch (Exception ex)
             {
@@ -263,9 +263,74 @@ namespace ReelDAO
             {
 
             }
-            
+
         }
 
+        public void AddUpdateProductsMedia(Int64 MyProductId, string FileIds)
+        {
+
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("AddUpdateProductsMedia");
+                db.AddInParameter(command, "ServicesID", DbType.Int64, MyProductId);
+                db.AddInParameter(command, "FileIds", DbType.String, FileIds);
+
+                result = db.ExecuteNonQuery(command);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
+        public Int64 ManageMyProducts(ManageProductsReq req, out bool status, out string statusMessage)
+        {
+            Int64 MyProductId = 0;
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ManageMyProducts");
+                db.AddInParameter(command, "MasterProductId", DbType.Int64, req.MasterProductId);
+
+                db.AddInParameter(command, "ProductName", DbType.String, req.ProductName);
+                db.AddInParameter(command, "ProductDescription", DbType.String, req.ProductDescription);
+                db.AddInParameter(command, "UserId", DbType.Int64, req.UserId);
+
+                db.AddInParameter(command, "FileIds", DbType.String, req.FileIds);
+
+                db.AddOutParameter(command, "MyProductId", DbType.Int64, 10);
+                db.AddOutParameter(command, "Status", DbType.Boolean, 10);
+                db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
+                result = db.ExecuteNonQuery(command);
+                MyProductId = int.Parse(db.GetParameterValue(command, "MyProductId").ToString());
+                status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
+                statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                statusMessage = ex.Message;
+            }
+            finally
+            {
+
+            }
+            return MyProductId;
+        }
         public void AddUpdateProfileMedia(Int64 CompanyID, string Filenames, string Filepaths, string FileIds)
         {
 
@@ -336,7 +401,7 @@ namespace ReelDAO
             return CompanyServiceID;
         }
 
-        public Int64 CreateUser(string EmailId, string Password, string PasswordSalt, string FirstName, string LastName, string Gender,string MobileNoCountryCode,
+        public Int64 CreateUser(string EmailId, string Password, string PasswordSalt, string FirstName, string LastName, string Gender, string MobileNoCountryCode,
             string MobileNo, string PhoneNoCountryCode, string PhoneNo, Int64 CompanyID, out bool status, out string statusMessage)
         {
             Int64 UserID = 0;
@@ -355,7 +420,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "FirstName", DbType.String, FirstName);
                 db.AddInParameter(command, "LastName", DbType.String, LastName);
                 db.AddInParameter(command, "Gender", DbType.String, Gender);
-              //  db.AddInParameter(command, "DOB", DbType.Date, DOB);
+                //  db.AddInParameter(command, "DOB", DbType.Date, DOB);
                 db.AddInParameter(command, "MobileNoCountryCode", DbType.String, MobileNoCountryCode);
                 db.AddInParameter(command, "MobileNo", DbType.String, MobileNo);
                 db.AddInParameter(command, "PhoneNoCountryCode", DbType.String, PhoneNoCountryCode);
