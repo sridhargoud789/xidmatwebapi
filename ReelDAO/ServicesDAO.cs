@@ -266,6 +266,71 @@ namespace ReelDAO
             
         }
 
+        public void AddUpdateProductsMedia(Int64 MyProductId, string FileIds)
+        {
+
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("AddUpdateProductsMedia");
+                db.AddInParameter(command, "ServicesID", DbType.Int64, MyProductId);
+                db.AddInParameter(command, "FileIds", DbType.String, FileIds);
+
+                result = db.ExecuteNonQuery(command);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
+        public Int64 ManageMyProducts(ManageProductsReq req, out bool status, out string statusMessage)
+        {
+            Int64 MyProductId = 0;
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ManageMyProducts");
+                db.AddInParameter(command, "MasterProductId", DbType.Int64, req.MasterProductId);
+
+                db.AddInParameter(command, "ProductName", DbType.String, req.ProductName);
+                db.AddInParameter(command, "ProductDescription", DbType.String, req.ProductDescription);
+                db.AddInParameter(command, "UserId", DbType.Int64, req.UserId);
+
+                db.AddInParameter(command, "FileIds", DbType.String, req.FileIds);
+
+                db.AddOutParameter(command, "MyProductId", DbType.Int64, 10);
+                db.AddOutParameter(command, "Status", DbType.Boolean, 10);
+                db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
+                result = db.ExecuteNonQuery(command);
+                MyProductId = int.Parse(db.GetParameterValue(command, "MyProductId").ToString());
+                status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
+                statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                statusMessage = ex.Message;
+            }
+            finally
+            {
+
+            }
+            return MyProductId;
+        }
         public void AddUpdateProfileMedia(Int64 CompanyID, string Filenames, string Filepaths, string FileIds)
         {
 
