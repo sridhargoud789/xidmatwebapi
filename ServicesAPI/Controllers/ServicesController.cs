@@ -160,6 +160,24 @@ namespace ServicesAPI.Controllers
         }
 
 
+  [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/GetAllProducts")]
+        public async Task<object> GetAllProducts(GetAllProductsReq req)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId);
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllCompanyServices")]
