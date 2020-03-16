@@ -345,14 +345,15 @@ namespace ServicesAPI.Controllers
 
                 Int64 CompanyId = 0;
                 Int64 UserId = 0;
-                CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description, req.CountryCode);
 
-                if (CompanyId > 0 && req.FileIds != "")
+                if(req.CompanyName != "")
                 {
-                    new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths, req.FileIds);
+                     CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description, req.CountryCode);
+                     if (CompanyId > 0 && req.FileIds != "")
+                        {
+                          new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths, req.FileIds);
+                        }
                 }
-
-
                 var PasswordSalt = PasswordHelper.GeneratePassword(10);
                 var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
                 UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender, req.MobileNoCountryCode,
