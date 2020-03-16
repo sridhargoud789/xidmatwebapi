@@ -80,6 +80,30 @@ namespace ReelDAO
 
             }
         }
+
+public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
+        {
+            try
+            {
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                DbCommand command = db.GetStoredProcCommand("GetAllProducts");
+                db.AddInParameter(command, "MasterProductId", DbType.Int64, MasterProductId);
+                db.AddInParameter(command, "UserId", DbType.Int64, UserId);
+
+
+                return db.ExecuteDataSet(command).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                //new LogDao().InsertLog("", "ERROR", "MobileBookingDao", "GetServiceSettings", "", "REQUEST", JsonConvert.SerializeObject(ex), "MOBILE", null);
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
+
         public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID)
         {
             try
