@@ -137,6 +137,24 @@ namespace ServicesAPI.Controllers
             }
         }
 
+   [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/GetAllProductCategories")]
+        public async Task<object> GetAllProductCategories()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllProductCategories();
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllMasterServices")]
