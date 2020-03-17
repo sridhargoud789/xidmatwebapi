@@ -307,6 +307,53 @@ namespace ServicesAPI.Controllers
 
 
 
+
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/ActiveInActiveUser")]
+        public async Task<object> ProductRequest(ManageUserReq req)
+        {
+            RegisterResp oResp = new RegisterResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                new ServicesDAO().ActiveInActiveUser(req.UserId,req.IsActive);
+
+                oResp.status = true;
+                oResp.statusMessage = "SUCCESS";
+            }
+            catch (Exception ex)
+            {
+                oResp.status = false;
+                oResp.statusMessage = ex.Message;
+            }
+            return oResp;
+        }
+
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/ApproveUser")]
+        public async Task<object> ApproveUser(ManageUserReq req)
+        {
+            RegisterResp oResp = new RegisterResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                new ServicesDAO().ApproveUser(req.UserId);
+
+                oResp.status = true;
+                oResp.statusMessage = "SUCCESS";
+            }
+            catch (Exception ex)
+            {
+                oResp.status = false;
+                oResp.statusMessage = ex.Message;
+            }
+            return oResp;
+        }
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/ProductRequest")]
