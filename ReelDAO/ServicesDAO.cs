@@ -333,9 +333,6 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 db.AddInParameter(command, "ProductName", DbType.String, req.ProductName);
                 db.AddInParameter(command, "ProductDescription", DbType.String, req.ProductDescription);
                 db.AddInParameter(command, "UserId", DbType.Int64, req.UserId);
-
-                db.AddInParameter(command, "FileIds", DbType.String, req.FileIds);
-
                 db.AddOutParameter(command, "MyProductId", DbType.Int64, 10);
                 db.AddOutParameter(command, "Status", DbType.Boolean, 10);
                 db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
