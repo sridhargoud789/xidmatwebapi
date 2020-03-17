@@ -21,6 +21,28 @@ namespace ReelDAO
     {
         private Database db = null;
         private LogDao log = null;
+        
+
+        public DataTable GetAllUsers()
+        {
+            try
+            {
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                DbCommand command = db.GetStoredProcCommand("GetAllUsers");
+
+                return db.ExecuteDataSet(command).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                //new LogDao().InsertLog("", "ERROR", "MobileBookingDao", "GetServiceSettings", "", "REQUEST", JsonConvert.SerializeObject(ex), "MOBILE", null);
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
+
         public DataTable GetServiceSettings()
         {
             try
@@ -271,6 +293,38 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 db.AddInParameter(command, "MobileNo", DbType.String, req.MobileNo);
                 db.AddInParameter(command, "Description", DbType.String, req.Description);
                 db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
+
+                result = db.ExecuteNonQuery(command);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
+
+        public void ManageCompanyService(Int64 ServiceId, bool IsActive,bool IsApproved, int Flag)
+        {
+
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ManageCompanyService");
+                db.AddInParameter(command, "ServiceId", DbType.Int64, ServiceId);
+                db.AddInParameter(command, "IsActive", DbType.Boolean, IsActive);
+                db.AddInParameter(command, "IsApproved", DbType.Boolean, IsApproved);
+                db.AddInParameter(command, "Flag", DbType.Int32, Flag);
+
+
 
                 result = db.ExecuteNonQuery(command);
 
