@@ -222,6 +222,37 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
         }
 
 
+
+        public void ProductRequest(ProductRequestReq req)
+        {
+
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ProductRequest");
+                db.AddInParameter(command, "MyProductId", DbType.Int64, req.MyProductId);
+                db.AddInParameter(command, "FullName", DbType.String, req.FullName);
+                db.AddInParameter(command, "EmailID", DbType.String, req.EmailID);
+                db.AddInParameter(command, "MobileNo", DbType.String, req.MobileNo);
+                db.AddInParameter(command, "Description", DbType.String, req.Description);
+
+                result = db.ExecuteNonQuery(command);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
         public void ServiceRequest(ServiceRequestReq req)
         {
 
