@@ -321,7 +321,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 DbCommand command = null;
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 command = db.GetStoredProcCommand("AddUpdateProductsMedia");
-                db.AddInParameter(command, "ServicesID", DbType.Int64, MyProductId);
+                db.AddInParameter(command, "MyProductId", DbType.Int64, MyProductId);
                 db.AddInParameter(command, "FileIds", DbType.String, FileIds);
 
                 result = db.ExecuteNonQuery(command);
