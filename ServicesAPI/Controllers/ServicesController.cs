@@ -305,6 +305,30 @@ namespace ServicesAPI.Controllers
             return oResp;
         }
 
+
+
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/ProductRequest")]
+        public async Task<object> ProductRequest(ProductRequestReq req)
+        {
+            RegisterResp oResp = new RegisterResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                new ServicesDAO().ProductRequest(req);
+
+                oResp.status = true;
+                oResp.statusMessage = "SUCCESS";
+            }
+            catch (Exception ex)
+            {
+                oResp.status = false;
+                oResp.statusMessage = ex.Message;
+            }
+            return oResp;
+        }
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/ServiceRequest")]
