@@ -9,6 +9,14 @@ namespace EEG_ReelCinemasRESTAPI.Models
     {
     }
 
+    public class ManageCompanyServiceReq
+    {
+       public Int64 ServiceId{ get; set; }
+       public bool IsActive { get; set; }
+       public bool IsApproved { get; set; }
+       public int Flag { get; set; }
+    }
+
     public class ManageUserReq
     {
         public Int64 UserId { get; set; }
