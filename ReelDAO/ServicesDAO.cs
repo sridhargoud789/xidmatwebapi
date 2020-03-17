@@ -445,9 +445,9 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 db.AddInParameter(command, "LastName", DbType.String, LastName);
                 db.AddInParameter(command, "Gender", DbType.String, Gender);
                 //  db.AddInParameter(command, "DOB", DbType.Date, DOB);
-                db.AddInParameter(command, "MobileNoCountryCode", DbType.String, MobileNoCountryCode);
+                //db.AddInParameter(command, "MobileNoCountryCode", DbType.String, MobileNoCountryCode);
                 db.AddInParameter(command, "MobileNo", DbType.String, MobileNo);
-                db.AddInParameter(command, "PhoneNoCountryCode", DbType.String, PhoneNoCountryCode);
+                //db.AddInParameter(command, "PhoneNoCountryCode", DbType.String, PhoneNoCountryCode);
                 db.AddInParameter(command, "PhoneNo", DbType.String, PhoneNo);
                 db.AddInParameter(command, "CompanyID", DbType.Int64, CompanyID);
 
