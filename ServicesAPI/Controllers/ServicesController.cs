@@ -213,6 +213,24 @@ namespace ServicesAPI.Controllers
                 return null;
             }
         }
+        
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/GetAllAdminCompanyServices")]
+        public async Task<object> GetAllAdminCompanyServices()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllAdminCompanyServices();
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
 
         [HttpPost]
         // [AuthenticateRequest]
