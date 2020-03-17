@@ -286,6 +286,59 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
 
         }
 
+        public void ActiveInActiveUser(Int64 UserId, bool IsActive)
+        {
+
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ActiveInActiveUser");
+                db.AddInParameter(command, "UserId", DbType.Int64, UserId);
+                db.AddInParameter(command, "IsActive", DbType.Boolean, IsActive);
+
+                result = db.ExecuteNonQuery(command);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
+        public void ApproveUser(Int64 UserId)
+        {
+
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ApproveUser");
+                db.AddInParameter(command, "UserId", DbType.Int64, UserId);
+                result = db.ExecuteNonQuery(command);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+        }
+
         public void AddServiceViewCount(Int64 ServiceID)
         {
 
