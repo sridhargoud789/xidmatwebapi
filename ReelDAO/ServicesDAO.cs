@@ -367,7 +367,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
             }
 
         }
-        public void ApproveUser(Int64 UserId)
+        public void ApproveUser(Int64 UserId, bool IsApproved)
         {
 
             int result = 0;
@@ -379,6 +379,8 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 command = db.GetStoredProcCommand("ApproveUser");
                 db.AddInParameter(command, "UserId", DbType.Int64, UserId);
+                db.AddInParameter(command, "IsApproved", DbType.Boolean, IsApproved);
+
                 result = db.ExecuteNonQuery(command);
 
             }
