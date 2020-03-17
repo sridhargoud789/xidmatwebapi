@@ -155,6 +155,24 @@ namespace ServicesAPI.Controllers
             }
         }
 
+           [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/GetAllUsers")]
+        public async Task<object> GetAllUsers()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllUsers();
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllMasterServices")]
@@ -331,6 +349,29 @@ namespace ServicesAPI.Controllers
             return oResp;
         }
 
+        
+        [HttpPost]
+        // [AuthenticateRequest]
+        [Route("api/Services/ManageCompanyService")]
+        public async Task<object> ManageCompanyService(ManageCompanyServiceReq req)
+        {
+            RegisterResp oResp = new RegisterResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                new ServicesDAO().ManageCompanyService(req.ServiceId,req.IsActive,req.IsApproved,req.Flag);
+
+                oResp.status = true;
+                oResp.statusMessage = "SUCCESS";
+            }
+            catch (Exception ex)
+            {
+                oResp.status = false;
+                oResp.statusMessage = ex.Message;
+            }
+            return oResp;
+        }
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/ApproveUser")]
