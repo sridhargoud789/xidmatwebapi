@@ -40,6 +40,26 @@ namespace ReelDAO
 
             }
         }
+        public DataTable GetAllProductCategories()
+        {
+            try
+            {
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                DbCommand command = db.GetStoredProcCommand("GetAllProductCategories");
+
+                return db.ExecuteDataSet(command).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                //new LogDao().InsertLog("", "ERROR", "MobileBookingDao", "GetServiceSettings", "", "REQUEST", JsonConvert.SerializeObject(ex), "MOBILE", null);
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
+
         public DataTable GetUserDetailsByEmailId(string EmailId)
         {
             try
