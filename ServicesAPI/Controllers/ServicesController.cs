@@ -382,7 +382,7 @@ namespace ServicesAPI.Controllers
             {
                 bool status = false;
                 string statusMessage = string.Empty;
-                new ServicesDAO().ApproveUser(req.UserId);
+                new ServicesDAO().ApproveUser(req.UserId, req.IsActive);
 
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
