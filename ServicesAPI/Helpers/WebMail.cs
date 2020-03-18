@@ -32,7 +32,7 @@ namespace ServicesAPI.Helpers
         {
 
            MailMessage msg = new MailMessage();
-        msg.From = new MailAddress("support@xidmat.com");
+        msg.From = new MailAddress("Xidmat &lt;support@xidmat.com&gt;");
         msg.To.Add(new MailAddress("sridhargoud789@gmail.com"));
         msg.Subject = "Test mail";
         // if (fileUpload1.HasFile)
