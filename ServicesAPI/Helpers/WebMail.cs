@@ -31,83 +31,83 @@ namespace ServicesAPI.Helpers
         public void SendMailMessage(string toEmail, string fromEmail, string bcc, string cc, string subject, string body, List<string> attachmentFullPath)
         {
 
-            // MailMessage message = new MailMessage();
-            // message.From = new MailAddress(fromEmail);
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(fromEmail);
 
-            // message.To.Add(new MailAddress(toEmail));
+            message.To.Add(new MailAddress(toEmail));
 
-            // message.Subject = "your subject";
-            // message.Body = "content of your email";
+            message.Subject = "your subject";
+            message.Body = "content of your email";
 
-            // SmtpClient client = new SmtpClient();
-            // client.Send(message);
+            SmtpClient client = new SmtpClient();
+            client.Send(message);
 
             //create the MailMessage object
-            MailMessage mMailMessage = new MailMessage();
+            // MailMessage mMailMessage = new MailMessage();
 
-            //set the sender address of the mail message
-            if (!string.IsNullOrEmpty(fromEmail))
-            {
-                mMailMessage.From = new MailAddress(fromEmail);
-            }
-
-            //set the recipient address of the mail message
-            mMailMessage.To.Add(new MailAddress(toEmail));
-
-            //set the blind carbon copy address
-            if (!string.IsNullOrEmpty(bcc))
-            {
-                mMailMessage.Bcc.Add(new MailAddress(bcc));
-            }
-
-            //set the carbon copy address
-            if (!string.IsNullOrEmpty(cc))
-            {
-                mMailMessage.CC.Add(new MailAddress(cc));
-            }
-
-            //set the subject of the mail message
-            if (!string.IsNullOrEmpty(subject))
-            {
-                mMailMessage.Subject = "Xidmat";
-            }
-            else
-            {
-                mMailMessage.Subject = subject;
-            }
-
-            //set the body of the mail message
-            mMailMessage.Body = body;
-
-            //set the format of the mail message body
-            mMailMessage.IsBodyHtml = false;
-
-            //set the priority
-            mMailMessage.Priority = MailPriority.Normal;
-
-            //add any attachments from the filesystem
-            //foreach (var attachmentPath in attachmentFullPath)
-            //{
-            //    Attachment mailAttachment = new Attachment(attachmentPath);
-            //    mMailMessage.Attachments.Add(mailAttachment);
-            //}
-
-            //create the SmtpClient instance
-
-            SmtpClient mSmtpClient = new SmtpClient();
+            // //set the sender address of the mail message
+            // if (!string.IsNullOrEmpty(fromEmail))
             // {
+            //     mMailMessage.From = new MailAddress(fromEmail);
+            // }
 
-            //     Host = "xidmat-com.mail.protection.outlook.com",
+            // //set the recipient address of the mail message
+            // mMailMessage.To.Add(new MailAddress(toEmail));
 
-            //     Credentials = new NetworkCredential("feroz@xidmat.com", "Abcd1234$$"),
-            //     Port = 25,
-            //     EnableSsl = true,
-            //     UseDefaultCredentials = false,
-            //     Timeout = 10000
-            // };
+            // //set the blind carbon copy address
+            // if (!string.IsNullOrEmpty(bcc))
+            // {
+            //     mMailMessage.Bcc.Add(new MailAddress(bcc));
+            // }
 
-            //send the mail message
-            mSmtpClient.Send(mMailMessage);
+            // //set the carbon copy address
+            // if (!string.IsNullOrEmpty(cc))
+            // {
+            //     mMailMessage.CC.Add(new MailAddress(cc));
+            // }
+
+            // //set the subject of the mail message
+            // if (!string.IsNullOrEmpty(subject))
+            // {
+            //     mMailMessage.Subject = "Xidmat";
+            // }
+            // else
+            // {
+            //     mMailMessage.Subject = subject;
+            // }
+
+            // //set the body of the mail message
+            // mMailMessage.Body = body;
+
+            // //set the format of the mail message body
+            // mMailMessage.IsBodyHtml = false;
+
+            // //set the priority
+            // mMailMessage.Priority = MailPriority.Normal;
+
+            // //add any attachments from the filesystem
+            // //foreach (var attachmentPath in attachmentFullPath)
+            // //{
+            // //    Attachment mailAttachment = new Attachment(attachmentPath);
+            // //    mMailMessage.Attachments.Add(mailAttachment);
+            // //}
+
+            // //create the SmtpClient instance
+
+            // SmtpClient mSmtpClient = new SmtpClient();
+            // // {
+
+            // //     Host = "xidmat-com.mail.protection.outlook.com",
+
+            // //     Credentials = new NetworkCredential("feroz@xidmat.com", "Abcd1234$$"),
+            // //     Port = 25,
+            // //     EnableSsl = true,
+            // //     UseDefaultCredentials = false,
+            // //     Timeout = 10000
+            // // };
+
+            // //send the mail message
+            // mSmtpClient.Send(mMailMessage);
         }
 
         /// <summary>
