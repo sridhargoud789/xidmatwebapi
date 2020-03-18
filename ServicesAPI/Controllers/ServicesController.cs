@@ -401,6 +401,7 @@ namespace ServicesAPI.Controllers
                 bool status = false;
                 string statusMessage = string.Empty;
                 new ServicesDAO().ApproveUser(req.UserId, req.IsActive);
+                new WebMail().SendMailMessage(req.EmailId, "support@xidmat.com", "sridhargoud789@gmail.com", "", "test", "test body", null);
 
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
@@ -508,7 +509,6 @@ namespace ServicesAPI.Controllers
                                                     req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
 
 
-                //new WebMail().SendMailMessage(req.EmailId, "feroz@xidmat.com", "sridhargoud789@gmail.com", "", "test", "test body", null);
 
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;
