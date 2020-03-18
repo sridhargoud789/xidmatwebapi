@@ -31,16 +31,28 @@ namespace ServicesAPI.Helpers
         public void SendMailMessage()
         {
 
-            MailMessage message = new MailMessage();
-            message.From = new MailAddress("support@xidmat.com");
+           MailMessage msg = new MailMessage();
+        msg.From = new MailAddress("support@xidmat.com");
+        msg.To.Add("sridhargoud789@gmail.com");
+        msg.Subject = "Test mail";
+        // if (fileUpload1.HasFile)
+        // {
+        //     string FileName = Path.GetFileName(fileUpload1.PostedFile.FileName);
+        //     msg.Attachments.Add(new Attachment(fileUpload1.PostedFile.InputStream, FileName));
+        // }
+        msg.IsBodyHtml = true;
 
-            message.To.Add(new MailAddress("sridhargoud789@gmail.com"));
 
-            message.Subject = "your subject";
-            message.Body = "content of your email";
 
-            SmtpClient client = new SmtpClient();
-            client.Send(message);
+        // msg.Body = TxtMsg.Text;        
+        // MailMessage instance to a specified SMTP server
+        SmtpClient smtp = new SmtpClient("relay-hosting.secureserver.net", 25);
+        smtp.Credentials = new System.Net.NetworkCredential("support@xidmat.com", "Abcd1234$$");
+        smtp.EnableSsl = false;
+        //Sending the email
+        smtp.Send(msg);
+        // destroy the message after sent
+        msg.Dispose();
 
             //create the MailMessage object
             // MailMessage mMailMessage = new MailMessage();
