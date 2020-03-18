@@ -33,7 +33,7 @@ namespace ServicesAPI.Helpers
 
            MailMessage msg = new MailMessage();
         msg.From = new MailAddress("support@xidmat.com");
-        msg.To.Add("feroz@xidmat.com");
+        msg.To.Add(new MailAddress("sridhargoud789@gmail.com"));
         msg.Subject = "Test mail";
         // if (fileUpload1.HasFile)
         // {
@@ -44,7 +44,7 @@ namespace ServicesAPI.Helpers
 
 
 
-        // msg.Body = TxtMsg.Text;        
+         msg.Body = "Test test test";        
         // MailMessage instance to a specified SMTP server
         SmtpClient smtp = new SmtpClient("relay-hosting.secureserver.net", 25);
         smtp.Credentials = new System.Net.NetworkCredential("support@xidmat.com", "Abcd1234$$");
