@@ -28,13 +28,13 @@ namespace ServicesAPI.Helpers
 
         #region Static Members
 
-        public void SendMailMessage(string toEmail, string fromEmail, string bcc, string cc, string subject, string body, List<string> attachmentFullPath)
+        public void SendMailMessage()
         {
 
             MailMessage message = new MailMessage();
-            message.From = new MailAddress(fromEmail);
+            message.From = new MailAddress("support@xidmat.com");
 
-            message.To.Add(new MailAddress(toEmail));
+            message.To.Add(new MailAddress("sridhargoud789@gmail.com"));
 
             message.Subject = "your subject";
             message.Body = "content of your email";
