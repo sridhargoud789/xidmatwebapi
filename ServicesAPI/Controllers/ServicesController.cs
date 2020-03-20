@@ -137,7 +137,7 @@ namespace ServicesAPI.Controllers
             }
         }
 
-   [HttpPost]
+        [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllProductCategories")]
         public async Task<object> GetAllProductCategories()
@@ -155,7 +155,7 @@ namespace ServicesAPI.Controllers
             }
         }
 
-           [HttpPost]
+        [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllUsers")]
         public async Task<object> GetAllUsers()
@@ -163,7 +163,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllUsers();
+                dt = new ServicesDAO().GetAllUsers(0);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -196,7 +196,7 @@ namespace ServicesAPI.Controllers
         }
 
 
-  [HttpPost]
+        [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllProducts")]
         public async Task<object> GetAllProducts(GetAllProductsReq req)
@@ -204,7 +204,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId);
+                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId,0);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -213,7 +213,7 @@ namespace ServicesAPI.Controllers
                 return null;
             }
         }
-        
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllAdminCompanyServices")]
@@ -240,7 +240,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID);
+                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID,0);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -329,7 +329,21 @@ namespace ServicesAPI.Controllers
                 {
                     new ServicesDAO().AddUpdateServicesMedia(ServicesID, req.Filenames, req.Filepaths, req.FileIds);
                 }
+                if (status)
+                {
+                    UserBO u = new UserBO();
+                    u = GetUserDetails(req.UserId);
+                    if (u != null)
+                    {
+                        SendEmail(new EmailReq()
+                        {
+                            templateCode = 3,
+                            Name = u.FirstName + " " + u.LastName,
+                            to = u.EmailId
+                        });
+                    }
 
+                }
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;
             }
@@ -347,14 +361,14 @@ namespace ServicesAPI.Controllers
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/ActiveInActiveUser")]
-        public async Task<object> ProductRequest(ManageUserReq req)
+        public async Task<object> ActiveInActiveUser(ManageUserReq req)
         {
             RegisterResp oResp = new RegisterResp();
             try
             {
                 bool status = false;
                 string statusMessage = string.Empty;
-                new ServicesDAO().ActiveInActiveUser(req.UserId,req.IsActive);
+                new ServicesDAO().ActiveInActiveUser(req.UserId, req.IsActive);
 
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
@@ -367,7 +381,7 @@ namespace ServicesAPI.Controllers
             return oResp;
         }
 
-        
+
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/ManageCompanyService")]
@@ -378,8 +392,26 @@ namespace ServicesAPI.Controllers
             {
                 bool status = false;
                 string statusMessage = string.Empty;
-                new ServicesDAO().ManageCompanyService(req.ServiceId,req.IsActive,req.IsApproved,req.Flag);
+                new ServicesDAO().ManageCompanyService(req.ServiceId, req.IsActive, req.IsApproved, req.Flag);
+                if (status)
+                {
+                    if (req.Flag==1)
+                    {
+                        UserBO u = new UserBO();
+                        u = GetUserDetails(req.UserId);
+                        if (u != null)
+                        {
+                            SendEmail(new EmailReq()
+                            {
+                                templateCode = 4,
+                                Name = u.FirstName + " " + u.LastName,
+                                to = u.EmailId,
+                                IsApproved = req.IsActive
+                            });
+                        }
 
+                    }
+                }
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
             }
@@ -401,8 +433,19 @@ namespace ServicesAPI.Controllers
                 bool status = false;
                 string statusMessage = string.Empty;
                 new ServicesDAO().ApproveUser(req.UserId, req.IsActive);
-                new WebMail().SendMailMessage();
 
+                UserBO u = new UserBO();
+                u = GetUserDetails(req.UserId);
+                if (u != null)
+                {
+                    SendEmail(new EmailReq()
+                    {
+                        templateCode = 1,
+                        Name = u.FirstName + " " + u.LastName,
+                        to = u.EmailId,
+                        IsApproved = req.IsActive
+                    });
+                }
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
             }
@@ -426,6 +469,25 @@ namespace ServicesAPI.Controllers
                 string statusMessage = string.Empty;
                 new ServicesDAO().ProductRequest(req);
 
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId);
+                UserBO u = new UserBO();
+                u = GetUserDetails(Int64.Parse(dt.Rows[0]["UserId"].ToString()));
+                if (u != null)
+                {
+                    SendEmail(new EmailReq()
+                    {
+                        templateCode = 6,
+                        Name = u.FirstName + " " + u.LastName,
+                        to = u.EmailId,
+                        EmailId = req.EmailID,
+                        FullName = req.FullName,
+                        MobileNo = req.MobileNo,
+                        Description = req.Description,
+                        ProductTitle = dt.Rows[0]["ProductName"].ToString()
+                    });
+                }
+
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
             }
@@ -447,6 +509,27 @@ namespace ServicesAPI.Controllers
                 bool status = false;
                 string statusMessage = string.Empty;
                 new ServicesDAO().ServiceRequest(req);
+
+
+                Int64 CreatedBy = 0;
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID);
+                UserBO u = new UserBO();
+                u = GetUserDetails(Int64.Parse(dt.Rows[0]["CreatedBy"].ToString()));
+                if (u != null)
+                {
+                    SendEmail(new EmailReq()
+                    {
+                        templateCode = 5,
+                        Name = u.FirstName + " " + u.LastName,
+                        to = u.EmailId,
+                        EmailId =req.EmailID,
+                        FullName=req.FullName,
+                        MobileNo=req.MobileNo,
+                        Description=req.Description,
+                        ServiceTitle= dt.Rows[0]["ServiceTitle"].ToString()
+                    });
+                }
 
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
@@ -489,26 +572,36 @@ namespace ServicesAPI.Controllers
             RegisterResp oResp = new RegisterResp();
             try
             {
-                bool status = false;
+                bool status = true;
                 string statusMessage = string.Empty;
 
                 Int64 CompanyId = 0;
                 Int64 UserId = 0;
 
-                if(req.CompanyName != "")
+                if (req.CompanyName != "")
                 {
-                     CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description, req.CountryCode);
-                     if (CompanyId > 0 && req.FileIds != "")
-                        {
-                          new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths, req.FileIds);
-                        }
+                    CompanyId = new ServicesDAO().CreateCompany(req.CompanyName, req.Description, req.CountryCode, out status, out statusMessage);
+                    if (status && CompanyId > 0 && req.FileIds != "")
+                    {
+                        new ServicesDAO().AddUpdateProfileMedia(CompanyId, req.Filenames, req.Filepaths, req.FileIds);
+                    }
                 }
-                var PasswordSalt = PasswordHelper.GeneratePassword(10);
-                var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
-                UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender, req.MobileNoCountryCode,
-                                                    req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
-
-
+                if (status)
+                {
+                    var PasswordSalt = PasswordHelper.GeneratePassword(10);
+                    var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
+                    UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender, req.MobileNoCountryCode,
+                                                        req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
+                    if (status)
+                    {
+                        SendEmail(new EmailReq()
+                        {
+                            templateCode = 1,
+                            Name = req.FirstName + " " + req.LastName,
+                            to = req.EmailId
+                        });
+                    }
+                }
 
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;
@@ -521,7 +614,153 @@ namespace ServicesAPI.Controllers
             return oResp;
         }
 
+        private UserBO GetUserDetails(Int64 UserId)
+        {
+            UserBO oUserBO = new UserBO();
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = new ServicesDAO().GetAllUsers(UserId);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow r = dt.Rows[0];
 
+                    oUserBO.UserId = Int64.Parse(r["UserId"].ToString());
+                    oUserBO.EmailId = r["EmailId"].ToString();
+                    oUserBO.Password = r["Password"].ToString();
+                    oUserBO.PasswordSalt = r["PasswordSalt"].ToString();
+                    oUserBO.FirstName = r["FirstName"].ToString();
+                    oUserBO.LastName = r["LastName"].ToString();
+                    oUserBO.Gender = r["Gender"].ToString();
+                    if (r["DOB"].ToString() != "")
+                    {
+                        oUserBO.DOB = Convert.ToDateTime(r["DOB"].ToString());
+                    }
+
+                    oUserBO.MobileNoCountryCode = r["MobileNoCountryCode"].ToString();
+                    oUserBO.MobileNo = r["MobileNo"].ToString();
+                    oUserBO.PhoneNoCountryCode = r["PhoneNoCountryCode"].ToString();
+                    oUserBO.PhoneNo = r["PhoneNo"].ToString();
+                    if (r["CreatedOn"].ToString() != "")
+                    {
+                        oUserBO.CreatedOn = Convert.ToDateTime(r["CreatedOn"].ToString());
+                    }
+
+                    if (r["UpdatedOn"].ToString() != "")
+                    {
+                        oUserBO.UpdatedOn = Convert.ToDateTime(r["UpdatedOn"].ToString());
+                    }
+
+                    oUserBO.CreatedBy = r["CreatedBy"].ToString();
+                    oUserBO.IsActive = r["IsActive"].ToString() == "1" ? true : false;
+                    oUserBO.CompanyID = Int64.Parse(r["CompanyID"].ToString());
+                    oUserBO.RoleId = int.Parse(r["RoleId"].ToString());
+                    return oUserBO;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        private bool SendEmail(EmailReq req)
+        {
+            bool status = true;
+            string message = string.Empty;
+            try
+            {
+                string body = string.Empty;
+                string subject = string.Empty;
+                string cc = ConfigurationManager.AppSettings["SMTP_FROM_CC"].ToString();
+                if (req.templateCode == 1)
+                {
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "Registration");
+
+                    body = System.IO.File.ReadAllText(path);
+                    body = body.Replace("[NAME]", req.Name);
+                    subject = "Xidmat Registration";
+                }
+                else if (req.templateCode == 2)
+                {
+
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ApproveRejectUser");
+
+                    body = System.IO.File.ReadAllText(path);
+                    body = body.Replace("[NAME]", req.Name);
+                    string bodyMessage = string.Empty;
+                    if (req.IsApproved)
+                    {
+                        bodyMessage = "Your request for Xidmat registration has been approved please login <a href='https://xidmat.com'>here</a> to create and manage services";
+                        subject = "Xidmat Registration Approved";
+                    }
+                    else
+                    {
+
+                        bodyMessage = "Your request for Xidmat registration has been rejected.";
+                        subject = "Xidmat Registration Rejected";
+                    }
+                    body = body.Replace("[Message]", bodyMessage);
+
+                }
+                else if (req.templateCode == 3)
+                {
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "CreateService");
+
+                    body = System.IO.File.ReadAllText(path);
+                    body = body.Replace("[NAME]", req.Name);
+                    subject = "Created new service.";
+                }
+                else if (req.templateCode == 4)
+                {
+
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ApproveRejectService");
+
+                    body = System.IO.File.ReadAllText(path);
+                    body = body.Replace("[NAME]", req.Name);
+                    string bodyMessage = string.Empty;
+                    if (req.IsApproved)
+                    {
+                        bodyMessage = "Your request for service registration has been approved please login <a href='https://xidmat.com'>here</a> to manage services";
+                        subject = "Service Registration Approved";
+                    }
+                    else
+                    {
+
+                        bodyMessage = "Your request for service registration has been rejected.";
+                        subject = "Service  Registration Rejected";
+                    }
+                    body = body.Replace("[Message]", bodyMessage);
+                }
+                else if (req.templateCode == 5 || req.templateCode == 6)
+                {
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"),
+                        req.templateCode == 5 ? "ServiceRequest" : "ProductRequest");
+
+                    subject = "Request for " + (req.templateCode == 5 ? req.ServiceTitle : req.ProductTitle) + "";
+
+                    body = System.IO.File.ReadAllText(path);
+                    body = body.Replace("[NAME]", req.Name);
+                    body = body.Replace("[FullName]", req.FullName);
+                    body = body.Replace("[EmailId]", req.EmailId);
+                    body = body.Replace("[MobileNo]", req.MobileNo);
+                    body = body.Replace("[Description]", req.Description);
+                    body = body.Replace("[ProductTitle]", req.ProductTitle);
+                    body = body.Replace("[ServiceTitle]", req.ServiceTitle);
+                }
+
+                new WebMail().SendMailMessage(req.to, cc, subject, body, out status, out message);
+
+            }
+            catch (Exception ex)
+            {
+                status = false;
+            }
+            return status;
+        }
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/ValidateLogin")]

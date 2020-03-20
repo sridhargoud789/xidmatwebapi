@@ -286,6 +286,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="EmailTemplates\ApproveRejectService.html" />
+    <Content Include="EmailTemplates\ApproveRejectUser.html" />
+    <Content Include="EmailTemplates\CreateService.html" />
+    <Content Include="EmailTemplates\Registration.html" />
+    <Content Include="EmailTemplates\ProductRequest.html" />
+    <Content Include="EmailTemplates\ServiceRequest.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

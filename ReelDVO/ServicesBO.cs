@@ -11,7 +11,9 @@ namespace EEG_ReelCinemasRESTAPI.Models
 
     public class ManageCompanyServiceReq
     {
-       public Int64 ServiceId{ get; set; }
+        public Int64 UserId { get; set; }
+
+        public Int64 ServiceId{ get; set; }
        public bool IsActive { get; set; }
        public bool IsApproved { get; set; }
        public int Flag { get; set; }
@@ -21,6 +23,21 @@ namespace EEG_ReelCinemasRESTAPI.Models
     {
         public Int64 UserId { get; set; }
         public bool IsActive { get; set; }
+
+    }
+
+    public class EmailReq {
+        public string lang { get; set; }
+        public string Name { get; set; }
+        public int templateCode { get; set; }
+        public string to { get; set; }
+        public bool IsApproved { get; set; }
+        public string EmailId { get; set; }
+        public string FullName { get; set; }
+        public string MobileNo { get; set; }
+        public string Description { get; set; }
+        public string ServiceTitle { get; set; }
+        public string ProductTitle { get; set; }
     }
 
     public class GetAllCompanyServicesReq
@@ -111,6 +128,8 @@ namespace EEG_ReelCinemasRESTAPI.Models
     
     public class CreateServiceReq
     {
+        public Int64 UserId { get; set; }
+
         public Int64 CompanyID { get; set; }
         public int MasterServiceID { get; set; }
         public Int64 CreatedBy { get; set; }

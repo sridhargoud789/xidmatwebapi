@@ -28,98 +28,44 @@ namespace ServicesAPI.Helpers
 
         #region Static Members
 
-        public void SendMailMessage()
+        public void SendMailMessage(string TO, string CC, string Subject,string Body, out bool Status, out string Message)
         {
 
-           MailMessage msg = new MailMessage();
-        msg.From = new MailAddress("Xidmat &lt;support@xidmat.com&gt;");
-        msg.To.Add(new MailAddress("sridhargoud789@gmail.com"));
-        msg.Subject = "Test mail";
-        // if (fileUpload1.HasFile)
-        // {
-        //     string FileName = Path.GetFileName(fileUpload1.PostedFile.FileName);
-        //     msg.Attachments.Add(new Attachment(fileUpload1.PostedFile.InputStream, FileName));
-        // }
-        msg.IsBodyHtml = true;
+            string strFrom = ConfigurationManager.AppSettings["SMTP_FROM_EMAILID"].ToString();
+            string strPassword = ConfigurationManager.AppSettings["SMTP_FROM_PASSWORD"].ToString();
+            string strBCC = ConfigurationManager.AppSettings["SMTP_FROM_BCC"].ToString();
 
+            try
+            {
+                using (MailMessage mm = new MailMessage())
+                {
+                    mm.From = new MailAddress("Xidtmat Services <" + strFrom + ">");
+                    mm.To.Add(TO);
+                    mm.CC.Add(CC);
+                    mm.Bcc.Add(strBCC);
 
+                    mm.Subject = Subject;
+                    mm.Body = Body;
 
-         msg.Body = "Test test test";        
-        // MailMessage instance to a specified SMTP server
-        SmtpClient smtp = new SmtpClient("relay-hosting.secureserver.net", 25);
-        smtp.Credentials = new System.Net.NetworkCredential("support@xidmat.com", "Abcd1234$$");
-        smtp.EnableSsl = false;
-        //Sending the email
-        smtp.Send(msg);
-        // destroy the message after sent
-        msg.Dispose();
+                    mm.IsBodyHtml = false;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential NetworkCred = new NetworkCredential(strFrom, strPassword);
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = NetworkCred;
+                    smtp.Port = 587;
+                    smtp.Send(mm);
+                }
 
-            //create the MailMessage object
-            // MailMessage mMailMessage = new MailMessage();
-
-            // //set the sender address of the mail message
-            // if (!string.IsNullOrEmpty(fromEmail))
-            // {
-            //     mMailMessage.From = new MailAddress(fromEmail);
-            // }
-
-            // //set the recipient address of the mail message
-            // mMailMessage.To.Add(new MailAddress(toEmail));
-
-            // //set the blind carbon copy address
-            // if (!string.IsNullOrEmpty(bcc))
-            // {
-            //     mMailMessage.Bcc.Add(new MailAddress(bcc));
-            // }
-
-            // //set the carbon copy address
-            // if (!string.IsNullOrEmpty(cc))
-            // {
-            //     mMailMessage.CC.Add(new MailAddress(cc));
-            // }
-
-            // //set the subject of the mail message
-            // if (!string.IsNullOrEmpty(subject))
-            // {
-            //     mMailMessage.Subject = "Xidmat";
-            // }
-            // else
-            // {
-            //     mMailMessage.Subject = subject;
-            // }
-
-            // //set the body of the mail message
-            // mMailMessage.Body = body;
-
-            // //set the format of the mail message body
-            // mMailMessage.IsBodyHtml = false;
-
-            // //set the priority
-            // mMailMessage.Priority = MailPriority.Normal;
-
-            // //add any attachments from the filesystem
-            // //foreach (var attachmentPath in attachmentFullPath)
-            // //{
-            // //    Attachment mailAttachment = new Attachment(attachmentPath);
-            // //    mMailMessage.Attachments.Add(mailAttachment);
-            // //}
-
-            // //create the SmtpClient instance
-
-            // SmtpClient mSmtpClient = new SmtpClient();
-            // // {
-
-            // //     Host = "xidmat-com.mail.protection.outlook.com",
-
-            // //     Credentials = new NetworkCredential("feroz@xidmat.com", "Abcd1234$$"),
-            // //     Port = 25,
-            // //     EnableSsl = true,
-            // //     UseDefaultCredentials = false,
-            // //     Timeout = 10000
-            // // };
-
-            // //send the mail message
-            // mSmtpClient.Send(mMailMessage);
+                Status = true;
+                Message = "SUCCESS";
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Message = ex.Message;
+            }
         }
 
         /// <summary>

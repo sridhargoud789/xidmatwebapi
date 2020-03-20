@@ -21,14 +21,15 @@ namespace ReelDAO
     {
         private Database db = null;
         private LogDao log = null;
-        
 
-        public DataTable GetAllUsers()
+
+        public DataTable GetAllUsers(Int64 UserId)
         {
             try
             {
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 DbCommand command = db.GetStoredProcCommand("GetAllUsers");
+                db.AddOutParameter(command, "UserId", DbType.Int64, 10);
 
                 return db.ExecuteDataSet(command).Tables[0];
             }
@@ -123,7 +124,7 @@ namespace ReelDAO
             }
         }
 
-public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
+        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId,Int64 MyProductId)
         {
             try
             {
@@ -131,6 +132,8 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 DbCommand command = db.GetStoredProcCommand("GetAllProducts");
                 db.AddInParameter(command, "MasterProductId", DbType.Int64, MasterProductId);
                 db.AddInParameter(command, "UserId", DbType.Int64, UserId);
+                db.AddInParameter(command, "MyProductId", DbType.Int64, MyProductId);
+
 
 
                 return db.ExecuteDataSet(command).Tables[0];
@@ -145,7 +148,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
 
             }
         }
-        
+
         public DataTable GetAllAdminCompanyServices()
         {
             try
@@ -166,7 +169,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
 
             }
         }
-        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID)
+        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID)
         {
             try
             {
@@ -174,6 +177,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 DbCommand command = db.GetStoredProcCommand("GetAllCompanyServices");
                 db.AddInParameter(command, "MasterServiceID", DbType.Int64, MasterServiceID);
                 db.AddInParameter(command, "CompanyID", DbType.Int64, CompanyID);
+                db.AddInParameter(command, "CompanyServiceID", DbType.Int64, CompanyServiceID);
 
 
                 return db.ExecuteDataSet(command).Tables[0];
@@ -234,7 +238,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
             }
         }
 
-        public Int64 CreateCompany(string CompanyName, string Description, string CountryCode)
+        public Int64 CreateCompany(string CompanyName, string Description, string CountryCode, out bool status, out string statusMessage)
         {
             Int64 CompanyID = 0;
             int result = 0;
@@ -249,12 +253,18 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
                 db.AddInParameter(command, "Description", DbType.String, Description);
                 db.AddInParameter(command, "CountryCode", DbType.String, CountryCode);
                 db.AddOutParameter(command, "CompanyID", DbType.Int64, 10);
+
+                db.AddOutParameter(command, "Status", DbType.Boolean, 10);
+                db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
                 result = db.ExecuteNonQuery(command);
                 CompanyID = int.Parse(db.GetParameterValue(command, "CompanyID").ToString());
+                status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
+                statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
             }
             catch (Exception ex)
             {
-
+                status = false;
+                statusMessage = ex.Message;
             }
             finally
             {
@@ -328,7 +338,7 @@ public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId)
 
         }
 
-        public void ManageCompanyService(Int64 ServiceId, bool IsActive,bool IsApproved, int Flag)
+        public void ManageCompanyService(Int64 ServiceId, bool IsActive, bool IsApproved, int Flag)
         {
 
             int result = 0;
