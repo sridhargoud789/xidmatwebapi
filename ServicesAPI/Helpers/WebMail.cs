@@ -37,17 +37,18 @@ namespace ServicesAPI.Helpers
 
             try
             {
-                using (MailMessage mm = new MailMessage())
+                using (MailMessage mm = new MailMessage(strFrom,TO))
                 {
+                   
                     mm.From = new MailAddress("Xidtmat Services <" + strFrom + ">");
-                    mm.To.Add(TO);
+                    //mm.To.Add(TO);
                     mm.CC.Add(CC);
                     mm.Bcc.Add(strBCC);
 
                     mm.Subject = Subject;
                     mm.Body = Body;
 
-                    mm.IsBodyHtml = false;
+                    mm.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com";
                     smtp.EnableSsl = true;

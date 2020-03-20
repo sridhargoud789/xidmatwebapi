@@ -678,7 +678,7 @@ namespace ServicesAPI.Controllers
                 string cc = ConfigurationManager.AppSettings["SMTP_FROM_CC"].ToString();
                 if (req.templateCode == 1)
                 {
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "Registration");
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "Registration.html");
 
                     body = System.IO.File.ReadAllText(path);
                     body = body.Replace("[NAME]", req.Name);
@@ -687,7 +687,7 @@ namespace ServicesAPI.Controllers
                 else if (req.templateCode == 2)
                 {
 
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ApproveRejectUser");
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ApproveRejectUser.html");
 
                     body = System.IO.File.ReadAllText(path);
                     body = body.Replace("[NAME]", req.Name);
@@ -708,7 +708,7 @@ namespace ServicesAPI.Controllers
                 }
                 else if (req.templateCode == 3)
                 {
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "CreateService");
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "CreateService.html");
 
                     body = System.IO.File.ReadAllText(path);
                     body = body.Replace("[NAME]", req.Name);
@@ -717,7 +717,7 @@ namespace ServicesAPI.Controllers
                 else if (req.templateCode == 4)
                 {
 
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ApproveRejectService");
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ApproveRejectService.html");
 
                     body = System.IO.File.ReadAllText(path);
                     body = body.Replace("[NAME]", req.Name);
@@ -738,7 +738,7 @@ namespace ServicesAPI.Controllers
                 else if (req.templateCode == 5 || req.templateCode == 6)
                 {
                     string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"),
-                        req.templateCode == 5 ? "ServiceRequest" : "ProductRequest");
+                        req.templateCode == 5 ? "ServiceRequest.html" : "ProductRequest.html");
 
                     subject = "Request for " + (req.templateCode == 5 ? req.ServiceTitle : req.ProductTitle) + "";
 
