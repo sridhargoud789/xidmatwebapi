@@ -780,50 +780,60 @@ namespace ServicesAPI.Controllers
                     string strPassword = r["Password"].ToString();
                     string strPasswordSalt = r["PasswordSalt"].ToString();
                     bool IsActive = Convert.ToBoolean(r["IsActive"].ToString());
+                    bool IsApproved = Convert.ToBoolean(r["IsApproved"].ToString());
+
                     string strEncryptPassword = PasswordHelper.EncodePassword(req.Password, strPasswordSalt);
                     if (strPassword == strEncryptPassword)
                     {
-                        if (!IsActive)
+                        if (!IsApproved)
                         {
                             status = false;
-                            statusMessage = "InActiveUser";
+                            statusMessage = "AccountNotApproved";
                         }
                         else
                         {
-                            UserBO oUserBO = new UserBO();
-                            oUserBO.UserId = Int64.Parse(r["UserId"].ToString());
-                            oUserBO.EmailId = r["EmailId"].ToString();
-                            oUserBO.Password = r["Password"].ToString();
-                            oUserBO.PasswordSalt = r["PasswordSalt"].ToString();
-                            oUserBO.FirstName = r["FirstName"].ToString();
-                            oUserBO.LastName = r["LastName"].ToString();
-                            oUserBO.Gender = r["Gender"].ToString();
-                            if (r["DOB"].ToString() != "")
+                            if (!IsActive)
                             {
-                                oUserBO.DOB = Convert.ToDateTime(r["DOB"].ToString());
+                                status = false;
+                                statusMessage = "InActiveUser";
                             }
-
-                            oUserBO.MobileNoCountryCode = r["MobileNoCountryCode"].ToString();
-                            oUserBO.MobileNo = r["MobileNo"].ToString();
-                            oUserBO.PhoneNoCountryCode = r["PhoneNoCountryCode"].ToString();
-                            oUserBO.PhoneNo = r["PhoneNo"].ToString();
-                            if (r["CreatedOn"].ToString() != "")
+                            else
                             {
-                                oUserBO.CreatedOn = Convert.ToDateTime(r["CreatedOn"].ToString());
-                            }
+                                UserBO oUserBO = new UserBO();
+                                oUserBO.UserId = Int64.Parse(r["UserId"].ToString());
+                                oUserBO.EmailId = r["EmailId"].ToString();
+                                oUserBO.Password = r["Password"].ToString();
+                                oUserBO.PasswordSalt = r["PasswordSalt"].ToString();
+                                oUserBO.FirstName = r["FirstName"].ToString();
+                                oUserBO.LastName = r["LastName"].ToString();
+                                oUserBO.Gender = r["Gender"].ToString();
+                                if (r["DOB"].ToString() != "")
+                                {
+                                    oUserBO.DOB = Convert.ToDateTime(r["DOB"].ToString());
+                                }
 
-                            if (r["UpdatedOn"].ToString() != "")
-                            {
-                                oUserBO.UpdatedOn = Convert.ToDateTime(r["UpdatedOn"].ToString());
-                            }
+                                oUserBO.MobileNoCountryCode = r["MobileNoCountryCode"].ToString();
+                                oUserBO.MobileNo = r["MobileNo"].ToString();
+                                oUserBO.PhoneNoCountryCode = r["PhoneNoCountryCode"].ToString();
+                                oUserBO.PhoneNo = r["PhoneNo"].ToString();
+                                if (r["CreatedOn"].ToString() != "")
+                                {
+                                    oUserBO.CreatedOn = Convert.ToDateTime(r["CreatedOn"].ToString());
+                                }
 
-                            oUserBO.CreatedBy = r["CreatedBy"].ToString();
-                            oUserBO.IsActive = r["IsActive"].ToString() == "1" ? true : false;
-                            oUserBO.CompanyID = Int64.Parse(r["CompanyID"].ToString());
-                            oUserBO.RoleId = int.Parse(r["RoleId"].ToString());
-                            status = true;
-                            statusMessage = "SUCCESS";
-                            oResp.UserObject = oUserBO;
+                                if (r["UpdatedOn"].ToString() != "")
+                                {
+                                    oUserBO.UpdatedOn = Convert.ToDateTime(r["UpdatedOn"].ToString());
+                                }
+
+                                oUserBO.CreatedBy = r["CreatedBy"].ToString();
+                                oUserBO.IsActive = r["IsActive"].ToString() == "1" ? true : false;
+                                oUserBO.CompanyID = Int64.Parse(r["CompanyID"].ToString());
+                                oUserBO.RoleId = int.Parse(r["RoleId"].ToString());
+                                status = true;
+                                statusMessage = "SUCCESS";
+                                oResp.UserObject = oUserBO;
+                            }
                         }
                     }
                     else
