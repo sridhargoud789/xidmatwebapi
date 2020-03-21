@@ -29,7 +29,7 @@ namespace ReelDAO
             {
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 DbCommand command = db.GetStoredProcCommand("GetAllUsers");
-                db.AddOutParameter(command, "UserId", DbType.Int64, 10);
+                db.AddInParameter(command, "UserId", DbType.Int64, UserId);
 
                 return db.ExecuteDataSet(command).Tables[0];
             }
