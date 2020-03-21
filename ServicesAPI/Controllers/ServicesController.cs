@@ -204,7 +204,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId,0);
+                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId,0,req.FreeText);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -240,7 +240,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID,0);
+                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID,0,req.FreeText);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -470,7 +470,7 @@ namespace ServicesAPI.Controllers
                 new ServicesDAO().ProductRequest(req);
 
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId);
+                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId,"");
                 UserBO u = new UserBO();
                 u = GetUserDetails(Int64.Parse(dt.Rows[0]["UserId"].ToString()));
                 if (u != null)
@@ -513,7 +513,7 @@ namespace ServicesAPI.Controllers
 
                 Int64 CreatedBy = 0;
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID);
+                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID,"");
                 UserBO u = new UserBO();
                 u = GetUserDetails(Int64.Parse(dt.Rows[0]["CreatedBy"].ToString()));
                 if (u != null)

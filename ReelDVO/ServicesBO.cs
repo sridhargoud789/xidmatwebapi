@@ -44,6 +44,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
     {
         public Int64 MasterServiceID { get; set; }
         public Int64 CompanyID { get; set; }
+        public string FreeText { get; set; }
     }
 
     public class GetAllMasterServicesResp
@@ -189,6 +190,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
 
         public Int64 MasterProductId { get; set; }
         public Int64 UserId { get; set; }
+        public string FreeText { get; set; }
 
     }
 

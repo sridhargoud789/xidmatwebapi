@@ -124,7 +124,7 @@ namespace ReelDAO
             }
         }
 
-        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId,Int64 MyProductId)
+        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId,Int64 MyProductId, string FreeText)
         {
             try
             {
@@ -133,6 +133,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "MasterProductId", DbType.Int64, MasterProductId);
                 db.AddInParameter(command, "UserId", DbType.Int64, UserId);
                 db.AddInParameter(command, "MyProductId", DbType.Int64, MyProductId);
+                db.AddInParameter(command, "FreeText", DbType.String, FreeText);
 
 
 
@@ -169,7 +170,7 @@ namespace ReelDAO
 
             }
         }
-        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID)
+        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID,string FreeText)
         {
             try
             {
@@ -178,6 +179,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "MasterServiceID", DbType.Int64, MasterServiceID);
                 db.AddInParameter(command, "CompanyID", DbType.Int64, CompanyID);
                 db.AddInParameter(command, "CompanyServiceID", DbType.Int64, CompanyServiceID);
+                db.AddInParameter(command, "FreeText", DbType.String, FreeText);
 
 
                 return db.ExecuteDataSet(command).Tables[0];
