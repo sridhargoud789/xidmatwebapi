@@ -124,7 +124,7 @@ namespace ReelDAO
             }
         }
 
-        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId,Int64 MyProductId, string FreeText)
+        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId, Int64 MyProductId, string FreeText)
         {
             try
             {
@@ -170,7 +170,7 @@ namespace ReelDAO
 
             }
         }
-        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID,string FreeText)
+        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID, string FreeText)
         {
             try
             {
@@ -342,12 +342,12 @@ namespace ReelDAO
 
         public void ManageProduct(Int64 ProductId, bool IsActive, bool IsApproved, int Flag)
         {
- 
+
             int result = 0;
             try
             {
                 log = new LogDao();
- 
+
                 DbCommand command = null;
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 command = db.GetStoredProcCommand("ManageProduct");
@@ -355,21 +355,21 @@ namespace ReelDAO
                 db.AddInParameter(command, "IsActive", DbType.Boolean, IsActive);
                 db.AddInParameter(command, "IsApproved", DbType.Boolean, IsApproved);
                 db.AddInParameter(command, "Flag", DbType.Int32, Flag);
- 
- 
- 
+
+
+
                 result = db.ExecuteNonQuery(command);
- 
+
             }
             catch (Exception ex)
             {
- 
+
             }
             finally
             {
- 
+
             }
- 
+
         }
         public void ManageCompanyService(Int64 ServiceId, bool IsActive, bool IsApproved, int Flag)
         {
@@ -718,6 +718,126 @@ namespace ReelDAO
 
             }
             return result;
+        }
+        public void UpdatePassword(
+          Int64 UserId,
+          string Password,
+          string PasswordSalt,
+          out bool status,
+          out string statusMessage)
+        {
+            int num = 0;
+            try
+            {
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("UpdatePassword");
+                db.AddInParameter(command, "Password", DbType.String, Password);
+                db.AddInParameter(command, "PasswordSalt", DbType.String, PasswordSalt);
+                db.AddInParameter(command, "UserId", DbType.Int64, UserId);
+                db.AddOutParameter(command, "Status", DbType.Boolean, 10);
+                db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
+                num = db.ExecuteNonQuery(command);
+                status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
+                statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
+
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                statusMessage = ex.Message;
+            }
+            finally
+            {
+            }
+        }
+
+        public void ForgotPassword(
+          string EmailId,
+          out string ForgotPasswordUID,
+          out string UserName,
+          out bool status,
+          out string statusMessage)
+        {
+            int num = 0;
+            try
+            {
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ForgotPassword");
+
+                db.AddInParameter(command, "EmailId", DbType.String, EmailId);
+                db.AddOutParameter(command, "Status", DbType.Boolean, 10);
+                db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
+                db.AddOutParameter(command, "ForgotPasswordUID", DbType.String, 256);
+                db.AddOutParameter(command, "UserName", DbType.String, 256);
+                num = db.ExecuteNonQuery(command);
+                status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
+                statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
+                ForgotPasswordUID = db.GetParameterValue(command, "ForgotPasswordUID").ToString();
+                UserName = db.GetParameterValue(command, "UserName").ToString();
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                statusMessage = ex.Message;
+                ForgotPasswordUID = "";
+                UserName = "";
+            }
+            finally
+            {
+            }
+        }
+
+        public DataTable GetUserByForgotPasswordIUD(string ForgotPasswordUID)
+        {
+            try
+            {
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                DbCommand command = db.GetStoredProcCommand("GetUserByForgotPasswordIUD");
+                db.AddInParameter(command, "ForgotPasswordUID", DbType.String, ForgotPasswordUID);
+
+                return db.ExecuteDataSet(command).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+            }
+        }
+
+        public void ValidateForgotPasswordOTP(string EmailId,string OTP,out bool status,out string statusMessage)
+        {
+            int num = 0;
+            try
+            {   
+               log = new LogDao();
+
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ValidateForgotPasswordOTP");
+                db.AddInParameter(command, "EmailId", DbType.String, EmailId);
+                db.AddInParameter(command, "OTP", DbType.String, OTP);
+                
+                db.AddOutParameter(command, "Status", DbType.Boolean, 10);
+                db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
+                num = this.db.ExecuteNonQuery(storedProcCommand);
+                status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
+                statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
+
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                statusMessage = ex.Message;
+            }
+            finally
+            {
+            }
         }
     }
 }
