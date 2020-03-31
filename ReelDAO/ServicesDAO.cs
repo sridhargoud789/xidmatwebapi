@@ -340,6 +340,37 @@ namespace ReelDAO
 
         }
 
+        public void ManageProduct(Int64 ProductId, bool IsActive, bool IsApproved, int Flag)
+        {
+ 
+            int result = 0;
+            try
+            {
+                log = new LogDao();
+ 
+                DbCommand command = null;
+                db = DatabaseFactory.CreateDatabase("ServicesConString");
+                command = db.GetStoredProcCommand("ManageProduct");
+                db.AddInParameter(command, "ProductId", DbType.Int64, ProductId);
+                db.AddInParameter(command, "IsActive", DbType.Boolean, IsActive);
+                db.AddInParameter(command, "IsApproved", DbType.Boolean, IsApproved);
+                db.AddInParameter(command, "Flag", DbType.Int32, Flag);
+ 
+ 
+ 
+                result = db.ExecuteNonQuery(command);
+ 
+            }
+            catch (Exception ex)
+            {
+ 
+            }
+            finally
+            {
+ 
+            }
+ 
+        }
         public void ManageCompanyService(Int64 ServiceId, bool IsActive, bool IsApproved, int Flag)
         {
 
@@ -593,7 +624,8 @@ namespace ReelDAO
                 db.AddInParameter(command, "ServiceDescription", DbType.String, req.ServiceDescription);
                 db.AddInParameter(command, "Timings", DbType.String, req.Timings);
                 db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
-
+                db.AddInParameter(command, "Id", DbType.Int64, req.Id);
+                db.AddInParameter(command, "IsActive", DbType.Boolean, req.IsActive);
                 db.AddOutParameter(command, "CompanyServiceID", DbType.Int64, 10);
                 db.AddOutParameter(command, "Status", DbType.Boolean, 10);
                 db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
