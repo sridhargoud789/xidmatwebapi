@@ -253,7 +253,6 @@
     <Content Include="bin\ReelDVO.dll" />
     <Content Include="bin\ReelDVO.pdb" />
     <Content Include="bin\RestSharp.dll" />
-    <Content Include="bin\RestSharp.xml" />
     <Content Include="bin\roslyn\csc.exe" />
     <Content Include="bin\roslyn\csi.exe" />
     <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />

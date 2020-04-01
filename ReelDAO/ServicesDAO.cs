@@ -556,6 +556,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "ProductName", DbType.String, req.ProductName);
                 db.AddInParameter(command, "ProductDescription", DbType.String, req.ProductDescription);
                 db.AddInParameter(command, "City", DbType.String, req.City);
+                db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
 
                 db.AddInParameter(command, "UserId", DbType.Int64, req.UserId);
                 db.AddOutParameter(command, "MyProductId", DbType.Int64, 10);

@@ -169,6 +169,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string ProductDescription { get; set; }
         public Int64 UserId { get; set; }
         public string FileIds { get; set; }
+        public string CountryCode { get; set; }
         public string City { get; set; }
 
 
