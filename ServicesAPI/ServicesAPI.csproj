@@ -45,24 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Google.Apis, Version=1.44.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.1.44.1\lib\net45\Google.Apis.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Auth, Version=1.44.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.Auth.1.44.1\lib\net45\Google.Apis.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.44.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.Auth.1.44.1\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Core, Version=1.44.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.Core.1.44.1\lib\net45\Google.Apis.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Drive.v3, Version=1.44.1.1876, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.Drive.v3.1.44.1.1876\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.PlatformServices, Version=1.44.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.1.44.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -191,8 +173,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\GoogleAuthorize.cs" />
-    <Compile Include="Helpers\GoogleDriveAPIHelper.cs" />
     <Compile Include="Helpers\WebMail.cs" />
     <Compile Include="Models\AddConcessions.cs" />
     <Compile Include="Models\AddTicket.cs" />
@@ -262,20 +242,6 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="bin\Antlr3.Runtime.dll" />
-    <Content Include="bin\Google.Apis.Auth.dll" />
-    <Content Include="bin\Google.Apis.Auth.pdb" />
-    <Content Include="bin\Google.Apis.Auth.PlatformServices.dll" />
-    <Content Include="bin\Google.Apis.Auth.xml" />
-    <Content Include="bin\Google.Apis.Core.dll" />
-    <Content Include="bin\Google.Apis.Core.pdb" />
-    <Content Include="bin\Google.Apis.Core.xml" />
-    <Content Include="bin\Google.Apis.dll" />
-    <Content Include="bin\Google.Apis.Drive.v3.dll" />
-    <Content Include="bin\Google.Apis.Drive.v3.pdb" />
-    <Content Include="bin\Google.Apis.Drive.v3.xml" />
-    <Content Include="bin\Google.Apis.pdb" />
-    <Content Include="bin\Google.Apis.PlatformServices.dll" />
-    <Content Include="bin\Google.Apis.xml" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
     <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
@@ -370,8 +336,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="client_secret_924229124477-pnm12ig92jhdnhef6equjbal3vsaksud.apps.googleusercontent.com.json" />
-    <Content Include="DriveServiceCredentials.json\Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" />
     <Content Include="bin\ReelDAO.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
@@ -384,6 +348,7 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\ServicesAPI.dll.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\xidmatapi - Web Deploy.pubxml" />
     <Content Include="PublicFiles\8fc83229-6487-45c4-b216-5a6bece615e5.json" />
     <Content Include="PublicFiles\946bea0f-006f-4956-95c9-e7f21b60ce3e.docx" />

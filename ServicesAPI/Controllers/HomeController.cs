@@ -24,7 +24,7 @@ namespace ServicesAPI.Controllers
         [HttpPost]
         public ActionResult DownloadFile()
         {
-            GoogleDriveAPIHelper.DownloadGoogleFile("1RWFwIVGWH0aX7klTWyLtV2N361bkC9He");
+            //GoogleDriveAPIHelper.DownloadGoogleFile("1RWFwIVGWH0aX7klTWyLtV2N361bkC9He");
             ViewBag.Success = "File Uploaded on Google Drive";
             return View();
         }

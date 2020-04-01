@@ -42,7 +42,7 @@ namespace ServicesAPI.Controllers
         [Route("api/Services/GetFile/{FileId}")]
         public string GetFile(string FileId)
         {
-            return GoogleDriveAPIHelper.DownloadGoogleFile(FileId);//("1RWFwIVGWH0aX7klTWyLtV2N361bkC9He");
+            return "";// GoogleDriveAPIHelper.DownloadGoogleFile(FileId);//("1RWFwIVGWH0aX7klTWyLtV2N361bkC9He");
 
 
         }
@@ -114,7 +114,7 @@ namespace ServicesAPI.Controllers
             {
                 string strOutPut = string.Empty;
 
-                var li = GoogleDriveAPIHelper.GetDriveFiles("1xI0fBTf8LzVpW-TPAeI8CTx7qptyAl18").ToList();
+                //var li = GoogleDriveAPIHelper.GetDriveFiles("1xI0fBTf8LzVpW-TPAeI8CTx7qptyAl18").ToList();
                 //foreach (var l in li)
                 //{
                 //    if (l.MimeType== "image/jpeg" || l.MimeType == "image/png" || l.MimeType == "image/jpg")
@@ -128,7 +128,7 @@ namespace ServicesAPI.Controllers
 
                 //}
 
-                return Request.CreateResponse(HttpStatusCode.OK, li);
+                return null;
             }
             catch (Exception ex)
             {
