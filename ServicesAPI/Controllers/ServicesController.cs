@@ -204,7 +204,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId,0,req.FreeText);
+                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId, 0, req.FreeText);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -240,7 +240,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID,0,req.FreeText);
+                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID, 0, req.FreeText);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -340,7 +340,7 @@ namespace ServicesAPI.Controllers
                             templateCode = 3,
                             Name = u.FirstName + " " + u.LastName,
                             to = u.EmailId
-                        });
+                        },out status, out statusMessage);
                     }
 
                 }
@@ -395,7 +395,7 @@ namespace ServicesAPI.Controllers
                 new ServicesDAO().ManageCompanyService(req.ServiceId, req.IsActive, req.IsApproved, req.Flag);
                 if (status)
                 {
-                    if (req.Flag==1)
+                    if (req.Flag == 1)
                     {
                         UserBO u = new UserBO();
                         u = GetUserDetails(req.UserId);
@@ -407,7 +407,7 @@ namespace ServicesAPI.Controllers
                                 Name = u.FirstName + " " + u.LastName,
                                 to = u.EmailId,
                                 IsApproved = req.IsActive
-                            });
+                            }, out status, out statusMessage);
                         }
 
                     }
@@ -444,7 +444,7 @@ namespace ServicesAPI.Controllers
                         Name = u.FirstName + " " + u.LastName,
                         to = u.EmailId,
                         IsApproved = req.IsActive
-                    });
+                    }, out status, out statusMessage);
                 }
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
@@ -470,7 +470,7 @@ namespace ServicesAPI.Controllers
                 new ServicesDAO().ProductRequest(req);
 
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId,"");
+                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId, "");
                 UserBO u = new UserBO();
                 u = GetUserDetails(Int64.Parse(dt.Rows[0]["UserId"].ToString()));
                 if (u != null)
@@ -485,7 +485,7 @@ namespace ServicesAPI.Controllers
                         MobileNo = req.MobileNo,
                         Description = req.Description,
                         ProductTitle = dt.Rows[0]["ProductName"].ToString()
-                    });
+                    }, out status, out statusMessage);
                 }
 
                 oResp.status = true;
@@ -513,7 +513,7 @@ namespace ServicesAPI.Controllers
 
                 Int64 CreatedBy = 0;
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID,"");
+                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID, "");
                 UserBO u = new UserBO();
                 u = GetUserDetails(Int64.Parse(dt.Rows[0]["CreatedBy"].ToString()));
                 if (u != null)
@@ -523,12 +523,12 @@ namespace ServicesAPI.Controllers
                         templateCode = 5,
                         Name = u.FirstName + " " + u.LastName,
                         to = u.EmailId,
-                        EmailId =req.EmailID,
-                        FullName=req.FullName,
-                        MobileNo=req.MobileNo,
-                        Description=req.Description,
-                        ServiceTitle= dt.Rows[0]["ServiceTitle"].ToString()
-                    });
+                        EmailId = req.EmailID,
+                        FullName = req.FullName,
+                        MobileNo = req.MobileNo,
+                        Description = req.Description,
+                        ServiceTitle = dt.Rows[0]["ServiceTitle"].ToString()
+                    }, out status, out statusMessage);
                 }
 
                 oResp.status = true;
@@ -599,7 +599,7 @@ namespace ServicesAPI.Controllers
                             templateCode = 1,
                             Name = req.FirstName + " " + req.LastName,
                             to = req.EmailId
-                        });
+                        }, out status, out statusMessage);
                     }
                 }
 
@@ -667,10 +667,8 @@ namespace ServicesAPI.Controllers
                 return null;
             }
         }
-        private bool SendEmail(EmailReq req)
+        private void SendEmail(EmailReq req, out bool status, out string message)
         {
-            bool status = true;
-            string message = string.Empty;
             try
             {
                 string body = string.Empty;
@@ -751,15 +749,22 @@ namespace ServicesAPI.Controllers
                     body = body.Replace("[ProductTitle]", req.ProductTitle);
                     body = body.Replace("[ServiceTitle]", req.ServiceTitle);
                 }
+                else if (req.templateCode == 7)
+                {
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/EmailTemplates"), "ForgotPassword.html");
 
+                    body = System.IO.File.ReadAllText(path);
+                    body = body.Replace("[OTP]", req.ForgotPasswordUID);
+                    subject = "Xidmat Reset Password OTP";
+                }
                 new WebMail().SendMailMessage(req.to, cc, subject, body, out status, out message);
 
             }
             catch (Exception ex)
             {
                 status = false;
+                message = ex.Message;
             }
-            return status;
         }
         [HttpPost]
         // [AuthenticateRequest]
@@ -858,102 +863,102 @@ namespace ServicesAPI.Controllers
             return oResp;
         }
 
-    [HttpPost]
-    [Route("api/Services/UpdatePassword")]
-    public async Task<object> UpdatePassword(UpdatePasswordReq req)
-    {
-      ValidateUserResp validateUserResp = new ValidateUserResp();
-      try
-      {
-        bool status = false;
-        string statusMessage = string.Empty;
-        string empty1 = string.Empty;
-        string empty2 = string.Empty;
-        string password = PasswordHelper.GeneratePassword(10);
-        new ServicesDAO().UpdatePassword(req.UserId,PasswordHelper.EncodePassword(req.Password, password), password, out status, out statusMessage);
-        validateUserResp.status = status;
-        validateUserResp.statusMessage = statusMessage;
-      }
-      catch (Exception ex)
-      {
-        validateUserResp.status = false;
-        validateUserResp.statusMessage = ex.Message;
-      }
-      return validateUserResp;
-    }
-
-    [HttpPost]
-    [Route("api/Services/ValidateForgotPasswordOTP")]
-    public async Task<object> ValidateForgotPasswordOTP(ValidateOTPReq req)
-    {
-      ValidateUserResp validateUserResp = new ValidateUserResp();
-      try
-      {
-        bool status = false;
-        string statusMessage = string.Empty;
-        new ServicesDAO().ValidateForgotPasswordOTP(req.EmailId,req.OTP, out status, out statusMessage);
-        validateUserResp.status = status;
-        validateUserResp.statusMessage = statusMessage;
-      }
-      catch (Exception ex)
-      {
-        validateUserResp.status = false;
-        validateUserResp.statusMessage = ex.Message;
-      }
-      return (object) validateUserResp;
-    }
-
-    [HttpPost]
-    [Route("api/Services/ForgotPassword")]
-    public async Task<object> ForgotPassword(ValidateLoginReq req)
-    {
-      ServicesController servicesController1 = this;
-      ValidateUserResp validateUserResp = new ValidateUserResp();
-      try
-      {
-        bool status = false;
-        string statusMessage = string.Empty;
-        string ForgotPasswordUID = string.Empty;
-        string UserName = string.Empty;
-        new ServicesDAO().ForgotPassword(req.EmailId, out ForgotPasswordUID, out UserName, out status, out statusMessage);
-        if (status)
+        [HttpPost]
+        [Route("api/Services/UpdatePassword")]
+        public async Task<object> UpdatePassword(UpdatePasswordReq req)
         {
-          ServicesController servicesController2 = servicesController1;
-          EmailReq req1 = new EmailReq();
-          req1.templateCode = 7;
-          req1.Name = UserName;
-          req1.to = req.EmailId;
-          req1.ForgotPasswordUID = ForgotPasswordUID;
-          SendEmail(req1,  out status, out statusMessage);
+            ValidateUserResp validateUserResp = new ValidateUserResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                string empty1 = string.Empty;
+                string empty2 = string.Empty;
+                string password = PasswordHelper.GeneratePassword(10);
+                new ServicesDAO().UpdatePassword(req.UserId, PasswordHelper.EncodePassword(req.Password, password), password, out status, out statusMessage);
+                validateUserResp.status = status;
+                validateUserResp.statusMessage = statusMessage;
+            }
+            catch (Exception ex)
+            {
+                validateUserResp.status = false;
+                validateUserResp.statusMessage = ex.Message;
+            }
+            return validateUserResp;
         }
-        validateUserResp.status = status;
-        validateUserResp.statusMessage = statusMessage;
-      }
-      catch (Exception ex)
-      {
-        validateUserResp.status = false;
-        validateUserResp.statusMessage = ex.Message;
-      }
-      return (object) validateUserResp;
-    }
 
-    [HttpPost]
-    [Route("api/Services/GetUserByForgotPasswordIUD")]
-    public async Task<object>GetUserByForgotPasswordIUD(ForgotPasswordUIDReq req)
-    {
-      try
-      {
-        DataTable dt = new DataTable();
-        DataTable forgotPasswordIud = new ServicesDAO().GetUserByForgotPasswordIUD(req.ForgotPasswordUID);
-        return Request.CreateResponse(HttpStatusCode.OK, dt);
+        [HttpPost]
+        [Route("api/Services/ValidateForgotPasswordOTP")]
+        public async Task<object> ValidateForgotPasswordOTP(ValidateOTPReq req)
+        {
+            ValidateUserResp validateUserResp = new ValidateUserResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                new ServicesDAO().ValidateForgotPasswordOTP(req.EmailId, req.OTP, out status, out statusMessage);
+                validateUserResp.status = status;
+                validateUserResp.statusMessage = statusMessage;
+            }
+            catch (Exception ex)
+            {
+                validateUserResp.status = false;
+                validateUserResp.statusMessage = ex.Message;
+            }
+            return (object)validateUserResp;
+        }
 
-      }
-      catch (Exception ex)
-      {
-        return null;
-      }
-    
-  }
+        [HttpPost]
+        [Route("api/Services/ForgotPassword")]
+        public async Task<object> ForgotPassword(ValidateLoginReq req)
+        {
+            ServicesController servicesController1 = this;
+            ValidateUserResp validateUserResp = new ValidateUserResp();
+            try
+            {
+                bool status = false;
+                string statusMessage = string.Empty;
+                string ForgotPasswordUID = string.Empty;
+                string UserName = string.Empty;
+                new ServicesDAO().ForgotPassword(req.EmailId, out ForgotPasswordUID, out UserName, out status, out statusMessage);
+                if (status)
+                {
+                    ServicesController servicesController2 = servicesController1;
+                    EmailReq req1 = new EmailReq();
+                    req1.templateCode = 7;
+                    req1.Name = UserName;
+                    req1.to = req.EmailId;
+                    req1.ForgotPasswordUID = ForgotPasswordUID;
+                    SendEmail(req1, out status, out statusMessage );
+                }
+                validateUserResp.status = status;
+                validateUserResp.statusMessage = statusMessage;
+            }
+            catch (Exception ex)
+            {
+                validateUserResp.status = false;
+                validateUserResp.statusMessage = ex.Message;
+            }
+            return (object)validateUserResp;
+        }
+
+        [HttpPost]
+        [Route("api/Services/GetUserByForgotPasswordIUD")]
+        public async Task<object> GetUserByForgotPasswordIUD(ForgotPasswordUIDReq req)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                DataTable forgotPasswordIud = new ServicesDAO().GetUserByForgotPasswordIUD(req.ForgotPasswordUID);
+                return Request.CreateResponse(HttpStatusCode.OK, dt);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
 
     }
 }

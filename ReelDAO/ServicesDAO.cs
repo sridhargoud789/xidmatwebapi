@@ -555,6 +555,8 @@ namespace ReelDAO
 
                 db.AddInParameter(command, "ProductName", DbType.String, req.ProductName);
                 db.AddInParameter(command, "ProductDescription", DbType.String, req.ProductDescription);
+                db.AddInParameter(command, "City", DbType.String, req.City);
+
                 db.AddInParameter(command, "UserId", DbType.Int64, req.UserId);
                 db.AddOutParameter(command, "MyProductId", DbType.Int64, 10);
                 db.AddOutParameter(command, "Status", DbType.Boolean, 10);
@@ -624,6 +626,8 @@ namespace ReelDAO
                 db.AddInParameter(command, "ServiceDescription", DbType.String, req.ServiceDescription);
                 db.AddInParameter(command, "Timings", DbType.String, req.Timings);
                 db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
+                db.AddInParameter(command, "City", DbType.String, req.City);
+
                 db.AddInParameter(command, "Id", DbType.Int64, req.Id);
                 db.AddInParameter(command, "IsActive", DbType.Boolean, req.IsActive);
                 db.AddOutParameter(command, "CompanyServiceID", DbType.Int64, 10);
@@ -810,22 +814,22 @@ namespace ReelDAO
             }
         }
 
-        public void ValidateForgotPasswordOTP(string EmailId,string OTP,out bool status,out string statusMessage)
+        public void ValidateForgotPasswordOTP(string EmailId, string OTP, out bool status, out string statusMessage)
         {
             int num = 0;
             try
-            {   
-               log = new LogDao();
+            {
+                log = new LogDao();
 
                 DbCommand command = null;
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 command = db.GetStoredProcCommand("ValidateForgotPasswordOTP");
                 db.AddInParameter(command, "EmailId", DbType.String, EmailId);
                 db.AddInParameter(command, "OTP", DbType.String, OTP);
-                
+
                 db.AddOutParameter(command, "Status", DbType.Boolean, 10);
                 db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
-                num = this.db.ExecuteNonQuery(storedProcCommand);
+                num = this.db.ExecuteNonQuery(command);
                 status = Convert.ToBoolean(db.GetParameterValue(command, "Status"));
                 statusMessage = db.GetParameterValue(command, "StatusMessage").ToString();
 

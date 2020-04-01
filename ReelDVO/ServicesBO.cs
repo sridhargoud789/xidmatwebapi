@@ -13,10 +13,10 @@ namespace EEG_ReelCinemasRESTAPI.Models
     {
         public Int64 UserId { get; set; }
 
-        public Int64 ServiceId{ get; set; }
-       public bool IsActive { get; set; }
-       public bool IsApproved { get; set; }
-       public int Flag { get; set; }
+        public Int64 ServiceId { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public int Flag { get; set; }
     }
 
     public class ManageUserReq
@@ -26,7 +26,8 @@ namespace EEG_ReelCinemasRESTAPI.Models
 
     }
 
-    public class EmailReq {
+    public class EmailReq
+    {
         public string lang { get; set; }
         public string Name { get; set; }
         public int templateCode { get; set; }
@@ -38,8 +39,22 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string Description { get; set; }
         public string ServiceTitle { get; set; }
         public string ProductTitle { get; set; }
+        public string ForgotPasswordUID { get; set; }
     }
+    public class UpdatePasswordReq
+    {
+        public long UserId { get; set; }
 
+        public string Password { get; set; }
+
+        public string PasswordSalt { get; set; }
+    }
+    public class ValidateOTPReq
+    {
+        public string EmailId { get; set; }
+
+        public string OTP { get; set; }
+    }
     public class GetAllCompanyServicesReq
     {
         public Int64 MasterServiceID { get; set; }
@@ -126,7 +141,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
 
 
     }
-    
+
     public class CreateServiceReq
     {
         public Int64 UserId { get; set; }
@@ -143,7 +158,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string CountryCode { get; set; }
         public Int64 Id { get; set; }
         public bool IsActive { get; set; }
-
+        public string City { get; set; }
 
     }
 
@@ -154,10 +169,11 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string ProductDescription { get; set; }
         public Int64 UserId { get; set; }
         public string FileIds { get; set; }
+        public string City { get; set; }
 
 
     }
-  public class ProductRequestReq
+    public class ProductRequestReq
     {
         public Int64 MyProductId { get; set; }
         public string FullName { get; set; }
@@ -189,7 +205,10 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public Int64 CompanyServiceId { get; set; }
 
     }
- public class GetAllProductsReq
+    public class ForgotPasswordUIDReq {
+        public string ForgotPasswordUID { get; set; }
+    }
+    public class GetAllProductsReq
     {
 
         public Int64 MasterProductId { get; set; }

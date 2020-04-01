@@ -79,6 +79,21 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\ReelDVO.dll" />
+    <Content Include="bin\Debug\ReelDVO.pdb" />
+    <Content Include="bin\Debug\XidmatDVO.dll" />
+    <Content Include="bin\Debug\XidmatDVO.pdb" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\ReelDVO.dll" />
+    <Content Include="bin\Release\ReelDVO.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\API_Production\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

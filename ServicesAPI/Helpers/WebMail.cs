@@ -28,37 +28,32 @@ namespace ServicesAPI.Helpers
 
         #region Static Members
 
-        public void SendMailMessage(string TO, string CC, string Subject,string Body, out bool Status, out string Message)
+        public void SendMailMessage(
+      string TO,
+      string CC,
+      string Subject,
+      string Body,
+      out bool Status,
+      out string Message)
         {
-
-            string strFrom = ConfigurationManager.AppSettings["SMTP_FROM_EMAILID"].ToString();
-            string strPassword = ConfigurationManager.AppSettings["SMTP_FROM_PASSWORD"].ToString();
-            string strBCC = ConfigurationManager.AppSettings["SMTP_FROM_BCC"].ToString();
-
+            ConfigurationManager.AppSettings["SMTP_FROM_EMAILID"].ToString();
+            ConfigurationManager.AppSettings["SMTP_FROM_PASSWORD"].ToString();
+            ConfigurationManager.AppSettings["SMTP_FROM_BCC"].ToString();
             try
             {
-                using (MailMessage mm = new MailMessage(strFrom,TO))
+                MailMessage message = new MailMessage("support@xidmat.com", TO);
+                message.From = new MailAddress("support@xidmat.com");
+                
+                message.CC.Add(CC);
+                message.Subject = Subject;
+                message.Body = Body;
+                message.IsBodyHtml = true;
+                new SmtpClient()
                 {
-                   
-                    mm.From = new MailAddress("Xidtmat Services <" + strFrom + ">");
-                    //mm.To.Add(TO);
-                    mm.CC.Add(CC);
-                    mm.Bcc.Add(strBCC);
-
-                    mm.Subject = Subject;
-                    mm.Body = Body;
-
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.EnableSsl = true;
-                    NetworkCredential NetworkCred = new NetworkCredential(strFrom, strPassword);
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = NetworkCred;
-                    smtp.Port = 587;
-                    smtp.Send(mm);
-                }
-
+                    Credentials = ((ICredentialsByHost)new NetworkCredential("support@xidmat.com", "Abcd1234$$")),
+                    Host = "relay-hosting.secureserver.net"
+                }.Send(message);
+                message.Dispose();
                 Status = true;
                 Message = "SUCCESS";
             }
@@ -68,6 +63,7 @@ namespace ServicesAPI.Helpers
                 Message = ex.Message;
             }
         }
+
 
         /// <summary>
         /// Determines whether an email address is valid.
