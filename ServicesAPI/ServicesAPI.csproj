@@ -292,7 +292,6 @@
     <Content Include="bin\ServicesAPI.dll" />
     <Content Include="bin\ServicesAPI.pdb" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
-    <Content Include="bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
     <Content Include="bin\System.Web.Cors.dll" />
     <Content Include="bin\System.Web.Helpers.dll" />
     <Content Include="bin\System.Web.Http.Cors.dll" />
