@@ -348,10 +348,10 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\ServicesAPI.dll.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\xidmatapi - Web Deploy.pubxml" />
     <Content Include="PublicFiles\8fc83229-6487-45c4-b216-5a6bece615e5.json" />
     <Content Include="PublicFiles\946bea0f-006f-4956-95c9-e7f21b60ce3e.docx" />
     <Content Include="PublicFiles\a667c6c9-d0de-4f63-ba57-732169115247.pdf" />
+    <None Include="Properties\PublishProfiles\xidmatapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
