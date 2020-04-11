@@ -559,6 +559,9 @@ namespace ReelDAO
                 db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
 
                 db.AddInParameter(command, "UserId", DbType.Int64, req.UserId);
+                db.AddInParameter(command, "Place", DbType.String, req.Place);
+                db.AddInParameter(command, "Lattitude", DbType.String, req.Lattitude);
+                db.AddInParameter(command, "Longitude", DbType.String, req.Longitude);
                 db.AddOutParameter(command, "MyProductId", DbType.Int64, 10);
                 db.AddOutParameter(command, "Status", DbType.Boolean, 10);
                 db.AddOutParameter(command, "StatusMessage", DbType.String, 50);
@@ -628,6 +631,9 @@ namespace ReelDAO
                 db.AddInParameter(command, "Timings", DbType.String, req.Timings);
                 db.AddInParameter(command, "CountryCode", DbType.String, req.CountryCode);
                 db.AddInParameter(command, "City", DbType.String, req.City);
+                db.AddInParameter(command, "Place", DbType.String, req.Place);
+                db.AddInParameter(command, "Lattitude", DbType.String, req.Lattitude);
+                db.AddInParameter(command, "Longitude", DbType.String, req.Longitude);
 
                 db.AddInParameter(command, "Id", DbType.Int64, req.Id);
                 db.AddInParameter(command, "IsActive", DbType.Boolean, req.IsActive);

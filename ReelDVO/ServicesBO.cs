@@ -159,6 +159,9 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public Int64 Id { get; set; }
         public bool IsActive { get; set; }
         public string City { get; set; }
+        public string Place { get; set; }
+        public string Lattitude { get; set; }
+        public string Longitude { get; set; }
 
     }
 
@@ -171,6 +174,9 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public string FileIds { get; set; }
         public string CountryCode { get; set; }
         public string City { get; set; }
+        public string Place { get; set; }
+        public string Lattitude { get; set; }
+        public string Longitude { get; set; }
 
 
     }
