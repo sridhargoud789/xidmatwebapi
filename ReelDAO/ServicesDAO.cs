@@ -44,13 +44,13 @@ namespace ReelDAO
             }
         }
 
-        public DataTable GetServiceSettings()
+        public DataTable GetServiceSettings(string CountryCode)
         {
             try
             {
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 DbCommand command = db.GetStoredProcCommand("GetAllMasterServices");
-
+                db.AddInParameter(command, "CountryCode", DbType.String, CountryCode);
                 return db.ExecuteDataSet(command).Tables[0];
             }
             catch (Exception ex)
@@ -63,12 +63,13 @@ namespace ReelDAO
 
             }
         }
-        public DataTable GetAllProductCategories()
+        public DataTable GetAllProductCategories(string CountryCode)
         {
             try
             {
                 db = DatabaseFactory.CreateDatabase("ServicesConString");
                 DbCommand command = db.GetStoredProcCommand("GetAllProductCategories");
+                db.AddInParameter(command, "CountryCode", DbType.String, CountryCode);
 
                 return db.ExecuteDataSet(command).Tables[0];
             }
@@ -124,7 +125,7 @@ namespace ReelDAO
             }
         }
 
-        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId, Int64 MyProductId, string FreeText)
+        public DataTable GetAllProducts(Int64 MasterProductId, Int64 UserId, Int64 MyProductId, string FreeText,string CountryCode)
         {
             try
             {
@@ -134,6 +135,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "UserId", DbType.Int64, UserId);
                 db.AddInParameter(command, "MyProductId", DbType.Int64, MyProductId);
                 db.AddInParameter(command, "FreeText", DbType.String, FreeText);
+                db.AddInParameter(command, "CountryCode", DbType.String, CountryCode);
 
 
 
@@ -170,7 +172,7 @@ namespace ReelDAO
 
             }
         }
-        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID, string FreeText)
+        public DataTable GetAllCompanyServices(Int64 MasterServiceID, Int64 CompanyID, Int64 CompanyServiceID, string FreeText,string CountryCode)
         {
             try
             {
@@ -180,6 +182,7 @@ namespace ReelDAO
                 db.AddInParameter(command, "CompanyID", DbType.Int64, CompanyID);
                 db.AddInParameter(command, "CompanyServiceID", DbType.Int64, CompanyServiceID);
                 db.AddInParameter(command, "FreeText", DbType.String, FreeText);
+                db.AddInParameter(command, "CountryCode", DbType.String, CountryCode);
 
 
                 return db.ExecuteDataSet(command).Tables[0];

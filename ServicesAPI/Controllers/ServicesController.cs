@@ -140,12 +140,12 @@ namespace ServicesAPI.Controllers
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllProductCategories")]
-        public async Task<object> GetAllProductCategories()
+        public async Task<object> GetAllProductCategories(CommonReq req)
         {
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProductCategories();
+                dt = new ServicesDAO().GetAllProductCategories(req.CountryCode);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -176,12 +176,12 @@ namespace ServicesAPI.Controllers
         [HttpPost]
         // [AuthenticateRequest]
         [Route("api/Services/GetAllMasterServices")]
-        public async Task<object> GetAllMasterServices()
+        public async Task<object> GetAllMasterServices(CommonReq req)
         {
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetServiceSettings();
+                dt = new ServicesDAO().GetServiceSettings(req.CountryCode);
                 GetAllMasterServicesResp resp = new GetAllMasterServicesResp();
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
                 //var oResp = JsonConvert.SerializeObject(dt);
@@ -204,7 +204,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId, 0, req.FreeText);
+                dt = new ServicesDAO().GetAllProducts(req.MasterProductId, req.UserId, 0, req.FreeText,req.CountryCode);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -240,7 +240,7 @@ namespace ServicesAPI.Controllers
             try
             {
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID, 0, req.FreeText);
+                dt = new ServicesDAO().GetAllCompanyServices(req.MasterServiceID, req.CompanyID, 0, req.FreeText,req.CountryCode);
                 return Request.CreateResponse(HttpStatusCode.OK, dt);
             }
             catch (Exception ex)
@@ -270,7 +270,7 @@ namespace ServicesAPI.Controllers
 
         [HttpPost]
         // [AuthenticateRequest]
-        [Route("api/Services/GetAllServicesRequests")]
+        [Route("api/Services/GetAllCompanies")]
         public async Task<object> GetAllCompanies()
         {
             try
@@ -340,7 +340,7 @@ namespace ServicesAPI.Controllers
                             templateCode = 3,
                             Name = u.FirstName + " " + u.LastName,
                             to = u.EmailId
-                        },out status, out statusMessage);
+                        }, out status, out statusMessage);
                     }
 
                 }
@@ -470,7 +470,7 @@ namespace ServicesAPI.Controllers
                 new ServicesDAO().ProductRequest(req);
 
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId, "");
+                dt = new ServicesDAO().GetAllProducts(0, 0, req.MyProductId, "","");
                 UserBO u = new UserBO();
                 u = GetUserDetails(Int64.Parse(dt.Rows[0]["UserId"].ToString()));
                 if (u != null)
@@ -513,7 +513,7 @@ namespace ServicesAPI.Controllers
 
                 Int64 CreatedBy = 0;
                 DataTable dt = new DataTable();
-                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID, "");
+                dt = new ServicesDAO().GetAllCompanyServices(0, 0, req.CompanyServiceID, "","");
                 UserBO u = new UserBO();
                 u = GetUserDetails(Int64.Parse(dt.Rows[0]["CreatedBy"].ToString()));
                 if (u != null)
@@ -602,7 +602,7 @@ namespace ServicesAPI.Controllers
                         }, out status, out statusMessage);
                     }
                 }
-
+                oResp.CompanyID = CompanyId;
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;
             }
@@ -929,7 +929,7 @@ namespace ServicesAPI.Controllers
                     req1.Name = UserName;
                     req1.to = req.EmailId;
                     req1.ForgotPasswordUID = ForgotPasswordUID;
-                    SendEmail(req1, out status, out statusMessage );
+                    SendEmail(req1, out status, out statusMessage);
                 }
                 validateUserResp.status = status;
                 validateUserResp.statusMessage = statusMessage;

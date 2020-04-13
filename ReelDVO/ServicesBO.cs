@@ -60,6 +60,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public Int64 MasterServiceID { get; set; }
         public Int64 CompanyID { get; set; }
         public string FreeText { get; set; }
+        public string CountryCode { get; set; }
     }
 
     public class GetAllMasterServicesResp
@@ -79,6 +80,7 @@ namespace EEG_ReelCinemasRESTAPI.Models
     {
         public bool status { get; set; }
         public string statusMessage { get; set; }
+        public Int64 CompanyID { get; set; }
     }
     public class ValidateUserResp
     {
@@ -212,6 +214,9 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public Int64 CompanyServiceId { get; set; }
 
     }
+    public class CommonReq {
+        public string CountryCode { get; set; }
+    }
     public class ForgotPasswordUIDReq {
         public string ForgotPasswordUID { get; set; }
     }
@@ -221,6 +226,8 @@ namespace EEG_ReelCinemasRESTAPI.Models
         public Int64 MasterProductId { get; set; }
         public Int64 UserId { get; set; }
         public string FreeText { get; set; }
+        public string CountryCode { get; set; }
+
 
     }
 
