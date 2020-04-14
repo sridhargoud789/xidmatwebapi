@@ -329,21 +329,21 @@ namespace ServicesAPI.Controllers
                 {
                     new ServicesDAO().AddUpdateServicesMedia(ServicesID, req.Filenames, req.Filepaths, req.FileIds);
                 }
-                if (status)
-                {
-                    UserBO u = new UserBO();
-                    u = GetUserDetails(req.UserId);
-                    if (u != null)
-                    {
-                        SendEmail(new EmailReq()
-                        {
-                            templateCode = 3,
-                            Name = u.FirstName + " " + u.LastName,
-                            to = u.EmailId
-                        }, out status, out statusMessage);
-                    }
+                //if (status)
+                //{
+                //    UserBO u = new UserBO();
+                //    u = GetUserDetails(req.UserId);
+                //    if (u != null)
+                //    {
+                //        SendEmail(new EmailReq()
+                //        {
+                //            templateCode = 3,
+                //            Name = u.FirstName + " " + u.LastName,
+                //            to = u.EmailId
+                //        }, out status, out statusMessage);
+                //    }
 
-                }
+                //}
                 oResp.status = status;
                 oResp.statusMessage = statusMessage;
             }
@@ -393,25 +393,25 @@ namespace ServicesAPI.Controllers
                 bool status = false;
                 string statusMessage = string.Empty;
                 new ServicesDAO().ManageCompanyService(req.ServiceId, req.IsActive, req.IsApproved, req.Flag);
-                if (status)
-                {
-                    if (req.Flag == 1)
-                    {
-                        UserBO u = new UserBO();
-                        u = GetUserDetails(req.UserId);
-                        if (u != null)
-                        {
-                            SendEmail(new EmailReq()
-                            {
-                                templateCode = 4,
-                                Name = u.FirstName + " " + u.LastName,
-                                to = u.EmailId,
-                                IsApproved = req.IsActive
-                            }, out status, out statusMessage);
-                        }
+                //if (status)
+                //{
+                //    if (req.Flag == 1)
+                //    {
+                //        UserBO u = new UserBO();
+                //        u = GetUserDetails(req.UserId);
+                //        if (u != null)
+                //        {
+                //            SendEmail(new EmailReq()
+                //            {
+                //                templateCode = 4,
+                //                Name = u.FirstName + " " + u.LastName,
+                //                to = u.EmailId,
+                //                IsApproved = req.IsActive
+                //            }, out status, out statusMessage);
+                //        }
 
-                    }
-                }
+                //    }
+                //}
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
             }
@@ -434,18 +434,18 @@ namespace ServicesAPI.Controllers
                 string statusMessage = string.Empty;
                 new ServicesDAO().ApproveUser(req.UserId, req.IsActive);
 
-                UserBO u = new UserBO();
-                u = GetUserDetails(req.UserId);
-                if (u != null)
-                {
-                    SendEmail(new EmailReq()
-                    {
-                        templateCode = 1,
-                        Name = u.FirstName + " " + u.LastName,
-                        to = u.EmailId,
-                        IsApproved = req.IsActive
-                    }, out status, out statusMessage);
-                }
+                //UserBO u = new UserBO();
+                //u = GetUserDetails(req.UserId);
+                //if (u != null)
+                //{
+                //    SendEmail(new EmailReq()
+                //    {
+                //        templateCode = 1,
+                //        Name = u.FirstName + " " + u.LastName,
+                //        to = u.EmailId,
+                //        IsApproved = req.IsActive
+                //    }, out status, out statusMessage);
+                //}
                 oResp.status = true;
                 oResp.statusMessage = "SUCCESS";
             }
@@ -592,15 +592,15 @@ namespace ServicesAPI.Controllers
                     var password = PasswordHelper.EncodePassword(req.Password, PasswordSalt);
                     UserId = new ServicesDAO().CreateUser(req.EmailId, password, PasswordSalt, req.FirstName, req.LastName, req.Gender, req.MobileNoCountryCode,
                                                         req.MobileNo, req.PhoneNoCountryCode, req.PhoneNo, CompanyId, out status, out statusMessage);
-                    if (status)
-                    {
-                        SendEmail(new EmailReq()
-                        {
-                            templateCode = 1,
-                            Name = req.FirstName + " " + req.LastName,
-                            to = req.EmailId
-                        }, out status, out statusMessage);
-                    }
+                    //if (status)
+                    //{
+                    //    SendEmail(new EmailReq()
+                    //    {
+                    //        templateCode = 1,
+                    //        Name = req.FirstName + " " + req.LastName,
+                    //        to = req.EmailId
+                    //    }, out status, out statusMessage);
+                    //}
                 }
                 oResp.CompanyID = CompanyId;
                 oResp.status = status;
