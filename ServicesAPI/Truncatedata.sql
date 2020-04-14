@@ -1,0 +1,14 @@
+﻿truncate table Company
+truncate table CompanyProfileMedia
+truncate table CompanyServices
+truncate table EMailLog
+truncate table MasterServices
+truncate table MyProducts
+truncate table MyProductsMedia
+truncate table ProductCategories
+truncate table ProductRequests
+truncate table PublicFiles
+truncate table ServiceRequests
+truncate table ServicesMedia
+truncate table ServiceViewCounts
+truncate table users
